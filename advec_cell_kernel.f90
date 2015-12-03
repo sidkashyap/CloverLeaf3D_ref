@@ -130,6 +130,10 @@ SUBROUTINE advec_cell_kernel(flopCount,  &
     ENDIF
 
     flopCount=flopCount+tmpFlopCount
+
+    !flop = 8000000 if sweep = 1
+    !PRINT *,'CELL KERNEL -',flopCount
+
     tmpFlopCount=0
 
 !$OMP DO PRIVATE(upwind,donor,downwind,dif,sigmat,sigma3,sigma4,sigmav,sigma,sigmam, &
@@ -197,6 +201,9 @@ SUBROUTINE advec_cell_kernel(flopCount,  &
 
 
 flopCount=flopCount+tmpFlopCount
+
+!PRINT *,'CELL KERNEL -',flopCount
+
 tmpFlopCount=0
 
 !$OMP DO REDUCTION(+:tmpFlopCount)
@@ -219,6 +226,8 @@ tmpFlopCount=0
 
 flopCount=flopCount+tmpFlopCount
 tmpFlopCount=0
+
+ !PRINT *,'CELL KERNEL -',flopCount
 
 !_______________________________ FLOP COUNT PART 1 - END __________________________________________________
 
@@ -257,6 +266,9 @@ tmpFlopCount=0
 
 
    flopCount=flopCount+tmpFlopCount
+
+     !PRINT *,'CELL KERNEL -',flopCount
+
    tmpFlopCount=0
 
 !$OMP DO PRIVATE(upwind,donor,downwind,dif,sigmat,sigma3,sigma4,sigmav,sigma,sigmam, &
@@ -317,6 +329,8 @@ tmpFlopCount=0
       ENDDO
     ENDDO
 !$OMP END DO
+  flopCount=flopCount+tmpFlopCount
+  tmpFlopCount=0
 
 !$OMP DO REDUCTION(+:tmpFlopCount)
     DO l=z_min,z_max
@@ -336,6 +350,8 @@ tmpFlopCount=0
     ENDDO
 !$OMP END DO
    flopCount=flopCount+tmpFlopCount
+   
+     !PRINT *,'CELL KERNEL -',flopCount
    tmpFlopCount=0
 
 
@@ -376,6 +392,7 @@ tmpFlopCount=0
     ENDIF
 
     flopCount=flopCount+tmpFlopCount
+     !PRINT *,'CELL KERNEL -',flopCount
     tmpFlopCount=0
 
 !$OMP DO PRIVATE(upwind,donor,downwind,dif,sigmat,sigma3,sigma4,sigmav,sigma,sigmam, &
@@ -440,6 +457,7 @@ tmpFlopCount=0
     ENDDO
 !$OMP END DO
   flopCount=flopCount+tmpFlopCount
+   !PRINT *,'CELL KERNEL -',flopCount
   tmpFlopCount=0  
 !$OMP DO REDUCTION(+:tmpFlopCount)
     DO l=z_min,z_max
@@ -459,12 +477,16 @@ tmpFlopCount=0
 !$OMP END DO
 
   flopCount=flopCount+tmpFlopCount
+   !PRINT *,'CELL KERNEL -',flopCount
   tmpFlopCount=0  
+
   
   ENDIF
 
 !$OMP END PARALLEL
 
+
+!PRINT *,'CELL KERNEL -',flopCount
 END SUBROUTINE advec_cell_kernel
 
 END MODULE advec_cell_kernel_module

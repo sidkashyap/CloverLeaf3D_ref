@@ -40,7 +40,7 @@ SUBROUTINE advection()
   INTEGER (KINd=8) :: flopCount,tmpFlopCount
 
 
-  REAL(KIND=8) :: kernel_time,timer
+  REAL(KIND=8) :: kernel_time,timer,kernel_time2
 
   sweep_number=1
   IF(advect_x)      direction=g_xdir
@@ -67,10 +67,13 @@ SUBROUTINE advection()
 
   IF(profiler_on) kernel_time=timer()
   DO c=1,chunks_per_task
-    CALL advec_cell_driver(flopCount,c,sweep_number,direction)
+    tmpFlopCount=0
+    CALL advec_cell_driver(tmpFlopCount,c,sweep_number,direction)
+    flopCount=flopCount+tmpFlopCount
   ENDDO
   IF(profiler_on) profiler%cell_advection=profiler%cell_advection+(timer()-kernel_time)
-  PRINT *, 'ADVECTION CELL KERNEL - FLOPS', flopCount/(timer()-kernel_time)
+  IF(profiler_on) kernel_time2=timer()
+  PRINT *, 'ADVECTION CELL KERNEL 1 - FLOPS', flopCount/(kernel_time2-kernel_time)
 
 
   flopCount=0
@@ -90,23 +93,22 @@ SUBROUTINE advection()
   IF(profiler_on) kernel_time=timer()
   DO c=1,chunks_per_task
     CALL advec_mom_driver(tmpFlopCount,c,xvel,direction,sweep_number) 
+    flopCount=flopCount+tmpFlopCount
   ENDDO
-  flopCount=flopCount+tmpFlopCount
   tmpFlopCount=0
   DO c=1,chunks_per_task
     CALL advec_mom_driver(tmpFlopCount,c,yvel,direction,sweep_number) 
+    flopCount=flopCount+tmpFlopCount
   ENDDO
-  flopCount=flopCount+tmpFlopCount
   tmpFlopCount=0
   DO c=1,chunks_per_task
     CALL advec_mom_driver(tmpFlopCount,c,zvel,direction,sweep_number) 
+    flopCount=flopCount+tmpFlopCount
   ENDDO
-
-  flopCount=flopCount+tmpFlopCount
   tmpFlopCount=0
-
   IF(profiler_on) profiler%mom_advection=profiler%mom_advection+(timer()-kernel_time)
-  PRINT *, 'ADVECTION MOM KERNEL - FLOPS', flopCount/(timer()-kernel_time)
+  IF(profiler_on) kernel_time2=timer()
+  PRINT *, 'ADVECTION MOM KERNEL 1 - FLOPS', flopCount/(kernel_time2-kernel_time)
   flopCount=0
 
   sweep_number=2
@@ -121,14 +123,19 @@ SUBROUTINE advection()
   IF(profiler_on) kernel_time=timer()
   CALL update_halo(fields,2)
   IF(profiler_on) profiler%halo_exchange=profiler%halo_exchange+(timer()-kernel_time)
-
   IF(profiler_on) kernel_time=timer()
+  
+  flopCount=0
+  
   DO c=1,chunks_per_task
-    CALL advec_cell_driver(flopCount,c,sweep_number,direction)
+    tmpFlopCount=0
+    CALL advec_cell_driver(tmpFlopCount,c,sweep_number,direction)
+    flopCount=flopCount+tmpFlopCount
   ENDDO
   IF(profiler_on) profiler%cell_advection=profiler%cell_advection+(timer()-kernel_time)
+  IF(profiler_on) kernel_time2=timer()
 
-  PRINT *, 'ADVECTION CELL KERNEL - FLOPS', flopCount/(timer()-kernel_time)
+  PRINT *, 'ADVECTION CELL KERNEL 2 - FLOPS', flopCount/(kernel_time2-kernel_time)
 
 
   fields=0
@@ -144,27 +151,33 @@ SUBROUTINE advection()
   CALL update_halo(fields,2)
   IF(profiler_on) profiler%halo_exchange=profiler%halo_exchange+(timer()-kernel_time)
 
+  flopCount=0
   IF(profiler_on) kernel_time=timer()
-  tmpFlopCount=0
   DO c=1,chunks_per_task
+    tmpFlopCount=0
     CALL advec_mom_driver(tmpFlopCount,c,xvel,direction,sweep_number) 
+    flopCount=flopCount+tmpFlopCount
   ENDDO
-  flopCount=flopCount+tmpFlopCount
-  tmpFlopCount=0
+
+
   DO c=1,chunks_per_task
+
+    tmpFlopCount=0
     CALL advec_mom_driver(tmpFlopCount,c,yvel,direction,sweep_number) 
+    flopCount=flopCount+tmpFlopCount
   ENDDO
-  flopCount=flopCount+tmpFlopCount
-  tmpFlopCount=0
+
+
   DO c=1,chunks_per_task
+    tmpFlopCount=0 
     CALL advec_mom_driver(tmpFlopCount,c,zvel,direction,sweep_number) 
-    ENDDO
+    flopCount=flopCount+tmpFlopCount
+  ENDDO
 
-  flopCount=flopCount+tmpFlopCount
-  tmpFlopCount=0
   IF(profiler_on) profiler%mom_advection=profiler%mom_advection+(timer()-kernel_time)
+  IF(profiler_on) kernel_time2=timer()
 
-  PRINT *, 'ADVECTION MOM KERNEL - FLOPS', flopCount/(timer()-kernel_time)
+  PRINT *, 'ADVECTION MOM KERNEL 2 - FLOPS', flopCount/(kernel_time2-kernel_time)
 
 
   sweep_number=3
@@ -174,11 +187,14 @@ SUBROUTINE advection()
   flopCount=0
   IF(profiler_on) kernel_time=timer()
   DO c=1,chunks_per_task
-    CALL advec_cell_driver(flopCount,c,sweep_number,direction)
+    tmpFlopCount=0
+    CALL advec_cell_driver(tmpFlopCount,c,sweep_number,direction)
+    flopCount=flopCount+tmpFlopCount
   ENDDO
   IF(profiler_on) profiler%cell_advection=profiler%cell_advection+(timer()-kernel_time)
-
-  PRINT *, 'ADVECTION CELL KERNEL',flopCount/(timer()-kernel_time)
+  IF(profiler_on) kernel_time2=timer()
+  
+  PRINT *, 'ADVECTION CELL KERNEL',flopCount/(kernel_time2-kernel_time)
 
   fields=0
   fields(FIELD_DENSITY1)=1
@@ -198,24 +214,30 @@ SUBROUTINE advection()
   tmpFlopCount=0
   IF(profiler_on) kernel_time=timer()
   DO c=1,chunks_per_task
+    tmpFlopCount=0
     CALL advec_mom_driver(tmpFlopCount,c,xvel,direction,sweep_number) 
+    flopCount=flopCount+tmpFlopCount
   ENDDO
-  flopCount=flopCount+tmpFlopCount
 
   DO c=1,chunks_per_task
+    tmpFlopCount=0
     CALL advec_mom_driver(tmpFlopCount,c,yvel,direction,sweep_number) 
+    flopCount=flopCount+tmpFlopCount
   ENDDO
-  flopCount=flopCount+tmpFlopCount
-
   DO c=1,chunks_per_task
+    tmpFlopCount=0
     CALL advec_mom_driver(tmpFlopCount,c,zvel,direction,sweep_number) 
+    flopCount=flopCount+tmpFlopCount
   ENDDO
 
-  flopCount=flopCount+tmpFlopCount
   
   IF(profiler_on) profiler%mom_advection=profiler%mom_advection+(timer()-kernel_time)
 
-  PRINT *, 'ADVECTION MOM KERNEL 2 - FLOPS', flopCount/(timer()-kernel_time)
+
+  IF(profiler_on) kernel_time2=timer()  
+
+
+  PRINT *, 'ADVECTION MOM KERNEL 2 - FLOPS', flopCount/(kernel_time2-kernel_time)
 
 END SUBROUTINE advection
 

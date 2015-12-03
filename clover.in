@@ -19,6 +19,6 @@
  end_step=2955
  end_time=1000.1
 
- use_profiler=1
+ profiler_on=1
 
 *endclover
