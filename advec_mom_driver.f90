@@ -23,7 +23,7 @@ MODULE advec_mom_driver_module
 
 CONTAINS
 
-SUBROUTINE advec_mom_driver(chunk,which_vel,direction,sweep_number)
+SUBROUTINE advec_mom_driver(flopCount,chunk,which_vel,direction,sweep_number)
 
   USE clover_module
   USE advec_mom_kernel_mod
@@ -31,11 +31,14 @@ SUBROUTINE advec_mom_driver(chunk,which_vel,direction,sweep_number)
   IMPLICIT NONE
 
   INTEGER :: chunk,which_vel,direction,sweep_number
+  INTEGER (KIND=8) :: flopCount
+
 
   IF(chunks(chunk)%task.EQ.parallel%task) THEN
 
     IF(use_fortran_kernels)THEN
-      CALL advec_mom_kernel(chunks(chunk)%field%x_min,            &
+      CALL advec_mom_kernel(flopCount,                            &
+                          chunks(chunk)%field%x_min,              &
                           chunks(chunk)%field%x_max,              &
                           chunks(chunk)%field%y_min,              &
                           chunks(chunk)%field%y_max,              &

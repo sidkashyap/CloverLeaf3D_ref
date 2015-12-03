@@ -23,7 +23,7 @@ MODULE  advec_cell_driver_module
 
 CONTAINS
 
-SUBROUTINE advec_cell_driver(chunk,sweep_number,dir)
+SUBROUTINE advec_cell_driver(flopCount,chunk,sweep_number,dir)
 
   USE clover_module
   USE advec_cell_kernel_module
@@ -31,11 +31,13 @@ SUBROUTINE advec_cell_driver(chunk,sweep_number,dir)
   IMPLICIT NONE
 
   INTEGER :: chunk,sweep_number,dir
+  INTEGER (KIND=8) :: flopCount
 
   IF(chunks(chunk)%task.EQ.parallel%task) THEN
 
     IF(use_fortran_kernels)THEN
-      CALL advec_cell_kernel(chunks(chunk)%field%x_min,               &
+      CALL advec_cell_kernel(flopCount,                               &
+                           chunks(chunk)%field%x_min,                 &
                            chunks(chunk)%field%x_max,                 &
                            chunks(chunk)%field%y_min,                 &
                            chunks(chunk)%field%y_max,                 &
