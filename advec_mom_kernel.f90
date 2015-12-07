@@ -85,7 +85,7 @@ SUBROUTINE advec_mom_kernel(flopCount,                           &
  
   INTEGER :: j,k,l
   INTEGER :: upwind,donor,downwind,dif
-  REAL(KIND=8) :: sigma,wind,width
+  REAL(KIND=8) :: sigma,wind,width,tmp1,tmp2,tmp3,tmp4,tmp5
   REAL(KIND=8) :: vdiffuw,vdiffdw,auw,adw,limiter
   REAL(KIND=8) :: vdiffuw2,vdiffdw2,auw2,limiter2
   REAL(KIND=8), POINTER, DIMENSION(:,:,:) :: vel1
@@ -104,7 +104,7 @@ SUBROUTINE advec_mom_kernel(flopCount,                           &
   flopCount=0
   tmpFlopCount=0
 
-!$OMP PARALLEL REDUCTION (+:flopCount)
+!$OMP PARALLEL
 
 ! I think these only have to be done once per cell advection sweep. So put in some logic so they are just done the first time
 
@@ -189,6 +189,9 @@ SUBROUTINE advec_mom_kernel(flopCount,                           &
 
   ENDIF
 
+!----------------------------------- PRE and POST Volume calculation complete ----------------------------------
+
+
   IF(direction.EQ.1)THEN
     IF(which_vel.EQ.1) THEN
 !$OMP DO REDUCTION (+:tmpFlopCount)
@@ -211,6 +214,10 @@ SUBROUTINE advec_mom_kernel(flopCount,                           &
    flopCount=flopCount+tmpFlopCount
    tmpFlopCount=0 
 
+
+
+!------------------------------- Calculate node Flux complete ----------------------------------------------------
+
 !$OMP DO REDUCTION (+:tmpFlopCount)
       DO l=z_min,z_max+1
         DO k=y_min,y_max+1
@@ -231,6 +238,8 @@ SUBROUTINE advec_mom_kernel(flopCount,                           &
 !$OMP END DO
       flopCount=flopCount+tmpFlopCount
       tmpFlopCount=0
+
+
 !$OMP DO REDUCTION (+:tmpFlopCount)
       DO l=z_min,z_max+1
         DO k=y_min,y_max+1
@@ -247,10 +256,16 @@ SUBROUTINE advec_mom_kernel(flopCount,                           &
     flopCount=flopCount+tmpFlopCount
     tmpFlopCount=0
 
+
+
+!-------------------------------- node mass pre and post calculation complete ----------------------------------------------------
+
+
 !$OMP DO PRIVATE(upwind,downwind,donor,dif,sigma,width,limiter,vdiffuw,vdiffdw,auw,adw,wind) REDUCTION (+:tmpFlopCount)
     DO l=z_min,z_max+1
       DO k=y_min,y_max+1
         DO j=x_min-1,x_max+1
+
           IF(node_flux(j,k,l).LT.0.0)THEN
             upwind=j+2
             donor=j+1
@@ -262,20 +277,55 @@ SUBROUTINE advec_mom_kernel(flopCount,                           &
             downwind=j+1
             dif=upwind
           ENDIF
+
+
           sigma=ABS(node_flux(j,k,l))/(node_mass_pre(donor,k,l))
           width=celldx(j)
+
+          !----------- velocity difference, upwind and downwind -------------------------------------------------------------------
+
           vdiffuw=vel1(donor,k,l)-vel1(upwind,k,l)
           vdiffdw=vel1(downwind,k,l)-vel1(donor,k,l)
+
+          !------------ start limiter calculation --------------------------------------------------------------------------------
           limiter=0.0
 
           IF(vdiffuw*vdiffdw.GT.0.0)THEN
+
+
+            ! Sid - absolute value of the velocity difference, upwind and downwind
             auw=ABS(vdiffuw)
             adw=ABS(vdiffdw)
+
+            ! Sid - set wind = 1.0
             wind=1.0_8
             IF(vdiffdw.LE.0.0) wind=-1.0_8
-            limiter=wind*MIN(width*((2.0_8-sigma)*adw/width+(1.0_8+sigma)*auw/celldx(dif))/6.0_8,auw,adw)
+
+            !Sid - Wind is now set
+            
+            !sigma is the flux/pre mass, tmp1= 2/sigma
+
+            !Sid - absolute value of downwind divided by width
+
+            !Sid - Sigma + 1
+
+            !Sid - absolute value of upwind/celldx
+
+            
+
+            !tmp5=tmp1*tmp2+tmp3*tmp4
+
+            !tmp1=tmp5*width/6.0_8
+
+            !tmp2=MIN(tmp1,auw,adw)
+
+            limiter=wind*MIN(((2.0_8-sigma)*(adw/width)+(1.0_8+sigma)*(auw/celldx(dif)))*width/6.0_8,auw,adw)
+
             tmpFlopCount=tmpFlopCount+19
           ENDIF
+
+         
+
           advec_vel(j,k,l)=vel1(donor,k,l)+(1.0-sigma)*limiter
           mom_flux(j,k,l)=advec_vel(j,k,l)*node_flux(j,k,l)
           tmpFlopCount=tmpFlopCount+10
@@ -286,10 +336,14 @@ SUBROUTINE advec_mom_kernel(flopCount,                           &
    flopCount=flopCount+tmpFlopCount
    tmpFlopCount=0
 
+
+!------------------------------------ Limiter calculation complete ------------------------------------------------------
+
 !$OMP DO REDUCTION (+:tmpFlopCount)
     DO l=z_min,z_max+1
       DO k=y_min,y_max+1
         DO j=x_min,x_max+1
+
           vel1 (j,k,l)=(vel1 (j,k,l)*node_mass_pre(j,k,l)+mom_flux(j-1,k,l)-mom_flux(j,k,l))/node_mass_post(j,k,l)
           tmpFlopCount=tmpFlopCount+7
 
@@ -299,6 +353,10 @@ SUBROUTINE advec_mom_kernel(flopCount,                           &
 !$OMP END DO
   flopCount=flopCount+tmpFlopCount
   tmpFlopCount=0
+
+
+!------------------------------ Sid - Velocity calculation complete ------------------------------------------------------
+!------------------------------ repeat the same logic below for direction 2 and direction 3 ------------------------------
 
   ELSEIF(direction.EQ.2)THEN
     IF(which_vel.EQ.1)THEN
@@ -316,8 +374,15 @@ SUBROUTINE advec_mom_kernel(flopCount,                           &
         ENDDO
       ENDDO
 !$OMP END DO
+
+
+
+
       flopCount=flopCount+tmpFlopCount
       tmpFlopCount=0
+
+
+ 
 !$OMP DO REDUCTION (+:tmpFlopCount)
       DO l=z_min,z_max+1
         DO k=y_min-1,y_max+2
