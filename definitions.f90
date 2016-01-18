@@ -91,7 +91,11 @@ MODULE definitions_module
                           ,reset           &
                           ,revert          &
                           ,flux            &
-                          ,halo_exchange
+                          ,halo_exchange   &
+                          ,advec_cell_flop &
+                          ,advec_mom_flop  &
+                          ,advec_cell_time &
+                          ,advec_mom_time   
                      
    END TYPE profiler_type
    TYPE(profiler_type)  :: profiler

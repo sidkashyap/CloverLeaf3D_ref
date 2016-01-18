@@ -25,6 +25,14 @@
 ! Notes
 ! More fields to add and corrections to be made
 
+
+!Sid - these are the values that need to be exchanged across cells/chunks - these are 3 dimensional arrays defined in
+!definitions.f90
+!density0, density1, energy0, energy1, pressure, viscosity, soundspeed, xvel0, xvel1, yvel0, yvel1, zvel0, zvel1, vol_flux_x, mass_flux_x, vol_flux_y, mass_flux_y, vol_flux_z, mass_flux_z
+!Sid - TODO - how does MPI come into play if these are just updating local variables?
+
+
+
 MODULE update_halo_kernel_module
 
 CONTAINS

@@ -24,6 +24,7 @@ MODULE advection_module
 CONTAINS
 
 SUBROUTINE advection()
+  !Sid - this is the kernel that is called from hydro.f90
 
   USE clover_module
   USE advec_cell_driver_module
@@ -40,15 +41,22 @@ SUBROUTINE advection()
   INTEGER (KINd=8) :: flopCount,tmpFlopCount
 
 
-  REAL(KIND=8) :: kernel_time,timer,kernel_time2
+  REAL(KIND=8) :: kernel_time,timer
 
+  !Sid - TODO - what is sweep_number?
   sweep_number=1
+
+  !Sid - okay, the direction is either x or z
+
   IF(advect_x)      direction=g_xdir
   IF(.not.advect_x) direction=g_zdir
+
+  !Sid - initialize the x,y and z velocities
   xvel=g_xdir
   yvel=g_ydir
   zvel=g_zdir
 
+  !Sid - initialize fields 
   fields=0
   fields(FIELD_ENERGY1)=1
   fields(FIELD_DENSITY1)=1
@@ -56,7 +64,7 @@ SUBROUTINE advection()
   fields(FIELD_VOL_FLUX_Y)=1
   fields(FIELD_VOL_FLUX_Z)=1
 
-
+  !Sid - variables used to count flop, returned from the kernel
   flopCount=0
   tmpFlopCount=0  
 
@@ -72,8 +80,11 @@ SUBROUTINE advection()
     flopCount=flopCount+tmpFlopCount
   ENDDO
   IF(profiler_on) profiler%cell_advection=profiler%cell_advection+(timer()-kernel_time)
-  IF(profiler_on) kernel_time2=timer()
-  PRINT *, 'ADVECTION CELL KERNEL 1 - FLOPS', flopCount/(kernel_time2-kernel_time)
+
+  !PRINT *,'BEFORE: cell flop', profiler%advec_cell_flop,flopCount
+  IF(profiler_on) profiler%advec_cell_flop=profiler%advec_cell_flop+flopCount
+
+  !PRINT *,'AFTER: cell flop', profiler%advec_cell_flop,flopCount
 
 
   flopCount=0
@@ -106,11 +117,15 @@ SUBROUTINE advection()
     flopCount=flopCount+tmpFlopCount
   ENDDO
   tmpFlopCount=0
-  IF(profiler_on) profiler%mom_advection=profiler%mom_advection+(timer()-kernel_time)
-  IF(profiler_on) kernel_time2=timer()
-  PRINT *, 'ADVECTION MOM KERNEL 1 - FLOPS', flopCount/(kernel_time2-kernel_time)
-  flopCount=0
 
+  IF(profiler_on) profiler%mom_advection=profiler%mom_advection+(timer()-kernel_time)
+
+  !PRINT *,'BEFORE: mom flop', profiler%advec_mom_flop,flopCount
+  IF(profiler_on) profiler%advec_mom_flop=profiler%advec_mom_flop+flopCount
+
+  !PRINT *,'AFTER: mom flop', profiler%advec_mom_flop,flopCount
+
+  flopCount=0
   sweep_number=2
   direction=g_ydir
 
@@ -133,10 +148,11 @@ SUBROUTINE advection()
     flopCount=flopCount+tmpFlopCount
   ENDDO
   IF(profiler_on) profiler%cell_advection=profiler%cell_advection+(timer()-kernel_time)
-  IF(profiler_on) kernel_time2=timer()
 
-  PRINT *, 'ADVECTION CELL KERNEL 2 - FLOPS', flopCount/(kernel_time2-kernel_time)
+  !PRINT *,'BEFORE: cell flop', profiler%advec_cell_flop,flopCount
+  IF(profiler_on) profiler%advec_cell_flop=profiler%advec_cell_flop+flopCount
 
+  !PRINT *,'AFTER: cell flop', profiler%advec_cell_flop,flopCount
 
   fields=0
   fields(FIELD_DENSITY1)=1
@@ -175,10 +191,10 @@ SUBROUTINE advection()
   ENDDO
 
   IF(profiler_on) profiler%mom_advection=profiler%mom_advection+(timer()-kernel_time)
-  IF(profiler_on) kernel_time2=timer()
 
-  PRINT *, 'ADVECTION MOM KERNEL 2 - FLOPS', flopCount/(kernel_time2-kernel_time)
-
+  !PRINT *,'BEFORE: mom flop', profiler%advec_mom_flop,flopCount
+  IF(profiler_on) profiler%advec_mom_flop=profiler%advec_mom_flop+flopCount
+  !PRINT *,'AFTER: mom flop', profiler%advec_mom_flop,flopCount
 
   sweep_number=3
   IF(advect_x)      direction=g_zdir
@@ -192,10 +208,11 @@ SUBROUTINE advection()
     flopCount=flopCount+tmpFlopCount
   ENDDO
   IF(profiler_on) profiler%cell_advection=profiler%cell_advection+(timer()-kernel_time)
-  IF(profiler_on) kernel_time2=timer()
-  
-  PRINT *, 'ADVECTION CELL KERNEL',flopCount/(kernel_time2-kernel_time)
 
+  !PRINT *,'BEFORE: cell flop', profiler%advec_cell_flop,flopCount
+  IF(profiler_on) profiler%advec_cell_flop=profiler%advec_cell_flop+flopCount
+
+  !PRINT *,'AFTER: cell flop', profiler%advec_cell_flop,flopCount
   fields=0
   fields(FIELD_DENSITY1)=1
   fields(FIELD_ENERGY1)=1
@@ -233,11 +250,10 @@ SUBROUTINE advection()
   
   IF(profiler_on) profiler%mom_advection=profiler%mom_advection+(timer()-kernel_time)
 
+  !PRINT *,'BEFORE: mom flop', profiler%advec_mom_flop,flopCount
+  IF(profiler_on) profiler%advec_mom_flop=profiler%advec_mom_flop+flopCount
 
-  IF(profiler_on) kernel_time2=timer()  
-
-
-  PRINT *, 'ADVECTION MOM KERNEL 2 - FLOPS', flopCount/(kernel_time2-kernel_time)
+  !PRINT *,'AFTER: mom flop', profiler%advec_mom_flop,flopCount
 
 END SUBROUTINE advection
 

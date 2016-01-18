@@ -98,7 +98,7 @@ SUBROUTINE advec_cell_kernel(flopCount,  &
   IF(dir.EQ.g_xdir) THEN
 
     IF(sweep_number.EQ.1)THEN
-!$OMP DO REDUCTION(+:tmpFlopCount)
+!$OMP DO
       DO l=z_min-2,z_max+2
         DO k=y_min-2,y_max+2
           DO j=x_min-2,x_max+2
@@ -106,27 +106,23 @@ SUBROUTINE advec_cell_kernel(flopCount,  &
                                            +vol_flux_y(j  ,k+1,l  )-vol_flux_y(j,k,l) &
                                            +vol_flux_z(j  ,k  ,l+1)-vol_flux_z(j,k,l))
             post_vol(j,k,l)=pre_vol(j,k,l)-(vol_flux_x(j+1,k  ,l  )-vol_flux_x(j,k,l))
-
-
-            tmpFlopCount=tmpFlopCount+8
-
-
           ENDDO
         ENDDO
       ENDDO 
 !$OMP END DO
+    tmpFlopCount=tmpFlopCount+((z_max-z_max+4)*(y_max-y_min+4)*(x_max-x_min+4)*8)
     ELSEIF(sweep_number.EQ.3) THEN
-!$OMP DO REDUCTION(+:tmpFlopCount)
+!$OMP DO
       DO l=z_min-2,z_max+2
         DO k=y_min-2,y_max+2
           DO j=x_min-2,x_max+2
             pre_vol(j,k,l) =volume(j,k,l)+vol_flux_x(j+1,k  ,l  )-vol_flux_x(j,k,l)
             post_vol(j,k,l)=volume(j,k,l)
-            tmpFlopCount=tmpFlopCount+2
           ENDDO
         ENDDO
       ENDDO 
 !$OMP END DO
+    tmpFlopCount=tmpFlopCount+((z_max-z_max+4)*(y_max-y_min+4)*(x_max-x_min+4)*2)
     ENDIF
 
     flopCount=flopCount+tmpFlopCount
@@ -206,7 +202,7 @@ flopCount=flopCount+tmpFlopCount
 
 tmpFlopCount=0
 
-!$OMP DO REDUCTION(+:tmpFlopCount)
+!$OMP DO
     DO l=z_min,z_max
       DO k=y_min,y_max
         DO j=x_min,x_max
@@ -216,14 +212,12 @@ tmpFlopCount=0
           advec_vol(j,k,l)=pre_vol(j,k,l)+vol_flux_x(j,k,l)-vol_flux_x(j+1,k,l)
           density1(j,k,l)=post_mass(j,k,l)/advec_vol(j,k,l)
           energy1(j,k,l)=post_ener(j,k,l)
-
-          tmpFlopCount=tmpFlopCount+16
-
+          
         ENDDO
       ENDDO
     ENDDO
 !$OMP END DO
-
+tmpFlopCount=tmpFlopCount+((z_max-z_max)*(y_max-y_min)*(x_max-x_min)*16)
 flopCount=flopCount+tmpFlopCount
 tmpFlopCount=0
 
@@ -234,33 +228,31 @@ tmpFlopCount=0
   ELSEIF(dir.EQ.g_ydir) THEN
     IF(sweep_number.EQ.2) THEN
       IF(advect_x) THEN
-!$OMP DO REDUCTION(+:tmpFlopCount)
+!$OMP DO
         DO l=z_min-2,z_max+2
           DO k=y_min-2,y_max+2
             DO j=x_min-2,x_max+2
               pre_vol(j,k,l) =volume(j,k,l)  +vol_flux_y(j  ,k+1,l  )-vol_flux_y(j,k,l) &
                                              +vol_flux_z(j  ,k  ,l+1)-vol_flux_z(j,k,l)
               post_vol(j,k,l)=pre_vol(j,k,l)-(vol_flux_y(j  ,k+1,l  )-vol_flux_y(j,k,l))
-
-
-              tmpFlopCount=tmpFlopCount+6
             ENDDO
           ENDDO
         ENDDO
 !$OMP END DO
+       tmpFlopCount=tmpFlopCount+((z_max-z_max+4)*(y_max-y_min+4)*(x_max-x_min+4)*6)
       ELSE
-!$OMP DO REDUCTION(+:tmpFlopCount)
+!$OMP DO
         DO l=z_min-2,z_max+2
           DO k=y_min-2,y_max+2
             DO j=x_min-2,x_max+2
               pre_vol(j,k,l) =volume(j,k,l)  +vol_flux_y(j  ,k+1,l  )-vol_flux_y(j,k,l) &
                                              +vol_flux_x(j+1,k  ,l  )-vol_flux_x(j,k,l)
               post_vol(j,k,l)=pre_vol(j,k,l)-(vol_flux_y(j  ,k+1,l  )-vol_flux_y(j,k,l))
-              tmpFlopCount=tmpFlopCount+6
             ENDDO
           ENDDO
         ENDDO
 !$OMP END DO
+       tmpFlopCount=tmpFlopCount+((z_max-z_max+4)*(y_max-y_min+4)*(x_max-x_min+4)*6)
       ENDIF
     ENDIF
 
@@ -332,7 +324,7 @@ tmpFlopCount=0
   flopCount=flopCount+tmpFlopCount
   tmpFlopCount=0
 
-!$OMP DO REDUCTION(+:tmpFlopCount)
+!$OMP DO
     DO l=z_min,z_max
       DO k=y_min,y_max
         DO j=x_min,x_max
@@ -342,13 +334,11 @@ tmpFlopCount=0
           advec_vol(j,k,l)=pre_vol(j,k,l)+vol_flux_y(j,k,l)-vol_flux_y(j,k+1,l)
           density1(j,k,l)=post_mass(j,k,l)/advec_vol(j,k,l)
           energy1(j,k,l)=post_ener(j,k,l)
-
-          tmpFlopCount=tmpFlopCount+16
-
         ENDDO
       ENDDO
     ENDDO
 !$OMP END DO
+   tmpFlopCount=tmpFlopCount+((z_max-z_max)*(y_max-y_min)*(x_max-x_min)*16)
    flopCount=flopCount+tmpFlopCount
    
      !PRINT *,'CELL KERNEL -',flopCount
@@ -361,7 +351,7 @@ tmpFlopCount=0
   ELSEIF(dir.EQ.g_zdir) THEN
 
     IF(sweep_number.EQ.1)THEN
-!$OMP DO REDUCTION(+:tmpFlopCount)
+!$OMP DO
       DO l=z_min-2,z_max+2
         DO k=y_min-2,y_max+2
           DO j=x_min-2,x_max+2
@@ -369,15 +359,13 @@ tmpFlopCount=0
                                            +vol_flux_y(j  ,k+1,l  )-vol_flux_y(j,k,l) &
                                            +vol_flux_z(j  ,k  ,l+1)-vol_flux_z(j,k,l))
             post_vol(j,k,l)=pre_vol(j,k,l)-(vol_flux_z(j  ,k  ,l+1)-vol_flux_z(j,k,l))
-
-
-            tmpFlopCount=tmpFlopCount+8
           ENDDO
         ENDDO
       ENDDO
 !$OMP END DO
+      tmpFlopCount=tmpFlopCount+((z_max-z_max+4)*(y_max-y_min+4)*(x_max-x_min+4)*8)
     ELSEIF(sweep_number.EQ.3) THEN
-!$OMP DO REDUCTION(+:tmpFlopCount)
+!$OMP DO
       DO l=z_min-2,z_max+2
         DO k=y_min-2,y_max+2
           DO j=x_min-2,x_max+2
@@ -389,6 +377,7 @@ tmpFlopCount=0
         ENDDO
       ENDDO
 !$OMP END DO
+    tmpFlopCount=tmpFlopCount+((z_max-z_max+4)*(y_max-y_min+4)*(x_max-x_min+4)*2)
     ENDIF
 
     flopCount=flopCount+tmpFlopCount
@@ -459,7 +448,7 @@ tmpFlopCount=0
   flopCount=flopCount+tmpFlopCount
    !PRINT *,'CELL KERNEL -',flopCount
   tmpFlopCount=0  
-!$OMP DO REDUCTION(+:tmpFlopCount)
+!$OMP DO
     DO l=z_min,z_max
       DO k=y_min,y_max
         DO j=x_min,x_max
@@ -469,13 +458,13 @@ tmpFlopCount=0
           advec_vol(j,k,l)=pre_vol(j,k,l)+vol_flux_z(j,k,l)-vol_flux_z(j,k,l+1)
           density1(j,k,l)=post_mass(j,k,l)/advec_vol(j,k,l)
           energy1(j,k,l)=post_ener(j,k,l)
-          tmpFlopCount=tmpFlopCount+16
 
         ENDDO
       ENDDO
     ENDDO
 !$OMP END DO
 
+  tmpFlopCount=tmpFlopCount+((z_max-z_max)*(y_max-y_min)*(x_max-x_min)*16)
   flopCount=flopCount+tmpFlopCount
    !PRINT *,'CELL KERNEL -',flopCount
   tmpFlopCount=0  

@@ -67,6 +67,10 @@ SUBROUTINE clover_finalize
 
 END SUBROUTINE clover_finalize
 
+!Sid - this is important, invoked from the main clover_leaf.f90
+!Summary - if rank = 0, you are the boss (the bool variable)
+!if not, you know who the boss is - it is zero :)
+
 SUBROUTINE clover_init_comms
 
   IMPLICIT NONE
@@ -78,6 +82,7 @@ SUBROUTINE clover_init_comms
 
   CALL MPI_INIT(err) 
 
+  !Sid - initialize the rank and size 
   CALL MPI_COMM_RANK(MPI_COMM_WORLD,rank,err) 
   CALL MPI_COMM_SIZE(MPI_COMM_WORLD,size,err) 
 
@@ -93,6 +98,9 @@ SUBROUTINE clover_init_comms
 
 END SUBROUTINE clover_init_comms
 
+
+!----------------------------------------------
+
 SUBROUTINE clover_get_num_chunks(count)
 
   IMPLICIT NONE
@@ -104,6 +112,13 @@ SUBROUTINE clover_get_num_chunks(count)
   count=parallel%max_task
 
 END SUBROUTINE clover_get_num_chunks
+
+
+!----------------------------------------------
+
+!Sid - the x_cells, y_cells etc. are set in the clover.in file - supplied as input 
+!this routine presumably decomposed the 3D grid to match the size of the compute determined by the mpi tasks
+
 
 SUBROUTINE clover_decompose(x_cells,y_cells,z_cells,left,right,bottom,top,back,front)
 
@@ -126,13 +141,25 @@ SUBROUTINE clover_decompose(x_cells,y_cells,z_cells,left,right,bottom,top,back,f
 
   current_x = 1
   current_y = 1
+
+  !Sid - number of chunks is defined in definitions.f90
+  !Sid - TODO and initialized where?
+
+
+  !Sid - connection - number_of_chunks = the communications size = set as parallel%max_tasks in the subrouting init_comms above
   current_z = number_of_chunks
+  IF (profiler_on) PRINT *,"Sid DEBUG - current_z",current_z
 
   ! Initialise metric
   surface = (((1.0*x_cells)/current_x)*((1.0*y_cells)/current_y)*2) &
           + (((1.0*x_cells)/current_x)*((1.0*z_cells)/current_z)*2) &
           + (((1.0*y_cells)/current_y)*((1.0*z_cells)/current_z)*2)
+
   volume  = ((1.0*x_cells)/current_x)*((1.0*y_cells)/current_y)*((1.0*z_cells)/current_z)
+  !Sid - debug
+  !surface = 55296 for 96^3
+  !volume = 884736 for 96^3
+
   best_metric = surface/volume
   chunk_x=current_x
   chunk_y=current_y

@@ -139,6 +139,18 @@ SUBROUTINE hydro
         profiler%summary=totals(loc(1))
         CALL clover_allgather(profiler%visit,totals)
         profiler%visit=totals(loc(1))
+        PRINT *,'Momentum before',profiler%advec_mom_flop
+        CALL clover_allgather(profiler%advec_mom_flop,totals)
+        profiler%advec_mom_flop=totals(loc(1))
+        PRINT *,'Momentum after',profiler%advec_mom_flop
+
+
+        PRINT *,'Cell Before',profiler%advec_cell_flop
+
+        CALL clover_allgather(profiler%advec_cell_flop,totals)
+        profiler%advec_cell_flop=totals(loc(1))
+
+        PRINT *,'Cell After',profiler%advec_cell_flop
 
         IF ( parallel%boss ) THEN
           WRITE(g_out,*)
@@ -158,6 +170,8 @@ SUBROUTINE hydro
           WRITE(g_out,'(a23,2f16.4)')"Visit                 :",profiler%visit,100.0*(profiler%visit/wall_clock)
           WRITE(g_out,'(a23,2f16.4)')"Total                 :",kernel_total,100.0*(kernel_total/wall_clock)
           WRITE(g_out,'(a23,2f16.4)')"The Rest              :",wall_clock-kernel_total,100.0*(wall_clock-kernel_total)/wall_clock
+          WRITE(g_out,*)"FLOPS: Cell Adv                    :",profiler%advec_cell_flop
+          WRITE(g_out,*)"FLOPS: Mom Adv                     :",profiler%advec_mom_flop
         ENDIF
       ENDIF
 
