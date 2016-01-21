@@ -308,7 +308,7 @@ IF(sweep_number.EQ.1.AND.direction.EQ.1)THEN ! x first
             !Sid - absolute value of upwind/celldx           
 
             limiter=wind*MIN(((2.0_8-sigma)*(adw/width)+(1.0_8+sigma)*(auw/celldx(dif)))*width/6.0_8,auw,adw)
-            tmpFlop=tmpFlop+19
+            tmpFlop=19
           ENDIF
           advec_vel(j,k,l)=vel1(donor,k,l)+(1.0-sigma)*limiter
           mom_flux(j,k,l)=advec_vel(j,k,l)*node_flux(j,k,l)
@@ -426,15 +426,15 @@ IF(sweep_number.EQ.1.AND.direction.EQ.1)THEN ! x first
             wind=1.0_8
             IF(vdiffdw.LE.0.0) wind=-1.0_8
             limiter=wind*MIN(width*((2.0_8-sigma)*adw/width+(1.0_8+sigma)*auw/celldy(dif))/6.0_8,auw,adw)
-            tmpFlop=tmpFlop+19
+            tmpFlop=19
           ENDIF
           advec_vel(j,k,l)=vel1(j,donor,l)+(1.0_8-sigma)*limiter
           mom_flux(j,k,l)=advec_vel(j,k,l)*node_flux(j,k,l)
-          tmpFlop=tmpFlop+9
         ENDDO
       ENDDO
     ENDDO
 !$OMP END PARALLEL DO
+  tmpFlop=tmpFlop+((z_max-z_max+2)*(y_max-y_min+3)*(x_max-x_min+2)*9)
   flop=flop+tmpFlop
   tmpFlop=0
  
@@ -539,7 +539,7 @@ DO l=z_min-1,z_max+2
             wind=1.0_8
             IF(vdiffdw.LE.0.0) wind=-1.0_8
             limiter=wind*MIN(width*((2.0_8-sigma)*adw/width+(1.0_8+sigma)*auw/celldz(dif))/6.0_8,auw,adw)
-            tmpFlop=tmpFlop+18
+            tmpFlop=18
           ENDIF
           advec_vel(j,k,l)=vel1(j,k,donor)+(1.0_8-sigma)*limiter
           mom_flux(j,k,l)=advec_vel(j,k,l)*node_flux(j,k,l)
