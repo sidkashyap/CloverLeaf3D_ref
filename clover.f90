@@ -29,6 +29,47 @@
 !>  Even without these modifications CloverLeaf weak scales well on moderately sized
 !>  systems of the order of 10K cores.
 
+
+!Sid - subroutines in this file
+
+!    SUBROUTINE clover_barrier
+
+!    SUBROUTINE clover_abort
+!    SUBROUTINE clover_finalize
+!    SUBROUTINE clover_init_comms
+!    SUBROUTINE clover_get_num_chunks(count)
+!    SUBROUTINE clover_decompose(x_cells,y_cells,z_cells,left,right,bottom,top,back,front)
+!    SUBROUTINE clover_decompose_tile(x_cells,y_cells,z_cells)
+!    SUBROUTINE clover_allocate_buffers()
+!    SUBROUTINE clover_exchange(fields,depth)
+!    SUBROUTINE clover_pack_left(tile, fields, depth, left_right_offset)
+!    SUBROUTINE clover_send_recv_message_left(left_snd_buffer, left_rcv_buffer,      &
+!    SUBROUTINE clover_unpack_left(fields, tile, depth,                         &
+!    SUBROUTINE clover_pack_right(tile, fields, depth, left_right_offset)
+!    SUBROUTINE clover_send_recv_message_right(right_snd_buffer, right_rcv_buffer,   &
+!    SUBROUTINE clover_unpack_right(fields, tile, depth,                          &
+!    SUBROUTINE clover_pack_top(tile, fields, depth, bottom_top_offset)
+!    SUBROUTINE clover_send_recv_message_top(top_snd_buffer, top_rcv_buffer,     &
+!    SUBROUTINE clover_unpack_top(fields, tile, depth,                        &
+!    SUBROUTINE clover_pack_bottom(tile, fields, depth, bottom_top_offset)
+!    SUBROUTINE clover_send_recv_message_bottom(bottom_snd_buffer, bottom_rcv_buffer,        &
+!    SUBROUTINE clover_unpack_bottom(fields, tile, depth,                        &
+!    SUBROUTINE clover_pack_back(tile, fields, depth, back_front_offset)
+!    SUBROUTINE clover_send_recv_message_back(back_snd_buffer, back_rcv_buffer,     &
+!    SUBROUTINE clover_unpack_back(fields, tile, depth,                        &
+!    SUBROUTINE clover_pack_front(tile, fields, depth, back_front_offset)
+!    SUBROUTINE clover_send_recv_message_front(front_snd_buffer, front_rcv_buffer,        &
+!    SUBROUTINE clover_unpack_front(fields, tile, depth,                        &
+!    SUBROUTINE clover_sum(value)
+!    SUBROUTINE clover_min(value)
+!    SUBROUTINE clover_max(value)
+!SUBROUTINE clover_allgather_count(value,values)
+!    SUBROUTINE clover_allgather(value,values)
+!    SUBROUTINE clover_check_error(error)
+!
+
+
+
 MODULE clover_module
 
     USE data_module
@@ -67,6 +108,10 @@ CONTAINS
 
     END SUBROUTINE clover_finalize
 
+    !Sid -> parallel is defined in definition
+    !set the parallel%max_task = MPI world size
+    !and set the the parallel%boss=0
+
     SUBROUTINE clover_init_comms
 
         IMPLICIT NONE
@@ -93,6 +138,8 @@ CONTAINS
 
     END SUBROUTINE clover_init_comms
 
+    !Sid -> the number of chunks is equal to the number of MPI tasks
+
     SUBROUTINE clover_get_num_chunks(count)
 
         IMPLICIT NONE
@@ -104,6 +151,8 @@ CONTAINS
         count=parallel%max_task
 
     END SUBROUTINE clover_get_num_chunks
+
+    !Sid -> this decomposes the grid into chunks based on the number of MPI tasks 
 
     SUBROUTINE clover_decompose(x_cells,y_cells,z_cells,left,right,bottom,top,back,front)
 
@@ -124,31 +173,44 @@ CONTAINS
 
         ! 3D Decomposition of the mesh
 
+        !Sid - the decomposition is in the Z dimension
+
         current_x = 1
         current_y = 1
         current_z = number_of_chunks
 
         ! Initialise metric
+
         surface = (((1.0*x_cells)/current_x)*((1.0*y_cells)/current_y)*2) &
             + (((1.0*x_cells)/current_x)*((1.0*z_cells)/current_z)*2) &
             + (((1.0*y_cells)/current_y)*((1.0*z_cells)/current_z)*2)
         volume  = ((1.0*x_cells)/current_x)*((1.0*y_cells)/current_y)*((1.0*z_cells)/current_z)
+
+        
+        
         best_metric = surface/volume
         chunk_x=current_x
         chunk_y=current_y
         chunk_z=current_z
 
+        !Sid -> Get the best decomposition numbers, start with dividing along the z-axis, you then start varying to minimize the surface/volume ratio 
+        !Sid -> start with decomposing on the x_axis; example 10.10.10 grid and number_of_chunks=4
         DO c=1,number_of_chunks
 
             ! If doesn't evenly divide loop
             IF(MOD(number_of_chunks,c).NE.0) CYCLE
 
+            !Sid - example current_x takes values, 1,2,4
             current_x=c
 
+            !Sid div takes values 4,2,1
             div1 = number_of_chunks/c
 
+            !Sid j=4,j=2,j=1
             DO j=1,div1
                 IF(MOD(div1,j).NE.0) CYCLE
+
+                !Sid -> you have fixed a x=1/2/4, so y takes 1,2,4;1,2;1
                 current_y = j
 
                 IF(MOD(number_of_chunks,(c*j)).NE.0) CYCLE
@@ -161,7 +223,6 @@ CONTAINS
                 volume  = ((1.0*x_cells)/current_x)*((1.0*y_cells)/current_y)*((1.0*z_cells)/current_z)
 
                 current_metric = surface/volume
-
                 IF(current_metric < best_metric) THEN
                     chunk_x=current_x
                     chunk_y=current_y
@@ -173,8 +234,27 @@ CONTAINS
 
         ENDDO
 
+! Sid - This is what the output looks like, you can see that the best decomposition is 1,2,2 in x,y,z respectively for 4 mpi procs,
+! we start with 1,1,4 and arrive at 1,2,2 based on minimize the surface/volume ratio idea. This is done by all the MPI procs, the
+! snapshot below shows this for 2 MPI procs
+!  task:           0 current_x:           1  current_y:           1  current_z:           4  best_metric:   1.2000000000000000       current_metric:   1.2000000000000000     
+!  task:           0 current_x:           1  current_y:           2  current_z:           2  best_metric:   1.2000000000000000       current_metric:   1.0000000000000000     
+!  task:           0 current_x:           1  current_y:           4  current_z:           1  best_metric:   1.0000000000000000       current_metric:   1.2000000000000000     
+!  task:           0 current_x:           2  current_y:           1  current_z:           2  best_metric:   1.0000000000000000       current_metric:   1.0000000000000000     
+!  task:           0 current_x:           2  current_y:           2  current_z:           1  best_metric:   1.0000000000000000       current_metric:   1.0000000000000000     
+!  task:           0 current_x:           4  current_y:           1  current_z:           1  best_metric:   1.0000000000000000       current_metric:   1.2000000000000000     
+!  task:           1 current_x:           1  current_y:           1  current_z:           4  best_metric:   1.2000000000000000       current_metric:   1.2000000000000000     
+!  task:           1 current_x:           1  current_y:           2  current_z:           2  best_metric:   1.2000000000000000       current_metric:   1.0000000000000000     
+!  task:           1 current_x:           1  current_y:           4  current_z:           1  best_metric:   1.0000000000000000       current_metric:   1.2000000000000000     
+!  task:           1 current_x:           2  current_y:           1  current_z:           2  best_metric:   1.0000000000000000       current_metric:   1.0000000000000000     
+!  task:           1 current_x:           2  current_y:           2  current_z:           1  best_metric:   1.0000000000000000       current_metric:   1.0000000000000000     
+!  task:           1 current_x:           4  current_y:           1  current_z:           1  best_metric:   1.0000000000000000       current_metric:   1.2000000000000000     
+
+
         ! Set up chunk mesh ranges and chunk connectivity
 
+
+        !Sid -> now that you have the chunk partitioning, you need to settle the neighbours for each MPI proc
         delta_x=x_cells/chunk_x
         delta_y=y_cells/chunk_y
         delta_z=z_cells/chunk_z
@@ -185,15 +265,18 @@ CONTAINS
         add_y_prev=0
         add_z_prev=0
         chunk_id=1
+
         DO cz=1,chunk_z
             DO cy=1,chunk_y
                 DO cx=1,chunk_x
                     add_x=0
                     add_y=0
                     add_z=0
+
                     IF(cx.LE.mod_x)add_x=1
                     IF(cy.LE.mod_y)add_y=1
                     IF(cz.LE.mod_z)add_z=1
+
                     IF (chunk_id .EQ. parallel%task+1) THEN
                         ! Mesh chunks
                         left=(cx-1)*delta_x+1+add_x_prev
@@ -209,6 +292,7 @@ CONTAINS
                         chunk%chunk_neighbours(chunk_top)=   chunk_id+chunk_x
                         chunk%chunk_neighbours(chunk_back)=  chunk_id-chunk_x*chunk_y
                         chunk%chunk_neighbours(chunk_front)= chunk_id+chunk_x*chunk_y
+
                         IF(cx.EQ.1)chunk%chunk_neighbours(chunk_left)=external_face
                         IF(cx.EQ.chunk_x)chunk%chunk_neighbours(chunk_right)=external_face
                         IF(cy.EQ.1)chunk%chunk_neighbours(chunk_bottom)=external_face
@@ -234,6 +318,14 @@ CONTAINS
                         chunk%x_max = right-left+1
                         chunk%y_max = top-bottom+1
                         chunk%z_max = front-back+1
+
+!Sid -> This is how the grid is divided                        
+! task 0 left:           1 right:          10 bottom:           1 top:           5 back:           1 front:           5 n_left:n_l:          -1 n_r:          -1 n_b:          -1 n_top:           2 n_b:          -1 n_f:           3
+! task 1 left:           1 right:          10 bottom:           6 top:          10 back:           1 front:           5 n_left:n_l:          -1 n_r:          -1 n_b:           1 n_top:          -1 n_b:          -1 n_f:           4
+! task 2 left:           1 right:          10 bottom:           1 top:           5 back:           6 front:          10 n_left:n_l:          -1 n_r:          -1 n_b:          -1 n_top:           4 n_b:           1 n_f:          -1
+! task 3 left:           1 right:          10 bottom:           6 top:          10 back:           6 front:          10 n_left:n_l:          -1 n_r:          -1 n_b:           3 n_top:          -1 n_b:           2 n_f:          -1
+
+
 
                     ENDIF
                     IF(cx.LE.mod_x)add_x_prev=add_x_prev+1
@@ -278,13 +370,19 @@ CONTAINS
 
         current_x = 1
         current_y = 1
+        !Sid - tiles_per_chunk Initialized in data module, set to 1
         current_z = tiles_per_chunk
 
         ! Initialise metric
+        !Sid -> calculate the surface and volume based on the above metrics - current_x=1, current_y=1, current_z=tiles_per_chunk=1
+        !Sid -> this is initialized to be best_metric, then loop across all the metrics to replace this if better 
+
         surface = (((1.0*x_cells)/current_x)*((1.0*y_cells)/current_y)*2) &
             + (((1.0*x_cells)/current_x)*((1.0*z_cells)/current_z)*2) &
             + (((1.0*y_cells)/current_y)*((1.0*z_cells)/current_z)*2)
+
         volume  = ((1.0*x_cells)/current_x)*((1.0*y_cells)/current_y)*((1.0*z_cells)/current_z)
+
         best_metric = surface/volume
         chunk_x=current_x
         chunk_y=current_y
@@ -307,6 +405,8 @@ CONTAINS
           y_bound = 1
         ENDIF
 
+
+        !Sid nested looping starting from the x dimension to achieve the best_metric for current_x, current_y based on surface/volume
 
         DO t=1,x_bound
 
@@ -425,7 +525,40 @@ CONTAINS
                     chunk%tiles(tile_id)%t_front=front
                     chunk%tiles(tile_id)%t_back=back
 
+!                    print *,&
+!                    parallel%task,&
+!                    tile_id,&
+!                    chunk%tiles(tile_id)%t_xmin,&
+!                    chunk%tiles(tile_id)%t_xmax,&
+!                    chunk%tiles(tile_id)%t_ymin,&
+!                    chunk%tiles(tile_id)%t_ymax,&
+!                    chunk%tiles(tile_id)%t_zmin,&
+!                    chunk%tiles(tile_id)%t_zmax,&
+!                    chunk%tiles(tile_id)%t_left,&
+!                    chunk%tiles(tile_id)%t_right,&
+!                    chunk%tiles(tile_id)%t_top,&
+!                    chunk%tiles(tile_id)%t_bottom,&
+!                    chunk%tiles(tile_id)%t_front,&
+!                    chunk%tiles(tile_id)%t_back 
+!
 
+!        task         tile_id     xmin        xmax         ymin       ymax        zmin        zmax        left        right        t
+!        tiles_per_chunk=2
+!           0           1           1           5           1           5           1           5           1           5           5           1           5           1
+!           0           2           1           5           1           5           1           5           6          10           5           1           5           1
+!           1           1           1           5           1           5           1           5           1           5          10           6           5           1
+!           1           2           1           5           1           5           1           5           6          10          10           6           5           1
+!           2           1           1           5           1           5           1           5           1           5           5           1          10           6
+!           2           2           1           5           1           5           1           5           6          10           5           1          10           6
+!           3           1           1           5           1           5           1           5           1           5          10           6          10           6
+!           3           2           1           5           1           5           1           5           6          10          10           6          10           6
+!
+!        tiles_per_chunk=1
+!           0           1           1          10           1           5           1           5           1          10           5           1           5           1
+!           1           1           1          10           1           5           1           5           1          10          10           6           5           1
+!           2           1           1          10           1           5           1           5           1          10           5           1          10           6
+!           3           1           1          10           1           5           1           5           1          10          10           6          10           6
+!
 
                     IF(cx.LE.mod_x)add_x_prev=add_x_prev+1
                     tile_id=tile_id+1
@@ -455,6 +588,7 @@ CONTAINS
   
         ! Unallocated buffers for external boundaries caused issues on some systems so they are now
         !  all allocated
+        !Sid -> TODO what is the golden number 19?
         ALLOCATE(chunk%left_snd_buffer(19*2*(chunk%y_max+5)*(chunk%z_max+5)))
         ALLOCATE(chunk%left_rcv_buffer(19*2*(chunk%y_max+5)*(chunk%z_max+5)))
         ALLOCATE(chunk%right_snd_buffer(19*2*(chunk%y_max+5)*(chunk%z_max+5)))
@@ -4511,6 +4645,25 @@ CONTAINS
         value=maximum
 
     END SUBROUTINE clover_max
+
+
+SUBROUTINE clover_allgather_count(value,values)
+
+  IMPLICIT NONE
+
+  INTEGER(KIND=8) :: value
+
+  REAL(KIND=8) :: values(parallel%max_task)
+
+  INTEGER :: err
+
+  values(1)=value ! Just to ensure it will work in serial
+
+  CALL MPI_ALLGATHER(value,1,MPI_INTEGER,values,1,MPI_DOUBLE_PRECISION,MPI_COMM_WORLD,err)
+
+END SUBROUTINE clover_allgather_count
+
+
 
     SUBROUTINE clover_allgather(value,values)
 

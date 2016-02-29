@@ -1,0 +1,2016 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: clover_module._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (clover_module._) [1] clover.f90(73,8)
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_BARRIER
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_BARRIER) [2] clover.f90(83,16)
+  -> EXTERN: (87,14) mpi_barrier_
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_FINALIZE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_FINALIZE) [3] clover.f90(99,16)
+  -> EXTERN: (103,15) for_close
+  -> EXTERN: (104,14) flushqq_
+  -> EXTERN: (105,14) flushqq_
+  -> EXTERN: (106,14) flushqq_
+  -> EXTERN: (107,14) mpi_finalize_
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_GET_NUM_CHUNKS
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_GET_NUM_CHUNKS) [4] clover.f90(143,16)
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_DECOMPOSE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_DECOMPOSE) [5] clover.f90(157,16)
+  -> EXTERN: (343,13) for_write_seq_lis
+  -> EXTERN: (344,13) for_write_seq_lis
+  -> EXTERN: (344,13) for_write_seq_lis_xmit
+  -> EXTERN: (344,13) for_write_seq_lis_xmit
+  -> EXTERN: (344,13) for_write_seq_lis_xmit
+  -> EXTERN: (344,13) for_write_seq_lis_xmit
+  -> EXTERN: (344,13) for_write_seq_lis_xmit
+  -> EXTERN: (344,13) for_write_seq_lis_xmit
+  -> EXTERN: (345,13) for_write_seq_lis
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at clover.f90(198,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between best_metric line 226 and best_metric line 230
+
+   LOOP BEGIN at clover.f90(210,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between best_metric line 226 and best_metric line 230
+   LOOP END
+LOOP END
+
+LOOP BEGIN at clover.f90(269,9)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at clover.f90(270,13)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #25229: Loop multiversioned for Trip-count
+      remark #25239: Loop multiversioned on trip count = 1
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at clover.f90(271,17)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between 3 line 296 and 3 line 289
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at clover.f90(270,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at clover.f90(271,17)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between 3 line 296 and 3 line 289
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_DECOMPOSE_TILE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_DECOMPOSE_TILE) [6] clover.f90(350,16)
+  -> EXTERN: (575,13) for_write_seq_lis
+  -> EXTERN: (576,13) for_write_seq_lis
+  -> EXTERN: (576,13) for_write_seq_lis_xmit
+  -> EXTERN: (576,13) for_write_seq_lis_xmit
+  -> EXTERN: (576,13) for_write_seq_lis_xmit
+  -> EXTERN: (576,13) for_write_seq_lis_xmit
+  -> EXTERN: (576,13) for_write_seq_lis_xmit
+  -> EXTERN: (576,13) for_write_seq_lis_xmit
+  -> EXTERN: (577,13) for_write_seq_lis
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at clover.f90(411,9)
+   remark #25229: Loop multiversioned for Trip-count
+   remark #25239: Loop multiversioned on trip count = 1
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between best_metric line 437 and best_metric line 441
+
+   LOOP BEGIN at clover.f90(422,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between best_metric line 437 and best_metric line 441
+   LOOP END
+LOOP END
+
+LOOP BEGIN at clover.f90(411,9)
+   remark #15423: loop was not vectorized: has only one iteration
+
+   LOOP BEGIN at clover.f90(422,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between best_metric line 437 and best_metric line 441
+   LOOP END
+LOOP END
+
+LOOP BEGIN at clover.f90(460,9)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at clover.f90(461,13)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #25229: Loop multiversioned for Trip-count
+      remark #25239: Loop multiversioned on trip count = 1
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at clover.f90(462,17)
+         remark #25229: Loop multiversioned for Trip-count
+         remark #25239: Loop multiversioned on trip count = 1
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at clover.f90(485,21)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 2 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 1.200 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=1
+         LOOP END
+
+         LOOP BEGIN at clover.f90(485,21)
+         <Peeled loop for vectorization>
+            remark #25436: completely unrolled by 2  
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at clover.f90(462,17)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at clover.f90(485,21)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 2 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 1.200 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=1
+         LOOP END
+
+         LOOP BEGIN at clover.f90(485,21)
+         <Peeled loop for vectorization>
+            remark #25436: completely unrolled by 2  
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at clover.f90(461,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at clover.f90(462,17)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at clover.f90(485,21)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 2 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 1.200 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=1
+         LOOP END
+
+         LOOP BEGIN at clover.f90(485,21)
+         <Peeled loop for vectorization>
+            remark #25436: completely unrolled by 2  
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_ALLOCATE_BUFFERS
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_ALLOCATE_BUFFERS) [7] clover.f90(584,16)
+  -> EXTERN: (592,9) for_alloc_allocatable
+  -> EXTERN: (592,9) for_check_mult_overflow64
+  -> EXTERN: (593,9) for_alloc_allocatable
+  -> EXTERN: (593,9) for_check_mult_overflow64
+  -> EXTERN: (594,9) for_alloc_allocatable
+  -> EXTERN: (594,9) for_check_mult_overflow64
+  -> EXTERN: (595,9) for_alloc_allocatable
+  -> EXTERN: (595,9) for_check_mult_overflow64
+  -> EXTERN: (596,9) for_alloc_allocatable
+  -> EXTERN: (596,9) for_check_mult_overflow64
+  -> EXTERN: (597,9) for_alloc_allocatable
+  -> EXTERN: (597,9) for_check_mult_overflow64
+  -> EXTERN: (598,9) for_alloc_allocatable
+  -> EXTERN: (598,9) for_check_mult_overflow64
+  -> EXTERN: (599,9) for_alloc_allocatable
+  -> EXTERN: (599,9) for_check_mult_overflow64
+  -> EXTERN: (600,9) for_alloc_allocatable
+  -> EXTERN: (600,9) for_check_mult_overflow64
+  -> EXTERN: (601,9) for_alloc_allocatable
+  -> EXTERN: (601,9) for_check_mult_overflow64
+  -> EXTERN: (602,9) for_alloc_allocatable
+  -> EXTERN: (602,9) for_check_mult_overflow64
+  -> EXTERN: (603,9) for_alloc_allocatable
+  -> EXTERN: (603,9) for_check_mult_overflow64
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_EXCHANGE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_EXCHANGE) [8] clover.f90(608,16)
+  -> (644,26) CLOVER_MODULE::CLOVER_PACK_LEFT
+  -> (650,18) CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_LEFT
+  -> (663,26) CLOVER_MODULE::CLOVER_PACK_RIGHT
+  -> (669,18) CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_RIGHT
+  -> EXTERN: (678,14) mpi_waitall_
+  -> (685,26) CLOVER_MODULE::CLOVER_UNPACK_LEFT
+  -> (699,26) CLOVER_MODULE::CLOVER_UNPACK_RIGHT
+  -> (715,26) CLOVER_MODULE::CLOVER_PACK_BOTTOM
+  -> (721,18) CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_BOTTOM
+  -> (734,26) CLOVER_MODULE::CLOVER_PACK_TOP
+  -> (740,18) CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_TOP
+  -> EXTERN: (749,14) mpi_waitall_
+  -> (756,26) CLOVER_MODULE::CLOVER_UNPACK_TOP
+  -> (769,26) CLOVER_MODULE::CLOVER_UNPACK_BOTTOM
+  -> (785,26) CLOVER_MODULE::CLOVER_PACK_BACK
+  -> INLINE: (791,18) CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_BACK
+    -> EXTERN: (3659,14) __getsp_inlined
+    -> EXTERN: (3659,14) mpi_isend_
+    -> EXTERN: (3659,14) __resetsp_inlined
+    -> EXTERN: (3659,24) _alloca
+    -> EXTERN: (3662,14) __getsp_inlined
+    -> EXTERN: (3662,14) mpi_irecv_
+    -> EXTERN: (3662,14) __resetsp_inlined
+    -> EXTERN: (3662,24) _alloca
+  -> (804,26) CLOVER_MODULE::CLOVER_PACK_FRONT
+  -> INLINE: (810,18) CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_FRONT
+    -> EXTERN: (4282,14) __getsp_inlined
+    -> EXTERN: (4282,14) mpi_isend_
+    -> EXTERN: (4282,14) __resetsp_inlined
+    -> EXTERN: (4282,24) _alloca
+    -> EXTERN: (4285,14) __getsp_inlined
+    -> EXTERN: (4285,14) mpi_irecv_
+    -> EXTERN: (4285,14) __resetsp_inlined
+    -> EXTERN: (4285,24) _alloca
+  -> EXTERN: (819,14) mpi_waitall_
+  -> (826,26) CLOVER_MODULE::CLOVER_UNPACK_FRONT
+  -> (839,26) CLOVER_MODULE::CLOVER_UNPACK_BACK
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at clover.f90(621,9)
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 2 
+   remark #15477: vector loop cost: 0.750 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(634,17)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ clover.f90(633,17) ]
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ clover.f90(634,17) ]
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ clover.f90(635,17) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between end_pack_index_back_front line 635 and end_pack_index_back_front line 632
+   remark #25436: completely unrolled by 19  
+LOOP END
+
+LOOP BEGIN at clover.f90(642,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at clover.f90(660,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at clover.f90(683,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at clover.f90(697,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at clover.f90(708,9)
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 2 
+   remark #15477: vector loop cost: 0.750 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(712,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at clover.f90(731,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at clover.f90(754,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at clover.f90(767,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at clover.f90(778,9)
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 2 
+   remark #15477: vector loop cost: 0.750 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(782,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24) inlined into clover.f90(791,18)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24) inlined into clover.f90(791,18)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24) inlined into clover.f90(791,18)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24) inlined into clover.f90(791,18)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24) inlined into clover.f90(791,18)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24) inlined into clover.f90(791,18)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24) inlined into clover.f90(791,18)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24) inlined into clover.f90(791,18)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24) inlined into clover.f90(791,18)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24) inlined into clover.f90(791,18)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24) inlined into clover.f90(791,18)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24) inlined into clover.f90(791,18)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24) inlined into clover.f90(791,18)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24) inlined into clover.f90(791,18)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24) inlined into clover.f90(791,18)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24) inlined into clover.f90(791,18)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(801,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24) inlined into clover.f90(810,18)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24) inlined into clover.f90(810,18)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24) inlined into clover.f90(810,18)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24) inlined into clover.f90(810,18)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24) inlined into clover.f90(810,18)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24) inlined into clover.f90(810,18)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24) inlined into clover.f90(810,18)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24) inlined into clover.f90(810,18)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24) inlined into clover.f90(810,18)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24) inlined into clover.f90(810,18)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24) inlined into clover.f90(810,18)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24) inlined into clover.f90(810,18)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24) inlined into clover.f90(810,18)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.660 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24) inlined into clover.f90(810,18)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24) inlined into clover.f90(810,18)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24) inlined into clover.f90(810,18)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(824,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at clover.f90(837,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_PACK_LEFT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_PACK_LEFT) [9] clover.f90(849,16)
+  -> EXTERN: (864,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (879,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (894,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (909,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (924,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (939,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (954,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (969,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (984,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (999,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (1014,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (1029,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (1044,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (1059,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (1074,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (1089,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (1104,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (1119,22) CLOVER_PACK_MESSAGE_LEFT
+  -> EXTERN: (1134,22) CLOVER_PACK_MESSAGE_LEFT
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_PACK_RIGHT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_PACK_RIGHT) [10] clover.f90(1475,16)
+  -> EXTERN: (1489,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1504,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1519,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1534,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1549,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1564,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1579,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1594,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1609,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1624,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1639,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1654,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1669,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1684,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1699,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1714,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1729,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1744,22) CLOVER_PACK_MESSAGE_RIGHT
+  -> EXTERN: (1759,22) CLOVER_PACK_MESSAGE_RIGHT
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_UNPACK_LEFT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_UNPACK_LEFT) [11] clover.f90(1170,16)
+  -> EXTERN: (1189,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1204,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1219,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1234,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1249,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1264,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1279,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1294,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1309,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1324,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1339,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1354,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1369,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1384,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1399,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1414,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1429,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1444,22) CLOVER_UNPACK_MESSAGE_LEFT
+  -> EXTERN: (1459,22) CLOVER_UNPACK_MESSAGE_LEFT
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_UNPACK_RIGHT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_UNPACK_RIGHT) [12] clover.f90(1797,16)
+  -> EXTERN: (1814,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1829,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1844,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1859,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1874,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1889,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1904,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1919,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1934,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1949,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1964,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1979,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (1994,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (2009,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (2024,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (2039,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (2054,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (2069,22) CLOVER_UNPACK_MESSAGE_RIGHT
+  -> EXTERN: (2084,22) CLOVER_UNPACK_MESSAGE_RIGHT
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_PACK_BOTTOM
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_PACK_BOTTOM) [13] clover.f90(2723,16)
+  -> EXTERN: (2737,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2752,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2767,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2782,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2797,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2812,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2827,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2842,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2857,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2872,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2887,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2902,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2917,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2932,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2947,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2962,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2977,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (2992,22) CLOVER_PACK_MESSAGE_BOTTOM
+  -> EXTERN: (3007,22) CLOVER_PACK_MESSAGE_BOTTOM
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_PACK_TOP
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_PACK_TOP) [14] clover.f90(2099,16)
+  -> EXTERN: (2113,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2128,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2143,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2158,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2173,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2188,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2203,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2218,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2233,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2248,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2263,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2278,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2293,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2308,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2323,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2338,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2353,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2368,22) CLOVER_PACK_MESSAGE_TOP
+  -> EXTERN: (2383,22) CLOVER_PACK_MESSAGE_TOP
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_UNPACK_TOP
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_UNPACK_TOP) [15] clover.f90(2420,16)
+  -> EXTERN: (2438,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2453,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2468,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2483,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2498,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2513,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2528,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2543,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2558,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2573,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2588,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2603,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2618,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2633,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2648,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2663,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2678,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2693,22) CLOVER_UNPACK_MESSAGE_TOP
+  -> EXTERN: (2708,22) CLOVER_UNPACK_MESSAGE_TOP
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_UNPACK_BOTTOM
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_UNPACK_BOTTOM) [16] clover.f90(3044,16)
+  -> EXTERN: (3061,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3076,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3091,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3106,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3121,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3136,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3151,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3166,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3181,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3196,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3211,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3226,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3241,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3256,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3271,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3286,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3301,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3316,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+  -> EXTERN: (3331,22) CLOVER_UNPACK_MESSAGE_BOTTOM
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_PACK_BACK
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_PACK_BACK) [17] clover.f90(3346,16)
+  -> EXTERN: (3360,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3375,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3390,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3405,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3420,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3435,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3450,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3465,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3480,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3495,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3510,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3525,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3540,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3555,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3570,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3585,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3600,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3615,22) CLOVER_PACK_MESSAGE_BACK
+  -> EXTERN: (3630,22) CLOVER_PACK_MESSAGE_BACK
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_PACK_FRONT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_PACK_FRONT) [18] clover.f90(3969,16)
+  -> EXTERN: (3983,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (3998,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4013,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4028,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4043,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4058,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4073,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4088,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4103,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4118,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4133,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4148,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4163,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4178,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4193,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4208,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4223,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4238,22) CLOVER_PACK_MESSAGE_FRONT
+  -> EXTERN: (4253,22) CLOVER_PACK_MESSAGE_FRONT
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_UNPACK_FRONT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_UNPACK_FRONT) [19] clover.f90(4290,16)
+  -> EXTERN: (4307,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4322,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4337,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4352,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4367,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4382,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4397,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4412,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4427,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4442,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4457,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4472,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4487,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4502,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4517,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4532,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4547,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4562,22) CLOVER_UNPACK_MESSAGE_FRONT
+  -> EXTERN: (4577,22) CLOVER_UNPACK_MESSAGE_FRONT
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_UNPACK_BACK
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_UNPACK_BACK) [20] clover.f90(3667,16)
+  -> EXTERN: (3684,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3699,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3714,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3729,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3744,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3759,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3774,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3789,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3804,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3819,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3834,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3849,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3864,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3879,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3894,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3909,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3924,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3939,22) CLOVER_UNPACK_MESSAGE_BACK
+  -> EXTERN: (3954,22) CLOVER_UNPACK_MESSAGE_BACK
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_LEFT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_LEFT) [21] clover.f90(1150,16)
+  -> EXTERN: (1162,14) __resetsp_inlined
+  -> EXTERN: (1162,14) mpi_isend_
+  -> EXTERN: (1162,14) __getsp_inlined
+  -> EXTERN: (1162,24) _alloca
+  -> EXTERN: (1165,14) __resetsp_inlined
+  -> EXTERN: (1165,14) mpi_irecv_
+  -> EXTERN: (1165,14) __getsp_inlined
+  -> EXTERN: (1165,24) _alloca
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at clover.f90(1162,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1162,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1162,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1162,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(1162,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1162,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1162,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1162,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1162,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(1165,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1165,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1165,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1165,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(1165,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1165,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1165,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1165,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1165,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_RIGHT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_RIGHT) [22] clover.f90(1775,16)
+  -> EXTERN: (1789,14) __resetsp_inlined
+  -> EXTERN: (1789,14) mpi_isend_
+  -> EXTERN: (1789,14) __getsp_inlined
+  -> EXTERN: (1789,24) _alloca
+  -> EXTERN: (1792,14) __resetsp_inlined
+  -> EXTERN: (1792,14) mpi_irecv_
+  -> EXTERN: (1792,14) __getsp_inlined
+  -> EXTERN: (1792,24) _alloca
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at clover.f90(1789,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1789,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1789,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1789,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(1789,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1789,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1789,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1789,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1789,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(1792,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1792,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1792,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1792,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(1792,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1792,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1792,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(1792,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(1792,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_BOTTOM
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_BOTTOM) [23] clover.f90(3022,16)
+  -> EXTERN: (3036,14) __resetsp_inlined
+  -> EXTERN: (3036,14) mpi_isend_
+  -> EXTERN: (3036,14) __getsp_inlined
+  -> EXTERN: (3036,24) _alloca
+  -> EXTERN: (3039,14) __resetsp_inlined
+  -> EXTERN: (3039,14) mpi_irecv_
+  -> EXTERN: (3039,14) __getsp_inlined
+  -> EXTERN: (3039,24) _alloca
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at clover.f90(3036,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3036,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3036,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3036,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(3036,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3036,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3036,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3036,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3036,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(3039,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3039,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3039,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3039,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(3039,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3039,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3039,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3039,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3039,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_TOP
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_TOP) [24] clover.f90(2398,16)
+  -> EXTERN: (2412,14) __resetsp_inlined
+  -> EXTERN: (2412,14) mpi_isend_
+  -> EXTERN: (2412,14) __getsp_inlined
+  -> EXTERN: (2412,24) _alloca
+  -> EXTERN: (2415,14) __resetsp_inlined
+  -> EXTERN: (2415,14) mpi_irecv_
+  -> EXTERN: (2415,14) __getsp_inlined
+  -> EXTERN: (2415,24) _alloca
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at clover.f90(2412,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(2412,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(2412,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(2412,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(2412,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(2412,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(2412,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(2412,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(2412,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(2415,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(2415,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(2415,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(2415,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(2415,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(2415,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(2415,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(2415,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(2415,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_BACK
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_BACK) [25] clover.f90(3645,16)
+  -> EXTERN: (3659,14) __resetsp_inlined
+  -> EXTERN: (3659,14) mpi_isend_
+  -> EXTERN: (3659,14) __getsp_inlined
+  -> EXTERN: (3659,24) _alloca
+  -> EXTERN: (3662,14) __resetsp_inlined
+  -> EXTERN: (3662,14) mpi_irecv_
+  -> EXTERN: (3662,14) __getsp_inlined
+  -> EXTERN: (3662,24) _alloca
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at clover.f90(3659,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3659,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(3662,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_FRONT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_SEND_RECV_MESSAGE_FRONT) [26] clover.f90(4268,16)
+  -> EXTERN: (4282,14) __resetsp_inlined
+  -> EXTERN: (4282,14) mpi_isend_
+  -> EXTERN: (4282,14) __getsp_inlined
+  -> EXTERN: (4282,24) _alloca
+  -> EXTERN: (4285,14) __resetsp_inlined
+  -> EXTERN: (4285,14) mpi_irecv_
+  -> EXTERN: (4285,14) __getsp_inlined
+  -> EXTERN: (4285,24) _alloca
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at clover.f90(4282,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4282,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.000 
+   remark #15478: estimated potential speedup: 1.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15460: masked strided loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 2.500 
+   remark #15478: estimated potential speedup: 1.600 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24)
+<Multiversioned v1>
+   remark #25233: Loop multiversioned for stride tests on Assumed shape arrays
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 1.500 
+   remark #15478: estimated potential speedup: 2.640 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15462: unmasked indexed (or gather) loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 4 
+   remark #15477: vector loop cost: 3.000 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at clover.f90(4285,24)
+<Remainder loop for vectorization, Multiversioned v2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_SUM
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_SUM) [27] clover.f90(4593,16)
+  -> EXTERN: (4607,14) mpi_reduce_
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_MIN
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_MIN) [28] clover.f90(4613,16)
+  -> EXTERN: (4625,14) mpi_allreduce_
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_MAX
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_MAX) [29] clover.f90(4631,16)
+  -> EXTERN: (4643,14) mpi_allreduce_
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_ALLGATHER_COUNT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_ALLGATHER_COUNT) [30] clover.f90(4650,12)
+  -> EXTERN: (4662,8) mpi_allgather_
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_ALLGATHER
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_ALLGATHER) [31] clover.f90(4668,16)
+  -> EXTERN: (4680,14) mpi_allgather_
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_CHECK_ERROR
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_CHECK_ERROR) [32] clover.f90(4684,16)
+  -> EXTERN: (4696,14) mpi_allreduce_
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_INIT_COMMS
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_INIT_COMMS) [33] clover.f90(115,16)
+  -> EXTERN: (124,14) mpi_init_
+  -> EXTERN: (126,14) mpi_comm_rank_
+  -> EXTERN: (127,14) mpi_comm_size_
+
+===========================================================================
+
+Begin optimization report for: CLOVER_MODULE::CLOVER_ABORT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_MODULE::CLOVER_ABORT) [34] clover.f90(91,16)
+  -> EXTERN: (95,14) mpi_abort_
+
+===========================================================================

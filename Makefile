@@ -71,7 +71,7 @@ OMP_PATHSCALE = -mp
 OMP_XL        = -qsmp=omp -qthreaded
 OMP=$(OMP_$(COMPILER))
 
-FLAGS_INTEL     = -O3 -g -no-prec-div
+FLAGS_INTEL     = -O3 -g -no-prec-div -qopt-report=3
 FLAGS_SUN       = -fast -xipo=2 -Xlistv4
 FLAGS_GNU       = -O3 -march=native -funroll-loops -ffree-line-length-none
 FLAGS_CRAY      = -em -ra -h acc_model=fast_addr:no_deep_copy:auto_async_all

@@ -1,0 +1,41 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: flux_calc_module._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (flux_calc_module._) [1] flux_calc.f90(22,8)
+
+===========================================================================
+
+Begin optimization report for: FLUX_CALC_MODULE::FLUX_CALC
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (FLUX_CALC_MODULE::FLUX_CALC) [2] flux_calc.f90(26,12)
+  -> EXTERN: (37,31) timer_
+  -> EXTERN: (41,14) FLUX_CALC_KERNEL
+  -> EXTERN: (64,48) timer_
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at flux_calc.f90(39,3)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between 3 line 41 and 3 line 41
+LOOP END
+===========================================================================

@@ -1,0 +1,150 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: GET_UNIT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (GET_UNIT) [1] initialise.f90(153,10)
+  -> EXTERN: (160,14) for_inquire
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initialise.f90(159,3)
+   remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+===========================================================================
+
+Begin optimization report for: INITIALISE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (INITIALISE) [2] initialise.f90(25,12)
+  -> INLINE: (39,11) GET_UNIT
+    -> EXTERN: (160,14) for_inquire
+  -> EXTERN: (41,5) for_open
+  -> EXTERN: (42,18) REPORT_ERROR
+  -> EXTERN: (50,8) omp_get_thread_num_
+  -> EXTERN: (51,7) for_write_seq_lis
+  -> EXTERN: (52,7) for_write_seq_fmt_xmit
+  -> EXTERN: (52,7) for_write_seq_fmt
+  -> EXTERN: (53,7) for_write_seq_fmt
+  -> EXTERN: (54,7) for_write_seq_fmt
+  -> EXTERN: (55,7) for_write_seq_fmt_xmit
+  -> EXTERN: (55,7) for_write_seq_fmt
+  -> EXTERN: (56,7) for_write_seq_fmt_xmit
+  -> EXTERN: (56,7) for_write_seq_fmt
+  -> EXTERN: (56,48) omp_get_num_threads_
+  -> EXTERN: (57,7) for_write_seq_lis
+  -> EXTERN: (58,7) for_write_seq_lis
+  -> EXTERN: (63,8) CLOVER_BARRIER
+  -> EXTERN: (66,5) for_write_seq_lis
+  -> EXTERN: (67,5) for_write_seq_lis
+  -> INLINE: (71,9) GET_UNIT
+    -> EXTERN: (160,14) for_inquire
+  -> EXTERN: (73,5) for_open
+  -> INLINE: (75,16) GET_UNIT
+    -> EXTERN: (160,14) for_inquire
+  -> EXTERN: (76,7) for_open
+  -> EXTERN: (77,7) for_write_seq_fmt
+  -> EXTERN: (78,7) for_write_seq_fmt
+  -> EXTERN: (79,7) for_write_seq_fmt
+  -> EXTERN: (80,7) for_write_seq_fmt
+  -> EXTERN: (81,7) for_write_seq_fmt
+  -> EXTERN: (82,7) for_write_seq_fmt
+  -> EXTERN: (83,7) for_write_seq_fmt
+  -> EXTERN: (84,7) for_write_seq_fmt
+  -> EXTERN: (85,7) for_write_seq_fmt
+  -> EXTERN: (86,7) for_write_seq_fmt
+  -> EXTERN: (87,7) for_write_seq_fmt
+  -> EXTERN: (88,7) for_write_seq_fmt
+  -> EXTERN: (89,7) for_write_seq_fmt
+  -> EXTERN: (90,7) for_write_seq_fmt
+  -> EXTERN: (91,7) for_write_seq_fmt
+  -> EXTERN: (92,7) for_write_seq_fmt
+  -> EXTERN: (93,7) for_write_seq_fmt
+  -> EXTERN: (94,13) for_close
+  -> INLINE: (95,11) GET_UNIT
+    -> EXTERN: (160,14) for_inquire
+  -> EXTERN: (96,7) for_open
+  -> INLINE: (99,14) GET_UNIT
+    -> EXTERN: (160,14) for_inquire
+  -> EXTERN: (100,5) for_open
+  -> EXTERN: (101,18) REPORT_ERROR
+  -> EXTERN: (102,10) PARSE_INIT
+  -> EXTERN: (104,13) PARSE_GETLINE
+  -> EXTERN: (106,8) for_write_seq_fmt
+  -> EXTERN: (108,11) for_close
+  -> EXTERN: (111,8) CLOVER_BARRIER
+  -> INLINE: (113,8) GET_UNIT
+    -> EXTERN: (160,14) for_inquire
+  -> EXTERN: (114,3) for_open
+  -> EXTERN: (116,16) REPORT_ERROR
+  -> EXTERN: (118,8) CLOVER_BARRIER
+  -> EXTERN: (121,6) for_rewind
+  -> EXTERN: (123,9) for_read_seq_fmt
+  -> EXTERN: (125,9) for_write_seq_fmt
+  -> EXTERN: (130,6) for_write_seq_lis
+  -> EXTERN: (131,6) for_write_seq_lis
+  -> EXTERN: (132,6) for_write_seq_lis
+  -> EXTERN: (135,8) read_input_
+  -> EXTERN: (137,8) CLOVER_BARRIER
+  -> EXTERN: (141,8) start_
+  -> EXTERN: (143,8) CLOVER_BARRIER
+  -> EXTERN: (146,6) for_write_seq_lis
+  -> EXTERN: (149,9) for_close
+
+
+    Report from: OpenMP optimizations [openmp]
+
+initialise.f90(48:7-48:7):OMP:initialise_:  OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at initialise.f90(159,3) inlined into initialise.f90(39,11)
+   remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at initialise.f90(159,3) inlined into initialise.f90(71,9)
+   remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at initialise.f90(159,3) inlined into initialise.f90(75,16)
+   remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at initialise.f90(159,3) inlined into initialise.f90(95,11)
+   remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at initialise.f90(159,3) inlined into initialise.f90(99,14)
+   remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at initialise.f90(102,10)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at initialise.f90(159,3) inlined into initialise.f90(113,8)
+   remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at initialise.f90(121,6)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================

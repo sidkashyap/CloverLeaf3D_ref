@@ -1,0 +1,296 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: VISIT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (VISIT) [1] visit.f90(25,12)
+  -> EXTERN: (48,3) for_cpystr
+  -> EXTERN: (53,7) for_cpystr
+  -> EXTERN: (54,9) get_unit_
+  -> EXTERN: (55,7) for_open
+  -> EXTERN: (56,7) for_write_seq_fmt
+  -> EXTERN: (56,7) for_write_seq_fmt_xmit
+  -> EXTERN: (57,13) for_close
+  -> EXTERN: (64,31) timer_
+  -> EXTERN: (67,10) IDEAL_GAS
+  -> EXTERN: (70,58) timer_
+  -> EXTERN: (78,8) UPDATE_HALO
+  -> EXTERN: (81,31) timer_
+  -> EXTERN: (82,8) VISCOSITY
+  -> EXTERN: (83,58) timer_
+  -> EXTERN: (86,5) for_cpystr
+  -> EXTERN: (87,7) get_unit_
+  -> EXTERN: (88,5) for_open
+  -> EXTERN: (91,7) for_write_int_fmt
+  -> EXTERN: (93,7) for_write_int_fmt
+  -> EXTERN: (95,7) __resetsp_inlined
+  -> EXTERN: (95,7) for_concat
+  -> EXTERN: (95,7) __getsp_inlined
+  -> EXTERN: (95,18) for_trim
+  -> EXTERN: (95,23) for_trim
+  -> EXTERN: (95,36) for_trim
+  -> EXTERN: (95,52) _alloca
+  -> EXTERN: (95,52) for_concat
+  -> EXTERN: (95,52) _alloca
+  -> EXTERN: (95,54) for_trim
+  -> EXTERN: (96,7) for_write_seq_fmt
+  -> EXTERN: (96,21) for_trim
+  -> EXTERN: (98,11) for_close
+  -> EXTERN: (102,31) timer_
+  -> EXTERN: (111,7) for_write_int_fmt
+  -> EXTERN: (113,7) for_write_int_fmt
+  -> EXTERN: (115,7) __getsp_inlined
+  -> EXTERN: (115,7) for_concat
+  -> EXTERN: (115,7) __resetsp_inlined
+  -> EXTERN: (115,18) for_trim
+  -> EXTERN: (115,23) for_trim
+  -> EXTERN: (115,36) for_trim
+  -> EXTERN: (115,52) _alloca
+  -> EXTERN: (115,52) for_concat
+  -> EXTERN: (115,52) _alloca
+  -> EXTERN: (115,54) for_trim
+  -> EXTERN: (116,9) get_unit_
+  -> EXTERN: (117,7) for_open
+  -> EXTERN: (118,7) for_write_seq_fmt
+  -> EXTERN: (119,7) for_write_seq_fmt
+  -> EXTERN: (120,7) for_write_seq_fmt
+  -> EXTERN: (121,7) for_write_seq_fmt
+  -> EXTERN: (122,7) for_write_seq_fmt
+  -> EXTERN: (122,7) for_write_seq_fmt_xmit
+  -> EXTERN: (122,7) for_write_seq_fmt_xmit
+  -> EXTERN: (122,7) for_write_seq_fmt_xmit
+  -> EXTERN: (123,7) for_write_seq_fmt
+  -> EXTERN: (123,7) for_write_seq_fmt_xmit
+  -> EXTERN: (123,7) for_write_seq_fmt_xmit
+  -> EXTERN: (125,9) for_write_seq_fmt
+  -> EXTERN: (127,7) for_write_seq_fmt
+  -> EXTERN: (127,7) for_write_seq_fmt_xmit
+  -> EXTERN: (127,7) for_write_seq_fmt_xmit
+  -> EXTERN: (129,9) for_write_seq_fmt
+  -> EXTERN: (131,7) for_write_seq_fmt
+  -> EXTERN: (131,7) for_write_seq_fmt_xmit
+  -> EXTERN: (131,7) for_write_seq_fmt_xmit
+  -> EXTERN: (133,9) for_write_seq_fmt
+  -> EXTERN: (135,7) for_write_seq_fmt
+  -> EXTERN: (135,7) for_write_seq_fmt_xmit
+  -> EXTERN: (136,7) for_write_seq_fmt
+  -> EXTERN: (137,7) for_write_seq_fmt
+  -> EXTERN: (137,7) for_write_seq_fmt_xmit
+  -> EXTERN: (137,7) for_write_seq_fmt_xmit
+  -> EXTERN: (140,11) for_write_seq_fmt_xmit
+  -> EXTERN: (140,11) for_write_seq_fmt_xmit
+  -> EXTERN: (140,11) for_write_seq_fmt
+  -> EXTERN: (143,7) for_write_seq_fmt
+  -> EXTERN: (143,7) for_write_seq_fmt_xmit
+  -> EXTERN: (143,7) for_write_seq_fmt_xmit
+  -> EXTERN: (146,11) for_write_seq_fmt_xmit
+  -> EXTERN: (146,11) for_write_seq_fmt_xmit
+  -> EXTERN: (146,11) for_write_seq_fmt
+  -> EXTERN: (149,7) for_write_seq_fmt
+  -> EXTERN: (149,7) for_write_seq_fmt_xmit
+  -> EXTERN: (149,7) for_write_seq_fmt_xmit
+  -> EXTERN: (152,11) for_write_seq_fmt_xmit
+  -> EXTERN: (152,11) for_write_seq_fmt_xmit
+  -> EXTERN: (152,11) for_write_seq_fmt
+  -> EXTERN: (155,7) for_write_seq_fmt
+  -> EXTERN: (155,7) for_write_seq_fmt_xmit
+  -> EXTERN: (155,7) for_write_seq_fmt_xmit
+  -> EXTERN: (161,13) for_write_seq_fmt
+  -> EXTERN: (165,7) for_write_seq_fmt
+  -> EXTERN: (165,7) for_write_seq_fmt_xmit
+  -> EXTERN: (166,7) for_write_seq_fmt
+  -> EXTERN: (167,7) for_write_seq_fmt
+  -> EXTERN: (167,7) for_write_seq_fmt_xmit
+  -> EXTERN: (167,7) for_write_seq_fmt_xmit
+  -> EXTERN: (173,13) for_write_seq_fmt
+  -> EXTERN: (177,7) for_write_seq_fmt
+  -> EXTERN: (177,7) for_write_seq_fmt_xmit
+  -> EXTERN: (177,7) for_write_seq_fmt_xmit
+  -> EXTERN: (183,13) for_write_seq_fmt
+  -> EXTERN: (187,7) for_write_seq_fmt
+  -> EXTERN: (187,7) for_write_seq_fmt_xmit
+  -> EXTERN: (187,7) for_write_seq_fmt_xmit
+  -> EXTERN: (193,13) for_write_seq_fmt
+  -> EXTERN: (197,13) for_close
+  -> EXTERN: (200,50) timer_
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at visit.f90(66,3)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at visit.f90(72,3)
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 2 
+   remark #15477: vector loop cost: 0.750 
+   remark #15478: estimated potential speedup: 2.110 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=1
+LOOP END
+
+LOOP BEGIN at visit.f90(72,3)
+<Remainder loop for vectorization>
+   remark #25436: completely unrolled by 3  
+LOOP END
+
+LOOP BEGIN at visit.f90(94,7)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at visit.f90(103,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at visit.f90(124,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 125 and 291 line 125
+   LOOP END
+
+   LOOP BEGIN at visit.f90(128,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 129 and 291 line 129
+   LOOP END
+
+   LOOP BEGIN at visit.f90(132,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 133 and 291 line 133
+   LOOP END
+
+   LOOP BEGIN at visit.f90(138,7)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 140 and 291 line 140
+
+      LOOP BEGIN at visit.f90(139,9)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 140 and 291 line 140
+
+         LOOP BEGIN at visit.f90(140,11)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between ARGBLOCK_REC_36 line 140 and ARGBLOCK_REC_36 line 140
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at visit.f90(144,7)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 146 and 291 line 146
+
+      LOOP BEGIN at visit.f90(145,9)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 146 and 291 line 146
+
+         LOOP BEGIN at visit.f90(146,11)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between ARGBLOCK_REC_40 line 146 and ARGBLOCK_REC_40 line 146
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at visit.f90(150,7)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 152 and 291 line 152
+
+      LOOP BEGIN at visit.f90(151,9)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 152 and 291 line 152
+
+         LOOP BEGIN at visit.f90(152,11)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between ARGBLOCK_REC_44 line 152 and ARGBLOCK_REC_44 line 152
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at visit.f90(156,7)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 161 and 291 line 161
+
+      LOOP BEGIN at visit.f90(157,9)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 161 and 291 line 161
+
+         LOOP BEGIN at visit.f90(158,11)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 161 and 291 line 161
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at visit.f90(168,7)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 173 and 291 line 173
+
+      LOOP BEGIN at visit.f90(169,9)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 173 and 291 line 173
+
+         LOOP BEGIN at visit.f90(170,11)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 173 and 291 line 173
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at visit.f90(178,7)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 183 and 291 line 183
+
+      LOOP BEGIN at visit.f90(179,9)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 183 and 291 line 183
+
+         LOOP BEGIN at visit.f90(180,11)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 183 and 291 line 183
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at visit.f90(188,7)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 193 and 291 line 193
+
+      LOOP BEGIN at visit.f90(189,9)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 193 and 291 line 193
+
+         LOOP BEGIN at visit.f90(190,11)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between 291 line 193 and 291 line 193
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

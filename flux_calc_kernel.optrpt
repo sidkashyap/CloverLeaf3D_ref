@@ -1,0 +1,139 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: flux_calc_kernel_module._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (flux_calc_kernel_module._) [1] flux_calc_kernel.f90(22,8)
+
+===========================================================================
+
+Begin optimization report for: FLUX_CALC_KERNEL_MODULE::FLUX_CALC_KERNEL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (FLUX_CALC_KERNEL_MODULE::FLUX_CALC_KERNEL) [2] flux_calc_kernel.f90(26,12)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+flux_calc_kernel.f90(55:7-55:7):OMP:flux_calc_kernel_module_mp_flux_calc_kernel_:  OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at flux_calc_kernel.f90(58,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at flux_calc_kernel.f90(59,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at flux_calc_kernel.f90(60,7)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at flux_calc_kernel.f90(60,7)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15450: unmasked unaligned unit stride loads: 8 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 30 
+         remark #15477: vector loop cost: 15.500 
+         remark #15478: estimated potential speedup: 1.890 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at flux_calc_kernel.f90(60,7)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at flux_calc_kernel.f90(60,7)
+      <Remainder loop for vectorization>
+         remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at flux_calc_kernel.f90(70,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at flux_calc_kernel.f90(71,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at flux_calc_kernel.f90(72,7)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at flux_calc_kernel.f90(72,7)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15450: unmasked unaligned unit stride loads: 8 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 30 
+         remark #15477: vector loop cost: 15.500 
+         remark #15478: estimated potential speedup: 1.890 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at flux_calc_kernel.f90(72,7)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at flux_calc_kernel.f90(72,7)
+      <Remainder loop for vectorization>
+         remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at flux_calc_kernel.f90(82,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at flux_calc_kernel.f90(83,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at flux_calc_kernel.f90(84,7)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at flux_calc_kernel.f90(84,7)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15450: unmasked unaligned unit stride loads: 7 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 30 
+         remark #15477: vector loop cost: 15.000 
+         remark #15478: estimated potential speedup: 1.950 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at flux_calc_kernel.f90(84,7)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at flux_calc_kernel.f90(84,7)
+      <Remainder loop for vectorization>
+         remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

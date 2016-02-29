@@ -1,0 +1,4198 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: update_halo_kernel_module._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (update_halo_kernel_module._) [1] update_halo_kernel.f90(28,8)
+
+===========================================================================
+
+Begin optimization report for: UPDATE_HALO_KERNEL_MODULE::UPDATE_HALO_KERNEL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (UPDATE_HALO_KERNEL_MODULE::UPDATE_HALO_KERNEL) [2] update_halo_kernel.f90(32,14)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+update_halo_kernel.f90(109:7-109:7):OMP:update_halo_kernel_module_mp_update_halo_kernel_:  OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at update_halo_kernel.f90(118,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(120,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(119,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(119,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(119,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(119,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(119,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(129,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(131,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(130,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(130,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(130,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(130,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(130,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(140,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(141,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(142,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(142,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(142,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(151,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(152,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(153,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(153,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(153,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(164,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(164,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(162,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(163,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(163,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(163,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(163,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(163,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(175,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(175,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(173,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(174,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(174,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(174,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(174,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(174,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(187,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(189,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(188,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(188,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(188,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(188,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(188,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(198,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(200,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(199,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(199,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(199,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(199,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(199,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(209,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(210,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(211,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(211,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(211,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(220,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(221,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(222,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(222,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(222,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(233,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(233,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(231,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(232,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(232,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(232,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(232,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(232,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(244,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(244,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(242,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(243,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(243,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(243,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(243,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(243,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(256,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(258,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(257,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(257,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(257,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(257,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(257,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(267,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(269,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(268,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(268,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(268,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(268,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(268,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(278,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(279,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(280,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(280,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(280,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(289,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(290,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(291,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(291,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(291,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(302,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(302,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(300,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(301,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(301,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(301,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(301,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(301,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(313,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(313,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(311,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(312,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(312,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(312,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(312,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(312,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(325,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(327,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(326,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(326,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(326,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(326,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(326,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(336,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(338,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(337,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(337,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(337,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(337,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(337,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(347,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(348,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(349,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(349,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(349,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(358,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(359,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(360,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(360,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(360,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(371,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(371,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(369,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(370,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(370,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(370,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(370,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(370,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(382,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(382,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(380,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(381,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(381,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(381,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(381,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(381,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(394,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(396,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(395,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(395,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(395,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(395,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(395,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(405,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(407,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(406,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(406,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(406,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(406,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(406,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(416,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(417,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(418,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(418,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(418,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(427,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(428,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(429,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(429,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(429,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(440,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(440,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(438,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(439,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(439,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(439,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(439,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(439,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(451,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(451,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(449,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(450,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(450,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(450,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(450,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(450,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(463,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(465,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(464,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(464,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(464,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(464,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(464,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(474,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(476,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(475,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(475,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(475,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(475,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(475,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(485,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(486,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(487,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(487,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(487,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(496,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(497,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(498,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(498,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(498,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(509,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(509,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(507,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(508,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(508,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(508,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(508,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(508,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(520,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(520,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(518,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(519,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(519,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(519,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(519,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(519,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(532,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(534,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(533,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(533,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(533,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(533,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(533,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(543,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(545,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(544,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(544,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(544,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(544,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(544,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(554,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(555,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(556,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(556,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(556,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(565,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(566,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(567,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(567,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(567,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(578,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(578,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(576,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(577,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(577,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(577,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(577,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(577,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(589,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(589,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(587,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(588,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(588,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(588,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(588,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(588,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(601,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(603,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(602,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(602,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(602,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(602,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(602,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(612,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(614,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(613,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(613,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(613,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(613,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(613,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(623,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(624,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(625,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(625,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 3.500 
+         remark #15478: estimated potential speedup: 1.400 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(625,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(634,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(635,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(636,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(636,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.630 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(636,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(647,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(647,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(645,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(646,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(646,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(646,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(646,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(646,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(658,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(658,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(656,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(657,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(657,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(657,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(657,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(657,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(670,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(672,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(671,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(671,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(671,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(671,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(671,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(681,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(683,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(682,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(682,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(682,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(682,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(682,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(692,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(693,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(694,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(694,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 3.500 
+         remark #15478: estimated potential speedup: 1.400 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(694,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(703,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(704,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(705,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(705,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.630 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(705,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(716,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(716,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(714,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(715,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(715,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(715,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(715,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(715,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(727,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(727,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(725,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(726,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(726,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(726,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(726,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(726,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(739,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(741,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(740,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(740,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(740,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(740,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(750,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(752,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(751,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(751,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(751,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(751,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(761,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(762,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(763,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(763,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(763,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(772,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(773,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(774,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(774,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(774,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(785,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(785,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(783,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(784,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(784,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(784,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(784,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(784,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(796,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(796,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(794,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(795,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(795,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(795,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(795,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(795,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(808,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(810,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(809,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(809,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(809,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(809,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(819,7)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 1 3 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(821,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(820,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(820,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(820,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(820,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(830,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(831,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(832,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(832,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(832,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(841,7)
+   remark #25101: Loop Interchange not done due to: Original Order seems proper
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(842,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(843,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(843,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(843,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(854,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(854,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(852,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(853,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(853,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(853,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(853,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(853,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(865,11)
+   remark #25444: Loopnest Interchanged: ( 1 2 3 ) --> ( 3 1 2 )
+   remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(865,11) ]
+
+   LOOP BEGIN at update_halo_kernel.f90(863,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(864,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(864,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(864,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(864,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(864,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(877,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(879,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(879,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(878,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(878,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(878,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(878,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(878,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(888,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(890,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(890,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(889,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(889,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(889,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(889,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(889,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(899,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(900,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(901,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(901,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(901,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(910,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(911,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(912,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(912,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(912,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(921,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(923,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(923,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(922,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(922,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(922,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(922,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(932,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(934,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(934,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(933,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(933,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(933,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(933,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(946,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(948,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(948,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(947,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(947,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(947,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(947,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(947,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(957,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(959,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(959,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(958,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(958,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(958,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(958,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(958,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(968,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(969,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(970,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(970,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(970,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(979,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(980,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(981,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(981,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(981,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(990,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(992,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(992,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(991,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(991,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(991,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(991,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1001,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1003,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1003,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1002,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1002,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1002,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1002,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1015,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1017,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1017,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1016,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1016,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1016,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1016,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1016,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1026,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1028,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1028,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1027,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1027,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1027,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1027,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1027,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1037,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1038,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1039,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1039,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 3.500 
+         remark #15478: estimated potential speedup: 1.400 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1039,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1048,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1049,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1050,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1050,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.630 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1050,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1059,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1061,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1061,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1060,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1060,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1060,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1060,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1060,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1070,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1072,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1072,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1071,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1071,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1071,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1071,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1071,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1084,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1086,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1086,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1085,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1085,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1085,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1085,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1085,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1095,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1097,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1097,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1096,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1096,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1096,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1096,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1096,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1106,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1107,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1108,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1108,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 3.500 
+         remark #15478: estimated potential speedup: 1.400 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1108,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1117,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1118,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1119,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1119,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.630 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1119,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1128,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1130,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1130,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1129,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1129,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1129,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1129,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1129,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1139,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1141,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1141,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1140,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1140,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1140,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1140,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1140,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1153,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1155,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1155,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1154,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1154,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1154,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1154,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1164,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1166,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1166,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1165,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1165,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1165,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1165,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1175,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1176,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1177,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1177,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1177,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1186,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1187,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1188,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1188,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1188,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1197,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1199,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1199,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1198,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1198,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1198,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1198,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1198,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1208,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1210,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1210,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1209,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1209,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1209,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1209,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1209,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1222,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1224,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1224,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1223,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1223,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1223,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1223,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1233,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1235,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1235,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1234,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1234,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1234,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1234,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1244,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1245,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1246,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1246,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1246,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1255,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1256,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1257,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1257,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1257,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1266,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1268,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1268,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1267,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1267,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1267,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1267,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1267,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1277,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1279,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1279,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1278,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1278,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1278,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1278,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1278,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1291,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1293,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1293,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1292,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1292,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1292,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1292,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1292,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1302,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1304,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1304,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1303,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1303,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1303,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1303,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1303,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1313,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1314,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1315,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1315,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1315,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1324,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1325,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1326,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1326,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1326,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1335,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1337,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1337,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1336,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1336,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1336,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1336,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1346,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1348,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1348,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1347,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1347,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1347,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1347,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1359,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1361,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1361,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1360,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1360,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1360,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1360,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1360,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1370,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1372,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1372,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1371,9)
+         remark #25401: memcopy(with guard) generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at update_halo_kernel.f90(1371,9)
+         <Peeled loop for vectorization, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1371,9)
+         <Multiversioned v2>
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15448: unmasked aligned unit stride loads: 1 
+            remark #15449: unmasked aligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 1.500 
+            remark #15478: estimated potential speedup: 2.550 
+            remark #15488: --- end vector loop cost summary ---
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1371,9)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at update_halo_kernel.f90(1371,9)
+         <Remainder loop for vectorization, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1381,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1382,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1383,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1383,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15462: unmasked indexed (or gather) loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 3.000 
+         remark #15478: estimated potential speedup: 1.310 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1383,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1392,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1393,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at update_halo_kernel.f90(1394,11)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1394,11)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15460: masked strided loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 1.570 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1394,11)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1403,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1405,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1405,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1404,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1404,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1404,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1404,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at update_halo_kernel.f90(1414,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at update_halo_kernel.f90(1416,11)
+      remark #25444: Loopnest Interchanged: ( 1 2 ) --> ( 2 1 )
+      remark #15542: loop was not vectorized: inner loop was already vectorized   [ update_halo_kernel.f90(1416,11) ]
+
+      LOOP BEGIN at update_halo_kernel.f90(1415,9)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1415,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 5 
+         remark #15477: vector loop cost: 2.000 
+         remark #15478: estimated potential speedup: 2.390 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1415,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at update_halo_kernel.f90(1415,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+Optimization 'PRE' reduced: function size or variable count limit exceeded: use -override_limits / -Qoverride_limits to override
+Optimization 'OSR' reduced: function size or variable count limit exceeded: use -override_limits / -Qoverride_limits to override
+
+    Report from: Code generation optimizations [cg]
+
+update_halo_kernel.f90(1373,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1373,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1373,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1362,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1362,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1362,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1305,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1305,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1305,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1294,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1294,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1294,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1280,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1280,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1280,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1269,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1269,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1269,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1211,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1211,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1211,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1200,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1200,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1200,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1142,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1142,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1142,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1131,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1131,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1131,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1098,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1098,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1098,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1087,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1087,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1087,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1073,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1073,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1073,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1062,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1062,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1062,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1029,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1029,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1029,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(1018,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1018,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(1018,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(960,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(960,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(960,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(949,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(949,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(949,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(891,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(891,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(891,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(880,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(880,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(880,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(866,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(866,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(866,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(855,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(855,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(855,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(797,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(797,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(797,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(786,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(786,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(786,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(728,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(728,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(728,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(717,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(717,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(717,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(684,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(684,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(684,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(673,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(673,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(673,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(659,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(659,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(659,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(648,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(648,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(648,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(615,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(615,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(615,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(604,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(604,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(604,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(590,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(590,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(590,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(579,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(579,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(579,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(546,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(546,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(546,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(535,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(535,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(535,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(521,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(521,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(521,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(510,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(510,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(510,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(477,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(477,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(477,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(466,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(466,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(466,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(452,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(452,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(452,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(441,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(441,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(441,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(408,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(408,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(408,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(397,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(397,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(397,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(383,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(383,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(383,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(372,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(372,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(372,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(339,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(339,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(339,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(328,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(328,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(328,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(314,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(314,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(314,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(303,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(303,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(303,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(270,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(270,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(270,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(259,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(259,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(259,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(245,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(245,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(245,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(234,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(234,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(234,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(201,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(201,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(201,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(190,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(190,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(190,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(176,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(176,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(176,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(165,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(165,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(165,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(132,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(132,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(132,13):remark #34026: call to memcpy implemented as a call to optimized library version
+update_halo_kernel.f90(121,13):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(121,13):remark #34014: optimization advice for memcpy: increase the source's alignment to 16 (and use __assume_aligned) to speed up library implementation
+update_halo_kernel.f90(121,13):remark #34026: call to memcpy implemented as a call to optimized library version
+===========================================================================

@@ -1,0 +1,970 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: advec_mom_kernel_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (advec_mom_kernel_mod._) [1] advec_mom_kernel.f90(25,8)
+
+===========================================================================
+
+Begin optimization report for: ADVEC_MOM_KERNEL_MOD::ADVEC_MOM_KERNEL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (ADVEC_MOM_KERNEL_MOD::ADVEC_MOM_KERNEL) [2] advec_mom_kernel.f90(29,12)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+advec_mom_kernel.f90(106:7-106:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(137:7-137:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(170:7-170:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(206:7-206:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(239:7-239:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(269:7-269:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(315:7-315:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(357:7-357:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(402:7-402:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(435:7-435:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(500:7-500:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(540:7-540:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(580:7-580:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(623:7-623:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(655:7-655:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(710:7-710:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(748:7-748:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(791:7-791:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(835:7-835:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(867:7-867:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(921:7-921:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at advec_mom_kernel.f90(270,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(270,1) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between post_vol line 278 and post_vol line 279
+
+   LOOP BEGIN at advec_mom_kernel.f90(271,1)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between post_vol line 278 and post_vol line 279
+
+      LOOP BEGIN at advec_mom_kernel.f90(272,1)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between post_vol line 278 and post_vol line 279
+
+         LOOP BEGIN at advec_mom_kernel.f90(273,1)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 283 and l line 276
+
+            LOOP BEGIN at advec_mom_kernel.f90(274,1)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 282 and k line 276
+
+               LOOP BEGIN at advec_mom_kernel.f90(275,1)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 20 
+                  remark #15477: vector loop cost: 104.500 
+                  remark #15478: estimated potential speedup: 0.190 
+                  remark #15488: --- end vector loop cost summary ---
+                  remark #25439: unrolled with remainder by 2  
+               LOOP END
+
+               LOOP BEGIN at advec_mom_kernel.f90(275,1)
+               <Remainder>
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(240,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(240,1) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between post_vol line 247 and post_vol line 248
+
+   LOOP BEGIN at advec_mom_kernel.f90(241,1)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between post_vol line 247 and post_vol line 248
+
+      LOOP BEGIN at advec_mom_kernel.f90(242,1)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between post_vol line 247 and post_vol line 248
+
+         LOOP BEGIN at advec_mom_kernel.f90(243,1)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 253 and l line 246
+
+            LOOP BEGIN at advec_mom_kernel.f90(244,1)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 252 and k line 246
+
+               LOOP BEGIN at advec_mom_kernel.f90(245,1)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 20 
+                  remark #15477: vector loop cost: 104.500 
+                  remark #15478: estimated potential speedup: 0.190 
+                  remark #15488: --- end vector loop cost summary ---
+                  remark #25439: unrolled with remainder by 2  
+               LOOP END
+
+               LOOP BEGIN at advec_mom_kernel.f90(245,1)
+               <Remainder>
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(210,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(210,1) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between post_vol line 221 and post_vol line 222
+
+   LOOP BEGIN at advec_mom_kernel.f90(211,1)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between post_vol line 221 and post_vol line 222
+
+      LOOP BEGIN at advec_mom_kernel.f90(212,1)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between post_vol line 221 and post_vol line 222
+
+         LOOP BEGIN at advec_mom_kernel.f90(213,1)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 226 and l line 217
+
+            LOOP BEGIN at advec_mom_kernel.f90(214,1)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 225 and k line 217
+
+               LOOP BEGIN at advec_mom_kernel.f90(215,1)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 21 
+                  remark #15477: vector loop cost: 138.500 
+                  remark #15478: estimated potential speedup: 0.150 
+                  remark #15488: --- end vector loop cost summary ---
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(171,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(171,1) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between post_vol line 182 and post_vol line 183
+
+   LOOP BEGIN at advec_mom_kernel.f90(172,1)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between post_vol line 182 and post_vol line 183
+
+      LOOP BEGIN at advec_mom_kernel.f90(173,1)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between post_vol line 182 and post_vol line 183
+
+         LOOP BEGIN at advec_mom_kernel.f90(174,1)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 188 and l line 178
+
+            LOOP BEGIN at advec_mom_kernel.f90(175,1)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 187 and k line 178
+
+               LOOP BEGIN at advec_mom_kernel.f90(176,1)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 21 
+                  remark #15477: vector loop cost: 138.500 
+                  remark #15478: estimated potential speedup: 0.150 
+                  remark #15488: --- end vector loop cost summary ---
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(138,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(138,1) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between post_vol line 147 and post_vol line 149
+
+   LOOP BEGIN at advec_mom_kernel.f90(139,1)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between post_vol line 147 and post_vol line 149
+
+      LOOP BEGIN at advec_mom_kernel.f90(140,1)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between post_vol line 147 and post_vol line 149
+
+         LOOP BEGIN at advec_mom_kernel.f90(141,1)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 154 and l line 145
+
+            LOOP BEGIN at advec_mom_kernel.f90(142,1)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 153 and k line 145
+
+               LOOP BEGIN at advec_mom_kernel.f90(143,1)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 22 
+                  remark #15477: vector loop cost: 172.500 
+                  remark #15478: estimated potential speedup: 0.120 
+                  remark #15488: --- end vector loop cost summary ---
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(108,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(108,1) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between post_vol line 116 and post_vol line 118
+
+   LOOP BEGIN at advec_mom_kernel.f90(109,1)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between post_vol line 116 and post_vol line 118
+
+      LOOP BEGIN at advec_mom_kernel.f90(110,1)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between post_vol line 116 and post_vol line 118
+
+         LOOP BEGIN at advec_mom_kernel.f90(111,1)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 122 and l line 115
+
+            LOOP BEGIN at advec_mom_kernel.f90(112,1)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 121 and k line 115
+
+               LOOP BEGIN at advec_mom_kernel.f90(113,1)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 22 
+                  remark #15477: vector loop cost: 172.500 
+                  remark #15478: estimated potential speedup: 0.120 
+                  remark #15488: --- end vector loop cost summary ---
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(749,5)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(749,5) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between node_flux line 762 and node_flux line 762
+
+   LOOP BEGIN at advec_mom_kernel.f90(750,5)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between node_flux line 762 and node_flux line 762
+
+      LOOP BEGIN at advec_mom_kernel.f90(751,5)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between node_flux line 762 and node_flux line 762
+
+         LOOP BEGIN at advec_mom_kernel.f90(753,5)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 770 and l line 757
+
+            LOOP BEGIN at advec_mom_kernel.f90(754,5)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 769 and k line 757
+
+               LOOP BEGIN at advec_mom_kernel.f90(755,5)
+               <Predicate Optimized v3>
+                  remark #25422: Invariant Condition at line 757 hoisted out of this loop
+                  remark #25422: Invariant Condition at line 757 hoisted out of this loop
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 29 
+                  remark #15477: vector loop cost: 157.000 
+                  remark #15478: estimated potential speedup: 0.180 
+                  remark #15488: --- end vector loop cost summary ---
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(792,5)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(792,5) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_post line 802 and node_mass_post line 802
+
+   LOOP BEGIN at advec_mom_kernel.f90(793,6)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_post line 802 and node_mass_post line 802
+
+      LOOP BEGIN at advec_mom_kernel.f90(794,6)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_post line 802 and node_mass_post line 802
+
+         LOOP BEGIN at advec_mom_kernel.f90(795,6)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 815 and l line 799
+
+            LOOP BEGIN at advec_mom_kernel.f90(796,6)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 814 and k line 799
+
+               LOOP BEGIN at advec_mom_kernel.f90(797,6)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 27 
+                  remark #15477: vector loop cost: 298.000 
+                  remark #15478: estimated potential speedup: 0.090 
+                  remark #15488: --- end vector loop cost summary ---
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(836,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(836,1) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_pre line 844 and node_mass_pre line 844
+
+   LOOP BEGIN at advec_mom_kernel.f90(837,5)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_pre line 844 and node_mass_pre line 844
+
+      LOOP BEGIN at advec_mom_kernel.f90(838,9)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_pre line 844 and node_mass_pre line 844
+
+         LOOP BEGIN at advec_mom_kernel.f90(839,13)
+            remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+            remark #25452: Original Order found to be proper, but by a close margin
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 848 and l line 843
+
+            LOOP BEGIN at advec_mom_kernel.f90(840,17)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 847 and k line 843
+
+               LOOP BEGIN at advec_mom_kernel.f90(841,21)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 19 
+                  remark #15477: vector loop cost: 71.500 
+                  remark #15478: estimated potential speedup: 0.260 
+                  remark #15488: --- end vector loop cost summary ---
+                  remark #25439: unrolled with remainder by 2  
+               LOOP END
+
+               LOOP BEGIN at advec_mom_kernel.f90(841,21)
+               <Remainder>
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(868,5)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 ) --> ( 2 1 3 ) 
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 894 and limiter_count line 894
+
+   LOOP BEGIN at advec_mom_kernel.f90(869,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 894 and limiter_count line 894
+
+      LOOP BEGIN at advec_mom_kernel.f90(870,9)
+         remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(896,11) ]
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between limiter_count line 894 and limiter_count line 894
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(922,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(922,1) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between vel1 line 929 and vel1 line 929
+
+   LOOP BEGIN at advec_mom_kernel.f90(923,4)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between vel1 line 929 and vel1 line 929
+
+      LOOP BEGIN at advec_mom_kernel.f90(924,7)
+      <Distributed chunk1>
+         remark #25426: Loop Distributed (2 way) 
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 4 ) --> ( 1 4 3 2 ) 
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between vel1 line 929 and vel1 line 929
+
+         LOOP BEGIN at advec_mom_kernel.f90(925,9)
+            remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+            remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 ) --> ( 3 2 1 ) 
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between j line 933 and j line 928
+
+            LOOP BEGIN at advec_mom_kernel.f90(926,13)
+               remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+               remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 ) --> ( 2 1 ) 
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 932 and k line 928
+
+               LOOP BEGIN at advec_mom_kernel.f90(927,17)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15452: unmasked strided loads: 5 
+                  remark #15453: unmasked strided stores: 1 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 26 
+                  remark #15477: vector loop cost: 129.000 
+                  remark #15478: estimated potential speedup: 0.200 
+                  remark #15488: --- end vector loop cost summary ---
+                  remark #25439: unrolled with remainder by 2  
+               LOOP END
+
+               LOOP BEGIN at advec_mom_kernel.f90(927,17)
+               <Remainder>
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at advec_mom_kernel.f90(924,7)
+      <Distributed chunk2>
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 1 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 0.390 
+         remark #15488: --- end vector loop cost summary ---
+         remark #25439: unrolled with remainder by 8  
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         remark #25457: Number of partial sums replaced: 1
+      LOOP END
+
+      LOOP BEGIN at advec_mom_kernel.f90(924,7)
+      <Remainder, Distributed chunk2>
+         remark #25436: completely unrolled by 7  
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(541,5)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(541,5) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between node_flux line 552 and node_flux line 552
+
+   LOOP BEGIN at advec_mom_kernel.f90(542,5)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between node_flux line 552 and node_flux line 552
+
+      LOOP BEGIN at advec_mom_kernel.f90(543,5)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between node_flux line 552 and node_flux line 552
+
+         LOOP BEGIN at advec_mom_kernel.f90(545,5)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 560 and l line 549
+
+            LOOP BEGIN at advec_mom_kernel.f90(546,5)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 559 and k line 549
+
+               LOOP BEGIN at advec_mom_kernel.f90(547,5)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 22 
+                  remark #15477: vector loop cost: 158.000 
+                  remark #15478: estimated potential speedup: 0.130 
+                  remark #15488: --- end vector loop cost summary ---
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(581,5)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(581,5) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_post line 590 and node_mass_post line 590
+
+   LOOP BEGIN at advec_mom_kernel.f90(582,6)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_post line 590 and node_mass_post line 590
+
+      LOOP BEGIN at advec_mom_kernel.f90(583,6)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_post line 590 and node_mass_post line 590
+
+         LOOP BEGIN at advec_mom_kernel.f90(584,6)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 602 and l line 588
+
+            LOOP BEGIN at advec_mom_kernel.f90(585,6)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 601 and k line 588
+
+               LOOP BEGIN at advec_mom_kernel.f90(586,6)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 27 
+                  remark #15477: vector loop cost: 298.000 
+                  remark #15478: estimated potential speedup: 0.090 
+                  remark #15488: --- end vector loop cost summary ---
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(624,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(624,1) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_pre line 632 and node_mass_pre line 632
+
+   LOOP BEGIN at advec_mom_kernel.f90(625,5)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_pre line 632 and node_mass_pre line 632
+
+      LOOP BEGIN at advec_mom_kernel.f90(626,9)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_pre line 632 and node_mass_pre line 632
+
+         LOOP BEGIN at advec_mom_kernel.f90(627,13)
+            remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+            remark #25452: Original Order found to be proper, but by a close margin
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 636 and l line 631
+
+            LOOP BEGIN at advec_mom_kernel.f90(628,17)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 635 and k line 631
+
+               LOOP BEGIN at advec_mom_kernel.f90(629,21)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 19 
+                  remark #15477: vector loop cost: 71.500 
+                  remark #15478: estimated potential speedup: 0.260 
+                  remark #15488: --- end vector loop cost summary ---
+                  remark #25439: unrolled with remainder by 2  
+               LOOP END
+
+               LOOP BEGIN at advec_mom_kernel.f90(629,21)
+               <Remainder>
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(656,5)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 ) --> ( 2 1 3 ) 
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 683 and limiter_count line 683
+
+   LOOP BEGIN at advec_mom_kernel.f90(657,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 683 and limiter_count line 683
+
+      LOOP BEGIN at advec_mom_kernel.f90(658,9)
+         remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(685,11) ]
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between limiter_count line 683 and limiter_count line 683
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(711,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(711,1) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between vel1 line 718 and vel1 line 718
+
+   LOOP BEGIN at advec_mom_kernel.f90(712,4)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between vel1 line 718 and vel1 line 718
+
+      LOOP BEGIN at advec_mom_kernel.f90(713,7)
+      <Distributed chunk1>
+         remark #25426: Loop Distributed (2 way) 
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 4 ) --> ( 1 4 3 2 ) 
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between vel1 line 718 and vel1 line 718
+
+         LOOP BEGIN at advec_mom_kernel.f90(714,9)
+            remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+            remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 ) --> ( 3 2 1 ) 
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between j line 722 and j line 717
+
+            LOOP BEGIN at advec_mom_kernel.f90(715,13)
+               remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+               remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 ) --> ( 2 1 ) 
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 721 and k line 717
+
+               LOOP BEGIN at advec_mom_kernel.f90(716,17)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15452: unmasked strided loads: 5 
+                  remark #15453: unmasked strided stores: 1 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 26 
+                  remark #15477: vector loop cost: 129.000 
+                  remark #15478: estimated potential speedup: 0.200 
+                  remark #15488: --- end vector loop cost summary ---
+                  remark #25439: unrolled with remainder by 2  
+               LOOP END
+
+               LOOP BEGIN at advec_mom_kernel.f90(716,17)
+               <Remainder>
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at advec_mom_kernel.f90(713,7)
+      <Distributed chunk2>
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 1 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 0.390 
+         remark #15488: --- end vector loop cost summary ---
+         remark #25439: unrolled with remainder by 8  
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         remark #25457: Number of partial sums replaced: 1
+      LOOP END
+
+      LOOP BEGIN at advec_mom_kernel.f90(713,7)
+      <Remainder, Distributed chunk2>
+         remark #25436: completely unrolled by 7  
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(316,5)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(316,5) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between node_flux line 326 and node_flux line 326
+
+   LOOP BEGIN at advec_mom_kernel.f90(317,5)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between node_flux line 326 and node_flux line 326
+
+      LOOP BEGIN at advec_mom_kernel.f90(318,5)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between node_flux line 326 and node_flux line 326
+
+         LOOP BEGIN at advec_mom_kernel.f90(320,5)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 334 and l line 324
+
+            LOOP BEGIN at advec_mom_kernel.f90(321,5)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 333 and k line 324
+
+               LOOP BEGIN at advec_mom_kernel.f90(322,5)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 22 
+                  remark #15477: vector loop cost: 158.000 
+                  remark #15478: estimated potential speedup: 0.130 
+                  remark #15488: --- end vector loop cost summary ---
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(358,5)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(358,5) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_post line 367 and node_mass_post line 367
+
+   LOOP BEGIN at advec_mom_kernel.f90(359,6)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_post line 367 and node_mass_post line 367
+
+      LOOP BEGIN at advec_mom_kernel.f90(360,6)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_post line 367 and node_mass_post line 367
+
+         LOOP BEGIN at advec_mom_kernel.f90(361,6)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 380 and l line 365
+
+            LOOP BEGIN at advec_mom_kernel.f90(362,6)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 379 and k line 365
+
+               LOOP BEGIN at advec_mom_kernel.f90(363,6)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 27 
+                  remark #15477: vector loop cost: 298.000 
+                  remark #15478: estimated potential speedup: 0.090 
+                  remark #15488: --- end vector loop cost summary ---
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(403,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(403,1) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_pre line 411 and node_mass_pre line 411
+
+   LOOP BEGIN at advec_mom_kernel.f90(404,5)
+      remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+      remark #25452: Original Order found to be proper, but by a close margin
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_pre line 411 and node_mass_pre line 411
+
+      LOOP BEGIN at advec_mom_kernel.f90(405,9)
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25452: Original Order found to be proper, but by a close margin
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between node_mass_pre line 411 and node_mass_pre line 411
+
+         LOOP BEGIN at advec_mom_kernel.f90(406,13)
+            remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+            remark #25452: Original Order found to be proper, but by a close margin
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between l line 415 and l line 410
+
+            LOOP BEGIN at advec_mom_kernel.f90(407,17)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 414 and k line 410
+
+               LOOP BEGIN at advec_mom_kernel.f90(408,21)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 19 
+                  remark #15477: vector loop cost: 71.500 
+                  remark #15478: estimated potential speedup: 0.260 
+                  remark #15488: --- end vector loop cost summary ---
+                  remark #25439: unrolled with remainder by 2  
+               LOOP END
+
+               LOOP BEGIN at advec_mom_kernel.f90(408,21)
+               <Remainder>
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(436,5)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 ) --> ( 2 1 3 ) 
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 475 and limiter_count line 475
+
+   LOOP BEGIN at advec_mom_kernel.f90(437,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 475 and limiter_count line 475
+
+      LOOP BEGIN at advec_mom_kernel.f90(438,9)
+         remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(477,11) ]
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between limiter_count line 475 and limiter_count line 475
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at advec_mom_kernel.f90(501,9)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(501,9) ]
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between vel1 line 508 and vel1 line 508
+
+   LOOP BEGIN at advec_mom_kernel.f90(502,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between vel1 line 508 and vel1 line 508
+
+      LOOP BEGIN at advec_mom_kernel.f90(503,9)
+      <Distributed chunk1>
+         remark #25426: Loop Distributed (2 way) 
+         remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+         remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 4 ) --> ( 1 4 3 2 ) 
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between vel1 line 508 and vel1 line 508
+
+         LOOP BEGIN at advec_mom_kernel.f90(504,9)
+            remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+            remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 ) --> ( 3 2 1 ) 
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between j line 512 and j line 507
+
+            LOOP BEGIN at advec_mom_kernel.f90(505,9)
+               remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+               remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 ) --> ( 2 1 ) 
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between k line 511 and k line 507
+
+               LOOP BEGIN at advec_mom_kernel.f90(506,9)
+                  remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+                  remark #15452: unmasked strided loads: 5 
+                  remark #15453: unmasked strided stores: 1 
+                  remark #15475: --- begin vector loop cost summary ---
+                  remark #15476: scalar loop cost: 26 
+                  remark #15477: vector loop cost: 129.000 
+                  remark #15478: estimated potential speedup: 0.200 
+                  remark #15488: --- end vector loop cost summary ---
+                  remark #25439: unrolled with remainder by 2  
+               LOOP END
+
+               LOOP BEGIN at advec_mom_kernel.f90(506,9)
+               <Remainder>
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at advec_mom_kernel.f90(503,9)
+      <Distributed chunk2>
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 1 
+         remark #15477: vector loop cost: 2.500 
+         remark #15478: estimated potential speedup: 0.390 
+         remark #15488: --- end vector loop cost summary ---
+         remark #25439: unrolled with remainder by 8  
+         remark #25456: Number of Array Refs Scalar Replaced In Loop: 1
+         remark #25457: Number of partial sums replaced: 1
+      LOOP END
+
+      LOOP BEGIN at advec_mom_kernel.f90(503,9)
+      <Remainder, Distributed chunk2>
+         remark #25436: completely unrolled by 7  
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

@@ -33,6 +33,10 @@ SUBROUTINE generate_chunk(tile)
     REAL(KIND=8), DIMENSION(number_of_states) :: state_xmin,state_xmax,state_ymin,state_ymax,state_zmin,state_zmax,state_radius
     INTEGER,      DIMENSION(number_of_states) :: state_geometry
 
+    !Sid -> number of states is defined in read_input.f90 -> read the clover.in file to get the state value and choose between the
+    !max of that and default state_max
+    ! state 1 density=0.2 energy=1.0
+    ! state 2 density=1.0 energy=2.5 geometry=cuboid xmin=0.0 xmax=5.0 ymin=0.0 ymax=2.0 zmin=0.0 zmax=4.0
     DO state=1,number_of_states
         state_density(state)=states(state)%density
         state_energy(state)=states(state)%energy

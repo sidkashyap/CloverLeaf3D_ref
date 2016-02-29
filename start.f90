@@ -53,12 +53,15 @@ SUBROUTINE start
 
   CALL clover_barrier
 
+  !Sid - The number of chunks is equal to MPI_COMM_SIZE count=parallel%max_task
   CALL clover_get_num_chunks(number_of_chunks)
 
+  !Sid - tiles_per_chunk is configured to be 1, we can change this in the input file
   ALLOCATE(chunk%tiles(1:tiles_per_chunk))
 
 
-
+  !Sid - logically, you have now initialized the grid, chunks and chunks per tile. We now need to decompose the grid into chunks and
+  !tiles as per the user defined configureation, 1d_tile, 2d_tile etc. 
   CALL clover_decompose(grid%x_cells,grid%y_cells,grid%z_cells,left,right,bottom,top,back,front)
 
       
@@ -70,11 +73,16 @@ SUBROUTINE start
     y_cells = top   -bottom+1
     z_cells = front -back  +1
 
-    !write(*,*) parallel%task, left, right, bottom, top, back, front
-
+   ! write(*,*) parallel%task, left, right, bottom, top, back, front,x_cells,y_cells,z_cells
+   !        0           1          10           1           5           1           5          10           5           5
+   !        1           1          10           6          10           1           5          10           5           5
+   !        2           1          10           1           5           6          10          10           5           5
+   !        3           1          10           6          10           6          10          10           5           5
+    
     CALL clover_decompose_tile(x_cells,y_cells,z_cells)
 
 
+    !Sid -> allocate and initialize all the data items
     DO t=1, tiles_per_chunk
       CALL build_field(t)
     END DO
@@ -84,6 +92,7 @@ SUBROUTINE start
 
   CALL clover_barrier
 
+  !Sid -> allocate buffers on all sides of your chunk - 6
   CALL clover_allocate_buffers()
 
   IF(parallel%boss)THEN
@@ -91,7 +100,10 @@ SUBROUTINE start
   ENDIF
 
   DO t=1,tiles_per_chunk
+      !Sid -> This calculates the volume and the area for the tile
       CALL initialise_chunk(t)
+      !Sid -> Generate Chunk, density and energy are defined as per the input file and the velocities are set to 0! (TODO to be
+      !confirmed)
       CALL generate_chunk(t)
   ENDDO
 
@@ -106,6 +118,7 @@ SUBROUTINE start
   profiler_on=.FALSE.
 
 
+  !Sid -> The ideal gas kernel initializes the pressure and soundspeed 
   DO t = 1, tiles_per_chunk
     CALL ideal_gas(t,.FALSE.)
   END DO

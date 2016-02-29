@@ -1,0 +1,66 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: viscosity_kernel_module._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (viscosity_kernel_module._) [1] viscosity_kernel.f90(28,8)
+
+===========================================================================
+
+Begin optimization report for: VISCOSITY_KERNEL_MODULE::VISCOSITY_KERNEL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (VISCOSITY_KERNEL_MODULE::VISCOSITY_KERNEL) [2] viscosity_kernel.f90(32,12)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+viscosity_kernel.f90(64:7-64:7):OMP:viscosity_kernel_module_mp_viscosity_kernel_:  OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at viscosity_kernel.f90(71,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at viscosity_kernel.f90(72,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at viscosity_kernel.f90(73,7)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at viscosity_kernel.f90(73,7)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15450: unmasked unaligned unit stride loads: 35 
+         remark #15451: unmasked unaligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 922 
+         remark #15477: vector loop cost: 555.000 
+         remark #15478: estimated potential speedup: 1.650 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at viscosity_kernel.f90(73,7)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

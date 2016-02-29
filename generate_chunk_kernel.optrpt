@@ -1,0 +1,255 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: generate_chunk_kernel_module._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (generate_chunk_kernel_module._) [1] generate_chunk_kernel.f90(26,8)
+
+===========================================================================
+
+Begin optimization report for: GENERATE_CHUNK_KERNEL_MODULE::GENERATE_CHUNK_KERNEL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (GENERATE_CHUNK_KERNEL_MODULE::GENERATE_CHUNK_KERNEL) [2] generate_chunk_kernel.f90(30,12)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+generate_chunk_kernel.f90(96:7-96:7):OMP:generate_chunk_kernel_module_mp_generate_chunk_kernel_:  OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at generate_chunk_kernel.f90(98,3)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at generate_chunk_kernel.f90(99,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at generate_chunk_kernel.f90(100,7)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at generate_chunk_kernel.f90(100,7)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 1.500 
+         remark #15478: estimated potential speedup: 2.540 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at generate_chunk_kernel.f90(100,7)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at generate_chunk_kernel.f90(107,3)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at generate_chunk_kernel.f90(108,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at generate_chunk_kernel.f90(109,7)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at generate_chunk_kernel.f90(109,7)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 1.500 
+         remark #15478: estimated potential speedup: 2.540 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at generate_chunk_kernel.f90(109,7)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at generate_chunk_kernel.f90(118,3)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at generate_chunk_kernel.f90(119,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at generate_chunk_kernel.f90(120,7)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at generate_chunk_kernel.f90(120,7)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 1.500 
+         remark #15478: estimated potential speedup: 2.540 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at generate_chunk_kernel.f90(120,7)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at generate_chunk_kernel.f90(128,3)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at generate_chunk_kernel.f90(129,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at generate_chunk_kernel.f90(130,7)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at generate_chunk_kernel.f90(130,7)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 1.500 
+         remark #15478: estimated potential speedup: 2.540 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at generate_chunk_kernel.f90(130,7)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at generate_chunk_kernel.f90(139,3)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at generate_chunk_kernel.f90(140,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at generate_chunk_kernel.f90(141,7)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at generate_chunk_kernel.f90(141,7)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 4 
+         remark #15477: vector loop cost: 1.500 
+         remark #15478: estimated potential speedup: 2.540 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at generate_chunk_kernel.f90(141,7)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at generate_chunk_kernel.f90(150,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at generate_chunk_kernel.f90(158,5)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at generate_chunk_kernel.f90(159,7)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at generate_chunk_kernel.f90(160,9)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at generate_chunk_kernel.f90(167,19)
+               remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+               remark #25452: Original Order found to be proper, but by a close margin
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between lt line 175 and lt line 170
+               remark #25015: Estimate of max trip count of loop=2
+
+               LOOP BEGIN at generate_chunk_kernel.f90(168,21)
+                  remark #25084: Preprocess Loopnests: Moving Out Store    [ generate_chunk_kernel.f90(169,23) ]
+                  remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+                  remark #15346: vector dependence: assumed FLOW dependence between kt line 174 and kt line 170
+                  remark #25015: Estimate of max trip count of loop=2
+
+                  LOOP BEGIN at generate_chunk_kernel.f90(169,23)
+                     remark #25436: completely unrolled by 2   (pre-vector) 
+                  LOOP END
+               LOOP END
+            LOOP END
+
+            LOOP BEGIN at generate_chunk_kernel.f90(184,15)
+               remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+               remark #25452: Original Order found to be proper, but by a close margin
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between lt line 192 and lt line 187
+               remark #25015: Estimate of max trip count of loop=2
+
+               LOOP BEGIN at generate_chunk_kernel.f90(185,17)
+                  remark #25084: Preprocess Loopnests: Moving Out Store    [ generate_chunk_kernel.f90(186,19) ]
+                  remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+                  remark #15346: vector dependence: assumed FLOW dependence between kt line 191 and kt line 187
+                  remark #25015: Estimate of max trip count of loop=2
+
+                  LOOP BEGIN at generate_chunk_kernel.f90(186,19)
+                     remark #25436: completely unrolled by 2   (pre-vector) 
+                  LOOP END
+               LOOP END
+            LOOP END
+
+            LOOP BEGIN at generate_chunk_kernel.f90(198,15)
+               remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+               remark #25452: Original Order found to be proper, but by a close margin
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between lt line 206 and lt line 201
+               remark #25015: Estimate of max trip count of loop=2
+
+               LOOP BEGIN at generate_chunk_kernel.f90(199,17)
+                  remark #25084: Preprocess Loopnests: Moving Out Store    [ generate_chunk_kernel.f90(200,19) ]
+                  remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+                  remark #15346: vector dependence: assumed FLOW dependence between kt line 205 and kt line 201
+                  remark #25015: Estimate of max trip count of loop=2
+
+                  LOOP BEGIN at generate_chunk_kernel.f90(200,19)
+                     remark #25436: completely unrolled by 2   (pre-vector) 
+                  LOOP END
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

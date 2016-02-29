@@ -1,0 +1,306 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: READ_INPUT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (READ_INPUT) [1] read_input.f90(24,12)
+  -> EXTERN: (88,20) for_write_seq_lis
+  -> EXTERN: (89,20) for_write_seq_lis
+  -> EXTERN: (91,8) PARSE_INIT
+  -> EXTERN: (94,10) PARSE_GETLINE
+  -> EXTERN: (97,7) memcpy
+  -> EXTERN: (97,12) PARSE_GETWORD
+  -> EXTERN: (98,14) for_cpstr
+  -> EXTERN: (99,15) for_cpstr
+  -> EXTERN: (100,33) PARSE_GETIVAL
+  -> EXTERN: (100,47) PARSE_GETWORD
+  -> EXTERN: (108,29) REPORT_ERROR
+  -> EXTERN: (110,8) PARSE_INIT
+  -> EXTERN: (112,3) for_alloc_allocatable
+  -> EXTERN: (112,3) for_check_mult_overflow64
+  -> EXTERN: (127,10) PARSE_GETLINE
+  -> EXTERN: (132,7) memcpy
+  -> EXTERN: (132,12) PARSE_GETWORD
+  -> EXTERN: (134,14) for_cpstr
+  -> EXTERN: (136,12) for_cpstr
+  -> EXTERN: (137,16) PARSE_GETRVAL
+  -> EXTERN: (137,30) PARSE_GETWORD
+  -> EXTERN: (138,26) for_write_seq_fmt_xmit
+  -> EXTERN: (138,26) for_write_seq_fmt
+  -> EXTERN: (139,12) for_cpstr
+  -> EXTERN: (140,15) PARSE_GETRVAL
+  -> EXTERN: (140,29) PARSE_GETWORD
+  -> EXTERN: (141,26) for_write_seq_fmt_xmit
+  -> EXTERN: (141,26) for_write_seq_fmt
+  -> EXTERN: (142,12) for_cpstr
+  -> EXTERN: (143,16) PARSE_GETRVAL
+  -> EXTERN: (143,30) PARSE_GETWORD
+  -> EXTERN: (144,26) for_write_seq_fmt_xmit
+  -> EXTERN: (144,26) for_write_seq_fmt
+  -> EXTERN: (145,12) for_cpstr
+  -> EXTERN: (146,18) PARSE_GETRVAL
+  -> EXTERN: (146,32) PARSE_GETWORD
+  -> EXTERN: (147,26) for_write_seq_fmt_xmit
+  -> EXTERN: (147,26) for_write_seq_fmt
+  -> EXTERN: (148,12) for_cpstr
+  -> EXTERN: (149,18) PARSE_GETIVAL
+  -> EXTERN: (149,32) PARSE_GETWORD
+  -> EXTERN: (150,26) for_write_seq_fmt_xmit
+  -> EXTERN: (150,26) for_write_seq_fmt
+  -> EXTERN: (151,12) for_cpstr
+  -> EXTERN: (152,19) PARSE_GETRVAL
+  -> EXTERN: (152,33) PARSE_GETWORD
+  -> EXTERN: (153,26) for_write_seq_fmt_xmit
+  -> EXTERN: (153,26) for_write_seq_fmt
+  -> EXTERN: (154,12) for_cpstr
+  -> EXTERN: (155,19) PARSE_GETRVAL
+  -> EXTERN: (155,33) PARSE_GETWORD
+  -> EXTERN: (156,26) for_write_seq_fmt_xmit
+  -> EXTERN: (156,26) for_write_seq_fmt
+  -> EXTERN: (157,12) for_cpstr
+  -> EXTERN: (158,19) PARSE_GETRVAL
+  -> EXTERN: (158,33) PARSE_GETWORD
+  -> EXTERN: (159,26) for_write_seq_fmt_xmit
+  -> EXTERN: (159,26) for_write_seq_fmt
+  -> EXTERN: (160,12) for_cpstr
+  -> EXTERN: (161,19) PARSE_GETRVAL
+  -> EXTERN: (161,33) PARSE_GETWORD
+  -> EXTERN: (162,26) for_write_seq_fmt_xmit
+  -> EXTERN: (162,26) for_write_seq_fmt
+  -> EXTERN: (163,12) for_cpstr
+  -> EXTERN: (164,19) PARSE_GETRVAL
+  -> EXTERN: (164,33) PARSE_GETWORD
+  -> EXTERN: (165,26) for_write_seq_fmt_xmit
+  -> EXTERN: (165,26) for_write_seq_fmt
+  -> EXTERN: (166,12) for_cpstr
+  -> EXTERN: (167,19) PARSE_GETRVAL
+  -> EXTERN: (167,33) PARSE_GETWORD
+  -> EXTERN: (168,26) for_write_seq_fmt_xmit
+  -> EXTERN: (168,26) for_write_seq_fmt
+  -> EXTERN: (169,12) for_cpstr
+  -> EXTERN: (170,22) PARSE_GETIVAL
+  -> EXTERN: (170,36) PARSE_GETWORD
+  -> EXTERN: (171,26) for_write_seq_fmt_xmit
+  -> EXTERN: (171,26) for_write_seq_fmt
+  -> EXTERN: (172,12) for_cpstr
+  -> EXTERN: (173,22) PARSE_GETIVAL
+  -> EXTERN: (173,36) PARSE_GETWORD
+  -> EXTERN: (174,26) for_write_seq_fmt_xmit
+  -> EXTERN: (174,26) for_write_seq_fmt
+  -> EXTERN: (175,12) for_cpstr
+  -> EXTERN: (176,22) PARSE_GETIVAL
+  -> EXTERN: (176,36) PARSE_GETWORD
+  -> EXTERN: (177,26) for_write_seq_fmt_xmit
+  -> EXTERN: (177,26) for_write_seq_fmt
+  -> EXTERN: (178,12) for_cpstr
+  -> EXTERN: (179,25) PARSE_GETIVAL
+  -> EXTERN: (179,39) PARSE_GETWORD
+  -> EXTERN: (180,26) for_write_seq_fmt_xmit
+  -> EXTERN: (180,26) for_write_seq_fmt
+  -> EXTERN: (181,12) for_cpstr
+  -> EXTERN: (182,27) PARSE_GETIVAL
+  -> EXTERN: (182,41) PARSE_GETWORD
+  -> EXTERN: (183,26) for_write_seq_fmt_xmit
+  -> EXTERN: (183,26) for_write_seq_fmt
+  -> EXTERN: (184,12) for_cpstr
+  -> EXTERN: (185,25) PARSE_GETIVAL
+  -> EXTERN: (185,39) PARSE_GETWORD
+  -> EXTERN: (186,26) for_write_seq_fmt_xmit
+  -> EXTERN: (186,26) for_write_seq_fmt
+  -> EXTERN: (187,12) for_cpstr
+  -> EXTERN: (188,25) PARSE_GETIVAL
+  -> EXTERN: (188,39) PARSE_GETWORD
+  -> EXTERN: (189,26) for_write_seq_fmt_xmit
+  -> EXTERN: (189,26) for_write_seq_fmt
+  -> EXTERN: (190,12) for_cpstr
+  -> EXTERN: (194,12) for_cpstr
+  -> EXTERN: (198,12) for_cpstr
+  -> EXTERN: (202,12) for_cpstr
+  -> EXTERN: (204,26) for_write_seq_fmt
+  -> EXTERN: (205,12) for_cpstr
+  -> EXTERN: (206,22) PARSE_GETIVAL
+  -> EXTERN: (206,36) PARSE_GETWORD
+  -> EXTERN: (207,26) for_write_seq_fmt_xmit
+  -> EXTERN: (207,26) for_write_seq_fmt
+  -> EXTERN: (208,12) for_cpstr
+  -> EXTERN: (210,15) PARSE_GETIVAL
+  -> EXTERN: (210,29) PARSE_GETWORD
+  -> EXTERN: (212,26) for_write_seq_lis
+  -> EXTERN: (212,26) for_write_seq_lis_xmit
+  -> EXTERN: (213,36) REPORT_ERROR
+  -> EXTERN: (214,27) for_write_seq_lis
+  -> EXTERN: (218,11) memcpy
+  -> EXTERN: (218,16) PARSE_GETWORD
+  -> EXTERN: (219,18) for_cpstr
+  -> EXTERN: (223,16) for_cpstr
+  -> EXTERN: (224,32) PARSE_GETRVAL
+  -> EXTERN: (224,46) PARSE_GETWORD
+  -> EXTERN: (225,30) for_write_seq_fmt_xmit
+  -> EXTERN: (225,30) for_write_seq_fmt
+  -> EXTERN: (226,16) for_cpstr
+  -> EXTERN: (227,32) PARSE_GETRVAL
+  -> EXTERN: (227,46) PARSE_GETWORD
+  -> EXTERN: (228,30) for_write_seq_fmt_xmit
+  -> EXTERN: (228,30) for_write_seq_fmt
+  -> EXTERN: (229,16) for_cpstr
+  -> EXTERN: (230,32) PARSE_GETRVAL
+  -> EXTERN: (230,46) PARSE_GETWORD
+  -> EXTERN: (231,30) for_write_seq_fmt_xmit
+  -> EXTERN: (231,30) for_write_seq_fmt
+  -> EXTERN: (232,16) for_cpstr
+  -> EXTERN: (233,32) PARSE_GETRVAL
+  -> EXTERN: (233,46) PARSE_GETWORD
+  -> EXTERN: (234,30) for_write_seq_fmt_xmit
+  -> EXTERN: (234,30) for_write_seq_fmt
+  -> EXTERN: (235,16) for_cpstr
+  -> EXTERN: (236,32) PARSE_GETRVAL
+  -> EXTERN: (236,46) PARSE_GETWORD
+  -> EXTERN: (237,30) for_write_seq_fmt_xmit
+  -> EXTERN: (237,30) for_write_seq_fmt
+  -> EXTERN: (238,16) for_cpstr
+  -> EXTERN: (239,32) PARSE_GETRVAL
+  -> EXTERN: (239,46) PARSE_GETWORD
+  -> EXTERN: (240,30) for_write_seq_fmt_xmit
+  -> EXTERN: (240,30) for_write_seq_fmt
+  -> EXTERN: (241,16) for_cpstr
+  -> EXTERN: (242,32) PARSE_GETRVAL
+  -> EXTERN: (242,46) PARSE_GETWORD
+  -> EXTERN: (243,30) for_write_seq_fmt_xmit
+  -> EXTERN: (243,30) for_write_seq_fmt
+  -> EXTERN: (244,16) for_cpstr
+  -> EXTERN: (245,32) PARSE_GETRVAL
+  -> EXTERN: (245,46) PARSE_GETWORD
+  -> EXTERN: (246,30) for_write_seq_fmt_xmit
+  -> EXTERN: (246,30) for_write_seq_fmt
+  -> EXTERN: (247,16) for_cpstr
+  -> EXTERN: (248,32) PARSE_GETRVAL
+  -> EXTERN: (248,46) PARSE_GETWORD
+  -> EXTERN: (249,30) for_write_seq_fmt_xmit
+  -> EXTERN: (249,30) for_write_seq_fmt
+  -> EXTERN: (250,16) for_cpstr
+  -> EXTERN: (251,34) PARSE_GETRVAL
+  -> EXTERN: (251,48) PARSE_GETWORD
+  -> EXTERN: (252,30) for_write_seq_fmt_xmit
+  -> EXTERN: (252,30) for_write_seq_fmt
+  -> EXTERN: (253,16) for_cpstr
+  -> EXTERN: (254,35) PARSE_GETRVAL
+  -> EXTERN: (254,49) PARSE_GETWORD
+  -> EXTERN: (255,30) for_write_seq_fmt_xmit
+  -> EXTERN: (255,30) for_write_seq_fmt
+  -> EXTERN: (256,16) for_cpstr
+  -> EXTERN: (257,34) PARSE_GETRVAL
+  -> EXTERN: (257,48) PARSE_GETWORD
+  -> EXTERN: (258,30) for_write_seq_fmt_xmit
+  -> EXTERN: (258,30) for_write_seq_fmt
+  -> EXTERN: (259,16) for_cpstr
+  -> EXTERN: (260,13) for_cpystr
+  -> EXTERN: (260,18) for_trim
+  -> EXTERN: (260,23) PARSE_GETWORD
+  -> EXTERN: (262,18) for_cpstr
+  -> EXTERN: (264,32) for_write_seq_fmt
+  -> EXTERN: (265,18) for_cpstr
+  -> EXTERN: (267,32) for_write_seq_fmt
+  -> EXTERN: (268,18) for_cpstr
+  -> EXTERN: (270,32) for_write_seq_fmt
+  -> EXTERN: (274,27) for_write_seq_lis
+  -> EXTERN: (280,5) for_write_seq_lis
+  -> EXTERN: (281,5) for_write_seq_fmt
+  -> EXTERN: (282,5) for_write_seq_lis
+  -> EXTERN: (283,5) for_write_seq_lis
+  -> EXTERN: (284,5) for_write_seq_lis
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at read_input.f90(91,8)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+
+   LOOP BEGIN at read_input.f90(95,13)
+      remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+   LOOP END
+LOOP END
+
+LOOP BEGIN at read_input.f90(113,3)
+   remark #25045: Fused Loops: ( 113 114 115 116 117 118 )
+
+   remark #15301: FUSED LOOP WAS VECTORIZED
+   remark #15462: unmasked indexed (or gather) loads: 6 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 20 
+   remark #15477: vector loop cost: 18.000 
+   remark #15478: estimated potential speedup: 1.100 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at read_input.f90(114,3)
+   remark #25046: Loop lost in Fusion 
+LOOP END
+
+LOOP BEGIN at read_input.f90(115,3)
+   remark #25046: Loop lost in Fusion 
+LOOP END
+
+LOOP BEGIN at read_input.f90(116,3)
+   remark #25046: Loop lost in Fusion 
+LOOP END
+
+LOOP BEGIN at read_input.f90(117,3)
+   remark #25046: Loop lost in Fusion 
+LOOP END
+
+LOOP BEGIN at read_input.f90(118,3)
+LOOP END
+
+LOOP BEGIN at read_input.f90(113,3)
+<Remainder loop for vectorization>
+   remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at read_input.f90(124,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at read_input.f90(129,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at read_input.f90(216,9)
+         remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at read_input.f90(296,3)
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15460: masked strided loads: 6 
+   remark #15462: unmasked indexed (or gather) loads: 6 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 52 
+   remark #15477: vector loop cost: 42.000 
+   remark #15478: estimated potential speedup: 1.230 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at read_input.f90(296,3)
+<Remainder loop for vectorization>
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+read_input.f90(97,7):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+read_input.f90(132,7):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+read_input.f90(218,11):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+===========================================================================

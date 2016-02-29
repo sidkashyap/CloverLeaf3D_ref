@@ -1,0 +1,1230 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: build_field_module._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (build_field_module._) [1] build_field.f90(23,8)
+
+===========================================================================
+
+Begin optimization report for: BUILD_FIELD_MODULE::BUILD_FIELD
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (BUILD_FIELD_MODULE::BUILD_FIELD) [2] build_field.f90(27,12)
+  -> EXTERN: (41,4) for_alloc_allocatable
+  -> EXTERN: (41,4) for_check_mult_overflow64
+  -> EXTERN: (44,4) for_alloc_allocatable
+  -> EXTERN: (44,4) for_check_mult_overflow64
+  -> EXTERN: (47,4) for_alloc_allocatable
+  -> EXTERN: (47,4) for_check_mult_overflow64
+  -> EXTERN: (50,4) for_alloc_allocatable
+  -> EXTERN: (50,4) for_check_mult_overflow64
+  -> EXTERN: (53,4) for_alloc_allocatable
+  -> EXTERN: (53,4) for_check_mult_overflow64
+  -> EXTERN: (56,4) for_alloc_allocatable
+  -> EXTERN: (56,4) for_check_mult_overflow64
+  -> EXTERN: (59,4) for_alloc_allocatable
+  -> EXTERN: (59,4) for_check_mult_overflow64
+  -> EXTERN: (63,4) for_alloc_allocatable
+  -> EXTERN: (63,4) for_check_mult_overflow64
+  -> EXTERN: (66,4) for_alloc_allocatable
+  -> EXTERN: (66,4) for_check_mult_overflow64
+  -> EXTERN: (69,4) for_alloc_allocatable
+  -> EXTERN: (69,4) for_check_mult_overflow64
+  -> EXTERN: (72,4) for_alloc_allocatable
+  -> EXTERN: (72,4) for_check_mult_overflow64
+  -> EXTERN: (75,4) for_alloc_allocatable
+  -> EXTERN: (75,4) for_check_mult_overflow64
+  -> EXTERN: (78,4) for_alloc_allocatable
+  -> EXTERN: (78,4) for_check_mult_overflow64
+  -> EXTERN: (83,4) for_alloc_allocatable
+  -> EXTERN: (83,4) for_check_mult_overflow64
+  -> EXTERN: (86,4) for_alloc_allocatable
+  -> EXTERN: (86,4) for_check_mult_overflow64
+  -> EXTERN: (89,4) for_alloc_allocatable
+  -> EXTERN: (89,4) for_check_mult_overflow64
+  -> EXTERN: (92,4) for_alloc_allocatable
+  -> EXTERN: (92,4) for_check_mult_overflow64
+  -> EXTERN: (95,4) for_alloc_allocatable
+  -> EXTERN: (95,4) for_check_mult_overflow64
+  -> EXTERN: (98,4) for_alloc_allocatable
+  -> EXTERN: (98,4) for_check_mult_overflow64
+  -> EXTERN: (102,4) for_alloc_allocatable
+  -> EXTERN: (102,4) for_check_mult_overflow64
+  -> EXTERN: (105,4) for_alloc_allocatable
+  -> EXTERN: (105,4) for_check_mult_overflow64
+  -> EXTERN: (108,4) for_alloc_allocatable
+  -> EXTERN: (108,4) for_check_mult_overflow64
+  -> EXTERN: (111,4) for_alloc_allocatable
+  -> EXTERN: (111,4) for_check_mult_overflow64
+  -> EXTERN: (114,4) for_alloc_allocatable
+  -> EXTERN: (114,4) for_check_mult_overflow64
+  -> EXTERN: (117,4) for_alloc_allocatable
+  -> EXTERN: (117,4) for_check_mult_overflow64
+  -> EXTERN: (120,4) for_alloc_allocatable
+  -> EXTERN: (120,4) for_check_mult_overflow64
+  -> EXTERN: (124,4) for_alloc_allocatable
+  -> EXTERN: (124,4) for_check_mult_overflow64
+  -> EXTERN: (125,4) for_alloc_allocatable
+  -> EXTERN: (125,4) for_check_mult_overflow64
+  -> EXTERN: (126,4) for_alloc_allocatable
+  -> EXTERN: (126,4) for_check_mult_overflow64
+  -> EXTERN: (127,4) for_alloc_allocatable
+  -> EXTERN: (127,4) for_check_mult_overflow64
+  -> EXTERN: (128,4) for_alloc_allocatable
+  -> EXTERN: (128,4) for_check_mult_overflow64
+  -> EXTERN: (129,4) for_alloc_allocatable
+  -> EXTERN: (129,4) for_check_mult_overflow64
+  -> EXTERN: (130,4) for_alloc_allocatable
+  -> EXTERN: (130,4) for_check_mult_overflow64
+  -> EXTERN: (131,4) for_alloc_allocatable
+  -> EXTERN: (131,4) for_check_mult_overflow64
+  -> EXTERN: (132,4) for_alloc_allocatable
+  -> EXTERN: (132,4) for_check_mult_overflow64
+  -> EXTERN: (133,4) for_alloc_allocatable
+  -> EXTERN: (133,4) for_check_mult_overflow64
+  -> EXTERN: (134,4) for_alloc_allocatable
+  -> EXTERN: (134,4) for_check_mult_overflow64
+  -> EXTERN: (135,4) for_alloc_allocatable
+  -> EXTERN: (135,4) for_check_mult_overflow64
+  -> EXTERN: (136,4) for_alloc_allocatable
+  -> EXTERN: (136,4) for_check_mult_overflow64
+  -> EXTERN: (139,4) for_alloc_allocatable
+  -> EXTERN: (139,4) for_check_mult_overflow64
+  -> EXTERN: (142,4) for_alloc_allocatable
+  -> EXTERN: (142,4) for_check_mult_overflow64
+  -> EXTERN: (145,4) for_alloc_allocatable
+  -> EXTERN: (145,4) for_check_mult_overflow64
+
+
+    Report from: OpenMP optimizations [openmp]
+
+build_field.f90(153:10-153:10):OMP:build_field_module_mp_build_field_:  OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at build_field.f90(215,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(215,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(215,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(216,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(216,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(216,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(217,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(217,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(217,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(218,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(218,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(218,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(219,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(219,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(219,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(220,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(220,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(220,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(221,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(221,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(221,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(222,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(222,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(222,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(223,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(223,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(223,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(224,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(224,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(224,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(225,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(225,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(225,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(226,4)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(226,4)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 2.500 
+      remark #15478: estimated potential speedup: 1.450 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(226,4)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(156,4)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(157,6)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(157,6)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(157,6)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(157,6)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(158,6)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(158,6)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(158,6)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(158,6)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(159,6)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(159,6)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(159,6)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(159,6)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(160,6)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(160,6)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(160,6)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(160,6)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(161,6)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(161,6)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(161,6)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(161,6)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(162,6)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(162,6)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(162,6)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(162,6)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(163,6)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(163,6)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(163,6)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(163,6)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(168,4)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(169,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(169,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(169,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(169,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(170,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(170,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(170,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(170,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(171,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(171,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(171,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(171,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(172,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(172,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(172,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(172,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(173,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(173,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(173,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(173,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(174,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(174,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(174,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(174,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(175,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(175,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(175,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(175,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(177,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(177,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(177,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(177,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(178,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(178,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(178,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(178,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(179,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(179,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(179,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(179,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(184,4)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(185,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(185,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(185,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(185,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(186,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(186,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(186,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(186,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(187,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(187,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(187,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(187,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(188,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(188,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(188,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(188,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(189,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(189,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(189,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(189,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(190,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(190,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(190,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(190,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(196,4)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(197,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(197,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(197,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(197,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(198,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(198,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(198,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(198,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(199,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(199,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(199,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(199,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(200,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(200,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(200,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(200,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at build_field.f90(205,4)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at build_field.f90(206,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(206,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(206,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(206,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(207,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(207,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(207,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(207,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at build_field.f90(209,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at build_field.f90(209,4)
+         remark #25408: memset generated
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at build_field.f90(209,4)
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar loop cost: 4 
+            remark #15477: vector loop cost: 2.500 
+            remark #15478: estimated potential speedup: 1.450 
+            remark #15488: --- end vector loop cost summary ---
+            remark #25015: Estimate of max trip count of loop=3
+         LOOP END
+
+         LOOP BEGIN at build_field.f90(209,4)
+         <Remainder loop for vectorization>
+            remark #25015: Estimate of max trip count of loop=12
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+build_field.f90(215,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(215,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(216,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(216,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(217,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(217,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(218,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(218,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(219,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(219,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(220,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(220,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(221,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(221,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(222,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(222,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(223,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(223,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(224,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(224,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(225,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(225,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(226,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(226,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(157,6):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(157,6):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(158,6):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(158,6):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(159,6):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(159,6):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(160,6):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(160,6):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(161,6):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(161,6):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(162,6):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(162,6):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(163,6):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(163,6):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(169,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(169,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(170,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(170,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(171,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(171,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(172,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(172,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(173,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(173,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(174,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(174,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(175,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(175,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(177,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(177,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(178,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(178,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(179,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(179,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(185,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(185,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(186,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(186,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(187,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(187,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(188,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(188,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(189,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(189,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(190,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(190,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(197,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(197,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(198,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(198,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(199,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(199,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(200,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(200,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(206,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(206,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(207,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(207,4):remark #34026: call to memset implemented as a call to optimized library version
+build_field.f90(209,4):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+build_field.f90(209,4):remark #34026: call to memset implemented as a call to optimized library version
+===========================================================================

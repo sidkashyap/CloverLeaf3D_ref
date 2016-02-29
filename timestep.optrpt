@@ -1,0 +1,108 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: timestep_module._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (timestep_module._) [1] timestep.f90(24,8)
+
+===========================================================================
+
+Begin optimization report for: TIMESTEP_MODULE::TIMESTEP
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (TIMESTEP_MODULE::TIMESTEP) [2] timestep.f90(28,12)
+  -> EXTERN: (59,31) timer_
+  -> EXTERN: (62,10) IDEAL_GAS
+  -> EXTERN: (65,58) timer_
+  -> EXTERN: (74,8) UPDATE_HALO
+  -> EXTERN: (77,31) timer_
+  -> EXTERN: (78,8) VISCOSITY
+  -> EXTERN: (79,58) timer_
+  -> EXTERN: (84,8) UPDATE_HALO
+  -> EXTERN: (87,31) timer_
+  -> EXTERN: (91,10) CALC_DT
+  -> EXTERN: (95,7) memcpy
+  -> EXTERN: (108,8) CLOVER_MIN
+  -> EXTERN: (109,56) timer_
+  -> EXTERN: (114,8) omp_get_thread_num_
+  -> EXTERN: (115,7) for_write_seq_fmt_xmit
+  -> EXTERN: (115,7) for_write_seq_fmt_xmit
+  -> EXTERN: (115,7) for_write_seq_fmt_xmit
+  -> EXTERN: (115,7) for_write_seq_fmt_xmit
+  -> EXTERN: (115,7) for_write_seq_fmt_xmit
+  -> EXTERN: (115,7) for_write_seq_fmt_xmit
+  -> EXTERN: (115,7) for_write_seq_fmt_xmit
+  -> EXTERN: (115,7) for_write_seq_fmt
+  -> EXTERN: (117,7) for_write_seq_fmt_xmit
+  -> EXTERN: (117,7) for_write_seq_fmt_xmit
+  -> EXTERN: (117,7) for_write_seq_fmt_xmit
+  -> EXTERN: (117,7) for_write_seq_fmt_xmit
+  -> EXTERN: (117,7) for_write_seq_fmt_xmit
+  -> EXTERN: (117,7) for_write_seq_fmt_xmit
+  -> EXTERN: (117,7) for_write_seq_fmt_xmit
+  -> EXTERN: (117,7) for_write_seq_fmt
+  -> EXTERN: (123,10) REPORT_ERROR
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at timestep.f90(61,3)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at timestep.f90(67,3)
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 2 
+   remark #15477: vector loop cost: 0.750 
+   remark #15478: estimated potential speedup: 2.110 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=1
+LOOP END
+
+LOOP BEGIN at timestep.f90(67,3)
+<Remainder loop for vectorization>
+   remark #25436: completely unrolled by 3  
+LOOP END
+
+LOOP BEGIN at timestep.f90(81,3)
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 2 
+   remark #15477: vector loop cost: 0.750 
+   remark #15478: estimated potential speedup: 2.110 
+   remark #15488: --- end vector loop cost summary ---
+   remark #25015: Estimate of max trip count of loop=1
+LOOP END
+
+LOOP BEGIN at timestep.f90(81,3)
+<Remainder loop for vectorization>
+   remark #25436: completely unrolled by 3  
+LOOP END
+
+LOOP BEGIN at timestep.f90(91,10)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+timestep.f90(95,7):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (1, 0), and destination (alignment, offset): (1, 0)
+===========================================================================

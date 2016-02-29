@@ -1,0 +1,162 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: HYDRO
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (HYDRO) [1] hydro.f90(23,12)
+  -> EXTERN: (23,12) _alloca
+  -> EXTERN: (23,12) __getsp_inlined
+  -> EXTERN: (44,16) timer_
+  -> EXTERN: (48,17) timer_
+  -> EXTERN: (52,10) TIMESTEP
+  -> EXTERN: (54,10) PDV
+  -> EXTERN: (56,10) ACCELERATE
+  -> EXTERN: (58,10) PDV
+  -> EXTERN: (60,10) FLUX_CALC
+  -> EXTERN: (62,10) ADVECTION
+  -> EXTERN: (64,10) RESET_FIELD
+  -> EXTERN: (71,45) field_summary_
+  -> EXTERN: (74,43) visit_
+  -> EXTERN: (81,31) timer_
+  -> EXTERN: (82,32) timer_
+  -> EXTERN: (87,12) field_summary_
+  -> EXTERN: (88,32) visit_
+  -> EXTERN: (90,18) timer_
+  -> EXTERN: (92,9) for_write_seq_lis
+  -> EXTERN: (93,9) for_write_seq_lis
+  -> EXTERN: (94,9) for_write_seq_lis
+  -> EXTERN: (95,9) for_write_seq_lis
+  -> EXTERN: (95,9) for_write_seq_lis_xmit
+  -> EXTERN: (96,9) for_write_seq_lis
+  -> EXTERN: (96,9) for_write_seq_lis_xmit
+  -> EXTERN: (97,9) for_write_seq_lis
+  -> EXTERN: (97,9) for_write_seq_lis_xmit
+  -> EXTERN: (98,9) for_write_seq_lis
+  -> EXTERN: (98,9) for_write_seq_lis_xmit
+  -> EXTERN: (111,14) CLOVER_ALLGATHER
+  -> EXTERN: (116,14) CLOVER_ALLGATHER
+  -> EXTERN: (118,14) CLOVER_ALLGATHER
+  -> EXTERN: (120,14) CLOVER_ALLGATHER
+  -> EXTERN: (122,14) CLOVER_ALLGATHER
+  -> EXTERN: (124,14) CLOVER_ALLGATHER
+  -> EXTERN: (126,14) CLOVER_ALLGATHER
+  -> EXTERN: (128,14) CLOVER_ALLGATHER
+  -> EXTERN: (130,14) CLOVER_ALLGATHER
+  -> EXTERN: (132,14) CLOVER_ALLGATHER
+  -> EXTERN: (134,14) CLOVER_ALLGATHER
+  -> EXTERN: (136,14) CLOVER_ALLGATHER
+  -> EXTERN: (138,14) CLOVER_ALLGATHER
+  -> EXTERN: (140,14) CLOVER_ALLGATHER
+  -> EXTERN: (142,14) CLOVER_ALLGATHER
+  -> EXTERN: (144,14) CLOVER_ALLGATHER
+  -> EXTERN: (146,14) CLOVER_ALLGATHER_COUNT
+  -> EXTERN: (148,14) CLOVER_ALLGATHER_COUNT
+  -> EXTERN: (150,14) CLOVER_ALLGATHER_COUNT
+  -> EXTERN: (156,11) for_write_seq_lis
+  -> EXTERN: (157,11) for_write_seq_fmt
+  -> EXTERN: (158,11) for_write_seq_fmt_xmit
+  -> EXTERN: (158,11) for_write_seq_fmt_xmit
+  -> EXTERN: (158,11) for_write_seq_fmt
+  -> EXTERN: (159,11) for_write_seq_fmt_xmit
+  -> EXTERN: (159,11) for_write_seq_fmt_xmit
+  -> EXTERN: (159,11) for_write_seq_fmt
+  -> EXTERN: (160,11) for_write_seq_fmt_xmit
+  -> EXTERN: (160,11) for_write_seq_fmt_xmit
+  -> EXTERN: (160,11) for_write_seq_fmt
+  -> EXTERN: (161,11) for_write_seq_fmt_xmit
+  -> EXTERN: (161,11) for_write_seq_fmt_xmit
+  -> EXTERN: (161,11) for_write_seq_fmt
+  -> EXTERN: (162,11) for_write_seq_fmt_xmit
+  -> EXTERN: (162,11) for_write_seq_fmt_xmit
+  -> EXTERN: (162,11) for_write_seq_fmt
+  -> EXTERN: (163,11) for_write_seq_fmt_xmit
+  -> EXTERN: (163,11) for_write_seq_fmt_xmit
+  -> EXTERN: (163,11) for_write_seq_fmt
+  -> EXTERN: (164,11) for_write_seq_fmt_xmit
+  -> EXTERN: (164,11) for_write_seq_fmt_xmit
+  -> EXTERN: (164,11) for_write_seq_fmt
+  -> EXTERN: (165,11) for_write_seq_fmt_xmit
+  -> EXTERN: (165,11) for_write_seq_fmt_xmit
+  -> EXTERN: (165,11) for_write_seq_fmt
+  -> EXTERN: (166,11) for_write_seq_fmt_xmit
+  -> EXTERN: (166,11) for_write_seq_fmt_xmit
+  -> EXTERN: (166,11) for_write_seq_fmt
+  -> EXTERN: (167,11) for_write_seq_fmt_xmit
+  -> EXTERN: (167,11) for_write_seq_fmt_xmit
+  -> EXTERN: (167,11) for_write_seq_fmt
+  -> EXTERN: (168,11) for_write_seq_fmt_xmit
+  -> EXTERN: (168,11) for_write_seq_fmt_xmit
+  -> EXTERN: (168,11) for_write_seq_fmt
+  -> EXTERN: (169,11) for_write_seq_fmt_xmit
+  -> EXTERN: (169,11) for_write_seq_fmt_xmit
+  -> EXTERN: (169,11) for_write_seq_fmt
+  -> EXTERN: (170,11) for_write_seq_fmt_xmit
+  -> EXTERN: (170,11) for_write_seq_fmt_xmit
+  -> EXTERN: (170,11) for_write_seq_fmt
+  -> EXTERN: (171,11) for_write_seq_fmt_xmit
+  -> EXTERN: (171,11) for_write_seq_fmt_xmit
+  -> EXTERN: (171,11) for_write_seq_fmt
+  -> EXTERN: (172,11) for_write_seq_fmt_xmit
+  -> EXTERN: (172,11) for_write_seq_fmt_xmit
+  -> EXTERN: (172,11) for_write_seq_fmt
+  -> EXTERN: (173,11) for_write_seq_fmt_xmit
+  -> EXTERN: (173,11) for_write_seq_fmt_xmit
+  -> EXTERN: (173,11) for_write_seq_fmt
+  -> EXTERN: (174,11) for_write_seq_fmt_xmit
+  -> EXTERN: (174,11) for_write_seq_fmt_xmit
+  -> EXTERN: (174,11) for_write_seq_fmt
+  -> EXTERN: (175,11) for_write_seq_lis_xmit
+  -> EXTERN: (175,11) for_write_seq_lis
+  -> EXTERN: (176,11) for_write_seq_lis_xmit
+  -> EXTERN: (176,11) for_write_seq_lis
+  -> EXTERN: (177,11) for_write_seq_lis_xmit
+  -> EXTERN: (177,11) for_write_seq_lis
+  -> EXTERN: (181,12) CLOVER_FINALIZE
+  -> EXTERN: (188,18) timer_
+  -> EXTERN: (189,18) timer_
+  -> EXTERN: (190,7) for_write_seq_lis_xmit
+  -> EXTERN: (190,7) for_write_seq_lis
+  -> EXTERN: (191,7) for_write_seq_lis_xmit
+  -> EXTERN: (191,7) for_write_seq_lis
+  -> EXTERN: (196,7) for_write_seq_lis_xmit
+  -> EXTERN: (196,7) for_write_seq_lis
+  -> EXTERN: (197,7) for_write_seq_lis_xmit
+  -> EXTERN: (197,7) for_write_seq_lis
+  -> EXTERN: (198,7) for_write_seq_lis_xmit
+  -> EXTERN: (198,7) for_write_seq_lis
+  -> EXTERN: (199,7) for_write_seq_lis_xmit
+  -> EXTERN: (199,7) for_write_seq_lis
+  -> EXTERN: (205,1) __resetsp_inlined
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at hydro.f90(48,17)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at hydro.f90(114,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between 464 line 114 and 464 line 114
+   remark #25439: unrolled with remainder by 2  
+LOOP END
+
+LOOP BEGIN at hydro.f90(114,13)
+<Remainder>
+LOOP END
+===========================================================================

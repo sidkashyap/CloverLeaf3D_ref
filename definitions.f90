@@ -23,6 +23,23 @@
 !>  Also the global variables used for defining the input and controlling the
 !>  scheme are defined here.
 
+
+!TYPE state_type
+!TYPE(state_type), ALLOCATABLE
+!TYPE grid_type
+!TYPE profiler_type
+!TYPE(profiler_type) ::
+!TYPE field_type
+!TYPE tile_type
+!TYPE(field_type):: field
+!TYPE chunk_type
+!TYPE(field_type):: field
+!TYPE(tile_type), DIMENSION(:),
+!TYPE(chunk_type) ::
+!TYPE(grid_type) ::
+
+!
+
 MODULE definitions_module
 
    USE data_module
@@ -91,7 +108,12 @@ MODULE definitions_module
                           ,flux               &
                           ,tile_halo_exchange &
                           ,self_halo_exchange &
-                          ,mpi_halo_exchange
+                          ,mpi_halo_exchange 
+    INTEGER(KIND=8)::      advec_cell_flop &
+                          ,advec_mom_flop  &
+                          ,advec_cell_time &
+                          ,advec_mom_time  &
+                          ,advec_mem  
                      
    END TYPE profiler_type
    TYPE(profiler_type)  :: profiler

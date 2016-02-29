@@ -1,0 +1,53 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: CLOVER_LEAF
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_LEAF) [1] clover_leaf.f90(39,9)
+  -> EXTERN: (39,9) for_set_reentrancy
+  -> EXTERN: (47,8) CLOVER_INIT_COMMS
+  -> EXTERN: (51,8) omp_get_thread_num_
+  -> EXTERN: (52,7) for_write_seq_lis
+  -> EXTERN: (53,7) for_write_seq_fmt_xmit
+  -> EXTERN: (53,7) for_write_seq_fmt
+  -> EXTERN: (54,7) for_write_seq_fmt
+  -> EXTERN: (55,7) for_write_seq_fmt
+  -> EXTERN: (56,7) for_write_seq_fmt_xmit
+  -> EXTERN: (56,7) for_write_seq_fmt
+  -> EXTERN: (57,7) for_write_seq_fmt_xmit
+  -> EXTERN: (57,7) for_write_seq_fmt
+  -> EXTERN: (57,44) omp_get_num_threads_
+  -> EXTERN: (58,7) for_write_seq_lis
+  -> EXTERN: (59,7) for_write_seq_lis
+  -> EXTERN: (60,7) for_write_seq_fmt_xmit
+  -> EXTERN: (60,7) for_write_seq_fmt
+  -> EXTERN: (61,7) for_write_seq_fmt
+  -> EXTERN: (62,7) for_write_seq_fmt
+  -> EXTERN: (63,7) for_write_seq_fmt_xmit
+  -> EXTERN: (63,7) for_write_seq_fmt
+  -> EXTERN: (64,7) for_write_seq_fmt_xmit
+  -> EXTERN: (64,7) for_write_seq_fmt
+  -> EXTERN: (64,44) omp_get_num_threads_
+  -> EXTERN: (65,7) for_write_seq_lis
+  -> EXTERN: (70,8) initialise_
+  -> EXTERN: (72,8) hydro_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+clover_leaf.f90(49:7-49:7):OMP:MAIN__:  OpenMP DEFINED REGION WAS PARALLELIZED
+===========================================================================

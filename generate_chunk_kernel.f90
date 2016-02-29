@@ -108,6 +108,8 @@ SUBROUTINE generate_chunk_kernel(x_min,x_max,y_min,y_max,z_min,z_max, &
     DO k=y_min-2,y_max+2
       DO j=x_min-2,x_max+2
         density0(j,k,l)=state_density(1)
+
+        !print *,"density0(",j,",",k,",",l,"):",density0(j,k,l)
       ENDDO
     ENDDO
   ENDDO
@@ -117,6 +119,7 @@ SUBROUTINE generate_chunk_kernel(x_min,x_max,y_min,y_max,z_min,z_max, &
     DO k=y_min-2,y_max+2
       DO j=x_min-2,x_max+2
         xvel0(j,k,l)=state_xvel(1)
+        !print *,"xvel0(",j,",",k,",",l,"):",xvel0(j,k,l)
       ENDDO
     ENDDO
   ENDDO
@@ -126,6 +129,8 @@ SUBROUTINE generate_chunk_kernel(x_min,x_max,y_min,y_max,z_min,z_max, &
     DO k=y_min-2,y_max+2
       DO j=x_min-2,x_max+2
         yvel0(j,k,l)=state_yvel(1)
+
+        !print *,"yvel0(",j,",",k,",",l,"):",yvel0(j,k,l)
       ENDDO
     ENDDO
   ENDDO
@@ -135,6 +140,8 @@ SUBROUTINE generate_chunk_kernel(x_min,x_max,y_min,y_max,z_min,z_max, &
     DO k=y_min-2,y_max+2
       DO j=x_min-2,x_max+2
         zvel0(j,k,l)=state_zvel(1)
+
+        !print *,"zvel0(",j,",",k,",",l,"):",zvel0(j,k,l)
       ENDDO
     ENDDO
   ENDDO
@@ -205,6 +212,26 @@ SUBROUTINE generate_chunk_kernel(x_min,x_max,y_min,y_max,z_min,z_max, &
 !$OMP END DO
 
   ENDDO
+
+!    DO l=z_min-2,z_max+2
+!      DO k=y_min-2,y_max+2
+!        DO j=x_min-2,x_max+2
+!         DO lt=l,l+1
+!                DO kt=k,k+1
+!                  DO jt=j,j+1
+!                    print *,"xvel0(", jt , "," , kt , ",",lt,"):",xvel0(jt,kt,lt)
+!                     print *,"yvel0(",jt,",",kt,",",lt,"):",yvel0(jt,kt,lt)
+!                      print *,"zvel0(",jt,",",kt,",",lt,"):",zvel0(jt,kt,lt)
+!                   ENDDO
+!                  ENDDO
+!                  ENDDO
+!                  ENDDO
+!                  ENDDO
+!                  ENDDO
+!
+
+        
+
 
 !$OMP END PARALLEL
 

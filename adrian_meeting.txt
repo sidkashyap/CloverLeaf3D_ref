@@ -1,0 +1,9 @@
+Agenda:
+
+1) Introduction
+    * Sid, Angus, Richard, Adrian
+    * DiRAC 3 
+2) CloverLeaf
+3) Work done by Adrian - UK MHD
+4) Are there similarities to the kind of workloads?
+5) Optimization techniques and Best Practices on Archer etc.  

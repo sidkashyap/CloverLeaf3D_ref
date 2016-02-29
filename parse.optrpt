@@ -1,0 +1,426 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: clover_case_change._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (clover_case_change._) [1] parse.f90(22,8)
+
+===========================================================================
+
+Begin optimization report for: CLOVER_CASE_CHANGE::TOLOWER
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_CASE_CHANGE::TOLOWER) [2] parse.f90(28,10)
+  -> EXTERN: (39,9) memcpy
+  -> EXTERN: (41,9) memcpy
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at parse.f90(35,3)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between tolower_result line 39 and tolower_result line 41
+   remark #25439: unrolled with remainder by 2  
+LOOP END
+
+LOOP BEGIN at parse.f90(35,3)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLOVER_CASE_CHANGE::TOUPPER
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_CASE_CHANGE::TOUPPER) [3] parse.f90(47,10)
+  -> EXTERN: (58,9) memcpy
+  -> EXTERN: (60,9) memcpy
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at parse.f90(54,3)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between toupper_result line 58 and toupper_result line 60
+   remark #25439: unrolled with remainder by 2  
+LOOP END
+
+LOOP BEGIN at parse.f90(54,3)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: clover_isitanint_mod._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (clover_isitanint_mod._) [4] parse.f90(68,8)
+
+===========================================================================
+
+Begin optimization report for: CLOVER_ISITANINT_MOD::ISITANINT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (CLOVER_ISITANINT_MOD::ISITANINT) [5] parse.f90(72,10)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at parse.f90(83,3)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 23 
+   remark #15477: vector loop cost: 70.500 
+   remark #15478: estimated potential speedup: 0.320 
+   remark #15487: type converts: 2 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+===========================================================================
+
+Begin optimization report for: parse_module._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (parse_module._) [6] parse.f90(99,8)
+
+===========================================================================
+
+Begin optimization report for: PARSE_MODULE::PARSE_GETWORD
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PARSE_MODULE::PARSE_GETWORD) [7] parse.f90(249,22)
+  -> EXTERN: (257,35) for_len_trim
+  -> EXTERN: (257,35) for_len_trim
+  -> EXTERN: (258,7) for_cpystr
+  -> EXTERN: (258,12) for_trim
+  -> EXTERN: (261,7) for_f90_scan
+  -> EXTERN: (262,18) for_len_trim
+  -> EXTERN: (264,5) __resetsp_inlined
+  -> EXTERN: (264,5) for_cpystr
+  -> EXTERN: (264,5) __getsp_inlined
+  -> EXTERN: (264,10) for_trim
+  -> EXTERN: (264,15) _alloca
+  -> EXTERN: (266,12) for_cpstr
+  -> EXTERN: (266,34) for_cpstr
+  -> EXTERN: (267,8) for_cpystr
+  -> (268,13) PARSE_MODULE::PARSE_GETLINE
+  -> EXTERN: (269,22) memmove
+  -> (269,27) PARSE_MODULE::PARSE_GETWORD
+  -> EXTERN: (270,8) memcpy
+  -> EXTERN: (272,8) memcpy
+  -> EXTERN: (274,8) __resetsp_inlined
+  -> EXTERN: (274,8) for_cpystr
+  -> EXTERN: (274,8) __getsp_inlined
+  -> EXTERN: (274,13) for_trim
+  -> EXTERN: (274,18) _alloca
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at parse.f90(257,5)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+parse.f90(269,22):remark #34026: call to memmove implemented as a call to optimized library version
+parse.f90(270,8):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to increase the width of stores
+parse.f90(270,8):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (1, 0)
+parse.f90(272,8):remark #34014: optimization advice for memcpy: increase the destination's alignment to 16 (and use __assume_aligned) to increase the width of stores
+parse.f90(272,8):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (1, 0)
+===========================================================================
+
+Begin optimization report for: PARSE_MODULE::PARSE_GETLINE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PARSE_MODULE::PARSE_GETLINE) [8] parse.f90(143,10)
+  -> EXTERN: (154,5) for_read_seq_fmt
+  -> EXTERN: (160,14) for_len_trim
+  -> EXTERN: (164,7) for_cpystr
+  -> EXTERN: (164,9) for_trim
+  -> EXTERN: (164,14) for_adjustl
+  -> EXTERN: (166,9) for_f90_scan
+  -> EXTERN: (167,18) for_cpystr
+  -> EXTERN: (167,18) __getsp_inlined
+  -> EXTERN: (167,18) __resetsp_inlined
+  -> EXTERN: (167,20) for_trim
+  -> EXTERN: (167,25) _alloca
+  -> EXTERN: (168,9) for_f90_scan
+  -> EXTERN: (169,18) for_cpystr
+  -> EXTERN: (169,18) __getsp_inlined
+  -> EXTERN: (169,18) __resetsp_inlined
+  -> EXTERN: (169,20) for_trim
+  -> EXTERN: (169,25) _alloca
+  -> EXTERN: (174,18) memcpy
+  -> EXTERN: (179,9) memcpy
+  -> EXTERN: (188,14) for_f90_scan
+  -> EXTERN: (189,25) for_len_trim
+  -> EXTERN: (190,14) __getsp_inlined
+  -> EXTERN: (190,14) for_cpystr
+  -> EXTERN: (190,14) __resetsp_inlined
+  -> EXTERN: (190,21) for_trim
+  -> EXTERN: (190,26) _alloca
+  -> EXTERN: (192,16) for_concat
+  -> EXTERN: (192,28) for_trim
+  -> EXTERN: (194,18) for_f90_scan
+  -> INLINE: (196,26) PARSE_MODULE::PARSE_SCAN
+    -> EXTERN: (366,7) for_len_trim
+    -> EXTERN: (369,5) __getsp_inlined
+    -> EXTERN: (369,5) for_cpystr
+    -> EXTERN: (369,5) __resetsp_inlined
+    -> EXTERN: (369,14) for_trim
+    -> EXTERN: (369,19) _alloca
+    -> EXTERN: (370,12) for_len_trim
+    -> EXTERN: (371,24) for_cpstr
+  -> EXTERN: (197,22) for_cpstr
+  -> EXTERN: (198,18) for_cpystr
+  -> EXTERN: (201,25) for_cpstr
+  -> EXTERN: (202,18) __getsp_inlined
+  -> EXTERN: (202,18) for_cpystr
+  -> EXTERN: (202,18) __resetsp_inlined
+  -> EXTERN: (202,31) for_trim
+  -> EXTERN: (202,36) _alloca
+  -> EXTERN: (203,18) for_cpystr
+  -> EXTERN: (203,31) for_trim
+  -> EXTERN: (204,33) for_cpstr
+  -> EXTERN: (205,20) for_write_seq_lis_xmit
+  -> EXTERN: (205,20) for_write_seq_lis
+  -> EXTERN: (205,42) for_trim
+  -> EXTERN: (205,47) for_adjustl
+  -> EXTERN: (206,20) for_write_seq_lis_xmit
+  -> EXTERN: (206,20) for_write_seq_lis
+  -> EXTERN: (206,42) for_trim
+  -> EXTERN: (206,47) for_adjustl
+  -> EXTERN: (207,20) for_write_seq_lis_xmit
+  -> EXTERN: (207,20) for_write_seq_lis
+  -> EXTERN: (207,42) for_trim
+  -> EXTERN: (207,47) for_adjustl
+  -> EXTERN: (208,20) for_write_seq_lis_xmit
+  -> EXTERN: (208,20) for_write_seq_lis
+  -> EXTERN: (208,42) for_trim
+  -> EXTERN: (208,47) for_adjustl
+  -> EXTERN: (209,25) REPORT_ERROR
+  -> EXTERN: (211,27) for_cpstr
+  -> EXTERN: (212,22) for_cpystr
+  -> EXTERN: (214,22) for_cpystr
+  -> EXTERN: (217,22) for_cpystr
+  -> INLINE: (221,28) PARSE_MODULE::PARSE_SCAN
+    -> EXTERN: (366,7) for_len_trim
+    -> EXTERN: (369,5) __getsp_inlined
+    -> EXTERN: (369,5) for_cpystr
+    -> EXTERN: (369,5) __resetsp_inlined
+    -> EXTERN: (369,14) for_trim
+    -> EXTERN: (369,19) _alloca
+    -> EXTERN: (370,12) for_len_trim
+    -> EXTERN: (371,24) for_cpstr
+  -> EXTERN: (222,24) for_cpstr
+  -> EXTERN: (223,20) for_cpystr
+  -> EXTERN: (226,18) __resetsp_inlined
+  -> EXTERN: (226,18) for_cpystr
+  -> EXTERN: (226,18) __getsp_inlined
+  -> EXTERN: (226,23) for_trim
+  -> EXTERN: (226,28) for_trim
+  -> EXTERN: (226,38) _alloca
+  -> EXTERN: (226,38) for_concat
+  -> EXTERN: (226,38) _alloca
+  -> EXTERN: (227,25) for_cpstr
+  -> EXTERN: (227,52) for_cpystr
+  -> EXTERN: (228,18) __resetsp_inlined
+  -> EXTERN: (228,18) for_cpystr
+  -> EXTERN: (228,18) __getsp_inlined
+  -> EXTERN: (228,23) for_trim
+  -> EXTERN: (228,28) for_trim
+  -> EXTERN: (228,38) _alloca
+  -> EXTERN: (228,38) for_concat
+  -> EXTERN: (228,38) _alloca
+  -> EXTERN: (230,17) for_cpystr
+  -> EXTERN: (232,22) for_cpstr
+  -> EXTERN: (232,38) for_cpstr
+  -> EXTERN: (233,17) for_cpystr
+  -> EXTERN: (233,22) for_trim
+  -> EXTERN: (235,17) for_cpystr
+  -> EXTERN: (239,13) for_cpystr
+  -> EXTERN: (239,17) for_trim
+  -> EXTERN: (240,13) for_cpystr
+  -> EXTERN: (244,16) for_cpstr
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at parse.f90(171,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at parse.f90(160,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between l line 161 and l line 161
+   LOOP END
+
+   LOOP BEGIN at parse.f90(172,10)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 1 
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 23 
+      remark #15477: vector loop cost: 8.180 
+      remark #15478: estimated potential speedup: 2.750 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=31
+   LOOP END
+
+   LOOP BEGIN at parse.f90(174,25)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at parse.f90(183,20)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 1 
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 23 
+      remark #15477: vector loop cost: 1.750 
+      remark #15478: estimated potential speedup: 11.850 
+      remark #15488: --- end vector loop cost summary ---
+      remark #25015: Estimate of max trip count of loop=31
+   LOOP END
+
+   LOOP BEGIN at parse.f90(183,20)
+   <Remainder loop for vectorization>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at parse.f90(370,5) inlined into parse.f90(196,26)
+      remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+
+   LOOP BEGIN at parse.f90(370,5) inlined into parse.f90(221,28)
+      remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+
+   LOOP BEGIN at parse.f90(172,10)
+   <Remainder loop for vectorization>
+      remark #25436: completely unrolled by 4  
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+parse.f90(179,9):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (32, 0)
+===========================================================================
+
+Begin optimization report for: PARSE_MODULE::PARSE_GETIVAL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PARSE_MODULE::PARSE_GETIVAL) [9] parse.f90(279,12)
+  -> EXTERN: (288,5) for_read_int_fmt
+  -> EXTERN: (291,13) REPORT_ERROR
+  -> EXTERN: (291,13) __resetsp_inlined
+  -> EXTERN: (291,13) __getsp_inlined
+  -> EXTERN: (291,83) _alloca
+  -> EXTERN: (291,83) for_concat
+  -> EXTERN: (292,13) CLOVER_ABORT
+
+===========================================================================
+
+Begin optimization report for: PARSE_MODULE::PARSE_GETLVAL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PARSE_MODULE::PARSE_GETLVAL) [10] parse.f90(299,12)
+  -> EXTERN: (311,13) for_cpstr
+  -> EXTERN: (313,13) for_cpstr
+  -> EXTERN: (315,13) for_cpstr
+  -> EXTERN: (317,13) for_cpstr
+  -> EXTERN: (324,13) REPORT_ERROR
+  -> EXTERN: (324,13) __resetsp_inlined
+  -> EXTERN: (324,13) __getsp_inlined
+  -> EXTERN: (324,83) _alloca
+  -> EXTERN: (324,83) for_concat
+  -> EXTERN: (325,13) CLOVER_ABORT
+
+===========================================================================
+
+Begin optimization report for: PARSE_MODULE::PARSE_GETRVAL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PARSE_MODULE::PARSE_GETRVAL) [11] parse.f90(332,12)
+  -> EXTERN: (343,8) for_f90_scan
+  -> EXTERN: (343,29) for_cpystr
+  -> EXTERN: (343,29) __resetsp_inlined
+  -> EXTERN: (343,29) __getsp_inlined
+  -> EXTERN: (343,34) for_trim
+  -> EXTERN: (343,39) for_trim
+  -> EXTERN: (343,44) _alloca
+  -> EXTERN: (343,49) _alloca
+  -> EXTERN: (343,49) for_concat
+  -> EXTERN: (343,49) _alloca
+  -> EXTERN: (345,5) for_read_int_fmt
+  -> EXTERN: (348,13) REPORT_ERROR
+  -> EXTERN: (348,13) __resetsp_inlined
+  -> EXTERN: (348,13) __getsp_inlined
+  -> EXTERN: (348,80) _alloca
+  -> EXTERN: (348,80) for_concat
+  -> EXTERN: (349,13) CLOVER_ABORT
+
+===========================================================================
+
+Begin optimization report for: PARSE_MODULE::PARSE_SCAN
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PARSE_MODULE::PARSE_SCAN) [12] parse.f90(356,12)
+  -> EXTERN: (366,7) for_len_trim
+  -> EXTERN: (369,5) __resetsp_inlined
+  -> EXTERN: (369,5) for_cpystr
+  -> EXTERN: (369,5) __getsp_inlined
+  -> EXTERN: (369,14) for_trim
+  -> EXTERN: (369,19) _alloca
+  -> EXTERN: (370,12) for_len_trim
+  -> EXTERN: (371,24) for_cpstr
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at parse.f90(370,5)
+   remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+===========================================================================
+
+Begin optimization report for: PARSE_MODULE::PARSE_INIT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PARSE_MODULE::PARSE_INIT) [13] parse.f90(118,10)
+  -> EXTERN: (132,3) for_cpystr
+  -> EXTERN: (133,3) for_cpystr
+  -> EXTERN: (134,3) for_cpystr
+  -> EXTERN: (135,3) for_cpystr
+  -> EXTERN: (137,3) for_rewind
+
+===========================================================================

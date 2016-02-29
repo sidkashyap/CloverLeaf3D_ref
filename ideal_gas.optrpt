@@ -1,0 +1,32 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: ideal_gas_module._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (ideal_gas_module._) [1] ideal_gas.f90(23,8)
+
+===========================================================================
+
+Begin optimization report for: IDEAL_GAS_MODULE::IDEAL_GAS
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (IDEAL_GAS_MODULE::IDEAL_GAS) [2] ideal_gas.f90(28,12)
+  -> EXTERN: (42,12) IDEAL_GAS_KERNEL
+  -> EXTERN: (54,12) IDEAL_GAS_KERNEL
+
+===========================================================================

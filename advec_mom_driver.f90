@@ -23,7 +23,7 @@ MODULE advec_mom_driver_module
 
 CONTAINS
 
-SUBROUTINE advec_mom_driver(tile,which_vel,direction,sweep_number)
+SUBROUTINE advec_mom_driver(flopCount,mem,tile,which_vel,direction,sweep_number)
 
   USE clover_module
   USE advec_mom_kernel_mod
@@ -31,9 +31,11 @@ SUBROUTINE advec_mom_driver(tile,which_vel,direction,sweep_number)
   IMPLICIT NONE
 
   INTEGER :: tile,which_vel,direction,sweep_number
-
+  INTEGER(KIND=8) :: flopCount,mem
   IF(which_vel.EQ.1)THEN
-    CALL advec_mom_kernel(chunk%tiles(tile)%t_xmin,            &
+    CALL advec_mom_kernel(flopCount,                            &
+                          mem,                                  &
+                          chunk%tiles(tile)%t_xmin,            &
                           chunk%tiles(tile)%t_xmax,              &
                           chunk%tiles(tile)%t_ymin,              &
                           chunk%tiles(tile)%t_ymax,              &
@@ -63,7 +65,9 @@ SUBROUTINE advec_mom_driver(tile,which_vel,direction,sweep_number)
                           sweep_number,                           &
                           direction                               )
   ELSEIF(which_vel.EQ.2)THEN
-    CALL advec_mom_kernel(chunk%tiles(tile)%t_xmin,            &
+    CALL advec_mom_kernel(flopCount,                            &
+                          mem,                                  &
+                          chunk%tiles(tile)%t_xmin,            &
                           chunk%tiles(tile)%t_xmax,              &
                           chunk%tiles(tile)%t_ymin,              &
                           chunk%tiles(tile)%t_ymax,              &
@@ -93,7 +97,9 @@ SUBROUTINE advec_mom_driver(tile,which_vel,direction,sweep_number)
                           sweep_number,                           &
                           direction                               )
   ELSEIF(which_vel.EQ.3)THEN
-    CALL advec_mom_kernel(chunk%tiles(tile)%t_xmin,            &
+    CALL advec_mom_kernel(flopCount,                            &
+                          mem,                                  &
+                          chunk%tiles(tile)%t_xmin,            &
                           chunk%tiles(tile)%t_xmax,              &
                           chunk%tiles(tile)%t_ymin,              &
                           chunk%tiles(tile)%t_ymax,              &

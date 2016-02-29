@@ -45,7 +45,7 @@ SUBROUTINE initialise_chunk(tile)
   zmin=grid%zmin+dz*float(chunk%tiles(tile)%t_back-1)
 
   !write(*,*) xmin, ymin, zmin
-
+  !Sid -> This initializes just the volume and area - defined according to dx, dy and dz
   CALL initialise_chunk_kernel(chunk%tiles(tile)%t_xmin,    &
                                chunk%tiles(tile)%t_xmax,    &
                                chunk%tiles(tile)%t_ymin,    &
