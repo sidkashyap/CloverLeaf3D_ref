@@ -108,9 +108,9 @@ nb_z=z_max+2
 DO bl=z_min-2,nb_z,BLOCK_SIZE
 DO bk=y_min-2,nb_y,BLOCK_SIZE
 DO bj=x_min-2,nb_x,BLOCK_SIZE
-DO l=bl,BLOCK_SIZE
-DO k=bk,BLOCK_SIZE
-DO j=bj,BLOCK_SIZE
+DO l=bl,BLOCK_SIZE+bl-1
+DO k=bk,BLOCK_SIZE+bk-1
+DO j=bj,BLOCK_SIZE+bj-1
 
     IF (j.LT.nb_x .AND. k.LT.nb_x .AND. l.LT.nb_x) THEN
           post_vol(j,k,l)= volume(j,k,l)+vol_flux_y(j  ,k+1,l  )-vol_flux_y(j,k,l) &
@@ -138,9 +138,9 @@ DO j=bj,BLOCK_SIZE
 DO bl=z_min-2,nb_z,BLOCK_SIZE
 DO bk=y_min-2,nb_y,BLOCK_SIZE
 DO bj=x_min-2,nb_x,BLOCK_SIZE
-DO l=bl,BLOCK_SIZE
-DO k=bk,BLOCK_SIZE
-DO j=bj,BLOCK_SIZE
+DO l=bl,BLOCK_SIZE+bl-1
+DO k=bk,BLOCK_SIZE+bk-1
+DO j=bj,BLOCK_SIZE+bj-1
 
     IF (j.LT.nb_x .AND. k.LT.nb_x .AND. l.LT.nb_x) THEN
 
@@ -171,9 +171,9 @@ DO j=bj,BLOCK_SIZE
 DO bl=z_min-2,nb_z,BLOCK_SIZE
 DO bk=y_min-2,nb_y,BLOCK_SIZE
 DO bj=x_min-2,nb_x,BLOCK_SIZE
-DO l=bl,BLOCK_SIZE
-DO k=bk,BLOCK_SIZE
-DO j=bj,BLOCK_SIZE
+DO l=bl,BLOCK_SIZE+bl-1
+DO k=bk,BLOCK_SIZE+bk-1
+DO j=bj,BLOCK_SIZE+bj-1
 
     IF (j.LT.nb_x .AND. k.LT.nb_x .AND. l.LT.nb_x) THEN
 
@@ -210,9 +210,9 @@ DO j=bj,BLOCK_SIZE
 DO bl=z_min-2,nb_z,BLOCK_SIZE
 DO bk=y_min-2,nb_y,BLOCK_SIZE
 DO bj=x_min-2,nb_x,BLOCK_SIZE
-DO l=bl,BLOCK_SIZE
-DO k=bk,BLOCK_SIZE
-DO j=bj,BLOCK_SIZE
+DO l=bl,BLOCK_SIZE+bl-1
+DO k=bk,BLOCK_SIZE+bk-1
+DO j=bj,BLOCK_SIZE+bj-1
 
     IF (j.LT.nb_x .AND. k.LT.nb_x .AND. l.LT.nb_x) THEN
 
@@ -240,9 +240,9 @@ DO j=bj,BLOCK_SIZE
 DO bl=z_min-2,nb_z,BLOCK_SIZE
 DO bk=y_min-2,nb_y,BLOCK_SIZE
 DO bj=x_min-2,nb_x,BLOCK_SIZE
-DO l=bl,BLOCK_SIZE
-DO k=bk,BLOCK_SIZE
-DO j=bj,BLOCK_SIZE
+DO l=bl,BLOCK_SIZE+bl-1
+DO k=bk,BLOCK_SIZE+bk-1
+DO j=bj,BLOCK_SIZE+bj-1
     IF (j.LT.nb_x .AND. k.LT.nb_x .AND. l.LT.nb_x) THEN
           post_vol(j,k,l)=volume(j,k,l)
           pre_vol(j,k,l)=post_vol(j,k,l)+vol_flux_x(j+1,k  ,l  )-vol_flux_x(j,k,l)
@@ -270,9 +270,9 @@ DO j=bj,BLOCK_SIZE
 DO bl=z_min-2,nb_z,BLOCK_SIZE
 DO bk=y_min-2,nb_y,BLOCK_SIZE
 DO bj=x_min-2,nb_x,BLOCK_SIZE
-DO l=bl,BLOCK_SIZE
-DO k=bk,BLOCK_SIZE
-DO j=bj,BLOCK_SIZE
+DO l=bl,BLOCK_SIZE+bl-1
+DO k=bk,BLOCK_SIZE+bk-1
+DO j=bj,BLOCK_SIZE+bj-1
 IF (j.LT.nb_x .AND. k.LT.nb_x .AND. l.LT.nb_x) THEN
 
           post_vol(j,k,l)=volume(j,k,l)
@@ -317,9 +317,9 @@ nb_z=z_max+1
     DO bk=y_min,nb_y,BLOCK_SIZE
     DO bj=x_min-2,nb_x,BLOCK_SIZE
 
-    DO l=bl,BLOCK_SIZE
-    DO k=bk,BLOCK_SIZE
-    DO j=bj,BLOCK_SIZE
+    DO l=bl,BLOCK_SIZE+bl-1
+    DO k=bk,BLOCK_SIZE+bk-1
+    DO j=bj,BLOCK_SIZE+bj-1
 
     if( l.lt.nb_z .and. k.lt.nb_y .and. j.lt.nb_x) then
             ! Find staggered mesh mass fluxes, nodal masses and volumes.
@@ -358,9 +358,9 @@ nb_z=z_max+1
     DO bl=z_min,nb_z,BLOCK_SIZE
      DO bk=y_min,nb_y,BLOCK_SIZE
      DO bj=x_min,nb_x,BLOCK_SIZE
-     DO l=bl,BLOCK_SIZE
-     DO k=bk,BLOCK_SIZE
-     DO j=bj,BLOCK_SIZE
+     DO l=bl,BLOCK_SIZE+bl-1
+     DO k=bk,BLOCK_SIZE+bk-1
+     DO j=bj,BLOCK_SIZE+bj-1
 
      if(l.lt.nb_z .and. k.lt.nb_y .and. j.lt.nb_x) THEN
             ! Staggered cell mass post advection
@@ -403,9 +403,9 @@ nb_z=z_max+1
 DO bl=z_min,nb_z,BLOCK_SIZE
     DO bk=y_min,nb_y,BLOCK_SIZE
         DO bj=x_min-1,nb_x,BLOCK_SIZE
-            DO l=bl,BLOCK_SIZE
-                DO k=bk,BLOCK_SIZE
-                    DO j=bj,BLOCK_SIZE
+            DO l=bl,BLOCK_SIZE+bl-1
+                DO k=bk,BLOCK_SIZE+bk-1
+                    DO j=bj,BLOCK_SIZE+bj-1
             ! Staggered cell mass pre advection
             IF(l.LT.nb_z .and. k.lt.nb_y .and. j.lt.nb_x) THEN
             node_mass_pre(j,k,l)=node_mass_post(j,k,l)-node_flux(j-1,k,l)+node_flux(j,k,l)
@@ -498,21 +498,21 @@ nb_z=z_max+1
 block_max=x_min+BLOCK_SIZE-1
 
 !$OMP PARALLEL  DO
-        DO bj=x_min,nb_x,BLOCK_SIZE
-        DO bk=y_min,nb_x,BLOCK_SIZE
+DO bj=x_min,nb_x,BLOCK_SIZE
+    DO bk=y_min,nb_x,BLOCK_SIZE
         DO bl=z_min,nb_y,BLOCK_SIZE
-        DO j=bj,block_max
-        DO k=bk,block_max
-        DO l=bl,block_max
-        IF (j.LT.nb_x .AND. k.LT.nb_x .AND. l.LT.nb_x) THEN
-        vel1 (j,k,l)=(vel1 (j,k,l)*node_mass_pre(j,k,l)+mom_flux(j-1,k,l)-mom_flux(j,k,l))/node_mass_post(j,k,l)
-        ENDIF
+        DO j=bj,BLOCK_SIZE+bj-1
+        DO k=bk,BLOCK_SIZE+bk-1
+        DO l=bl,BLOCK_SIZE+bl-1
+                        IF (j.LT.nb_x .AND. k.LT.nb_x .AND. l.LT.nb_x) THEN
+                            vel1 (j,k,l)=(vel1 (j,k,l)*node_mass_pre(j,k,l)+mom_flux(j-1,k,l)-mom_flux(j,k,l))/node_mass_post(j,k,l)
+                        ENDIF
+                    ENDDO
+                ENDDO
+            ENDDO
         ENDDO
-        ENDDO
-        ENDDO
-        ENDDO
-        ENDDO
-        ENDDO
+    ENDDO
+ENDDO
 !$OMP END PARALLEL DO
 
 
@@ -542,9 +542,9 @@ nb_z=z_max+1
     DO bk=y_min-2,nb_y,BLOCK_SIZE
     DO bj=x_min,nb_x,BLOCK_SIZE
 
-    DO l=bl,BLOCK_SIZE
-    DO k=bk,BLOCK_SIZE
-    DO j=bj,BLOCK_SIZE
+    DO l=bl,BLOCK_SIZE+bl-1
+    DO k=bk,BLOCK_SIZE+bk-1
+    DO j=bj,BLOCK_SIZE+bj-1
 
     if( l.lt.nb_z .and. k.lt.nb_y .and. j.lt.nb_x) then
 
@@ -581,9 +581,9 @@ nb_z=z_max+1
     DO bl=z_min,nb_z,BLOCK_SIZE
      DO bk=y_min-1,nb_y,BLOCK_SIZE
      DO bj=x_min,nb_x,BLOCK_SIZE
-     DO l=bl,BLOCK_SIZE
-     DO k=bk,BLOCK_SIZE
-     DO j=bj,BLOCK_SIZE
+     DO l=bl,bl+BLOCK_SIZE-1
+     DO k=bk,bk+BLOCK_SIZE-1
+     DO j=bj,bj+BLOCK_SIZE-1
 
      if(l.lt.nb_z .and. k.lt.nb_y .and. j.lt.nb_x) THEN
 
@@ -596,7 +596,7 @@ nb_z=z_max+1
                                           +density1(j-1,k-1,l-1)*post_vol(j-1,k-1,l-1)                     &
                                           +density1(j-1,k  ,l-1)*post_vol(j-1,k  ,l-1))
 
-            endif
+      endif
             enddo
             enddo
             enddo
@@ -624,9 +624,9 @@ nb_z=z_max+1
 DO bl=z_min,nb_z,BLOCK_SIZE
     DO bk=y_min-1,nb_y,BLOCK_SIZE
         DO bj=x_min,nb_x,BLOCK_SIZE
-            DO l=bl,BLOCK_SIZE
-                DO k=bk,BLOCK_SIZE
-                    DO j=bj,BLOCK_SIZE
+            DO l=bl,BLOCK_SIZE+bl-1
+                DO k=bk,BLOCK_SIZE+bk-1
+                    DO j=bj,BLOCK_SIZE+bj-1
             ! Staggered cell mass pre advection
             IF(l.LT.nb_z .and. k.lt.nb_y .and. j.lt.nb_x) THEN
             node_mass_pre(j,k,l)=node_mass_post(j,k,l)-node_flux(j,k-1,l)+node_flux(j,k,l)
@@ -705,15 +705,14 @@ limiter_count=0
 nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+1
-block_max=x_min+BLOCK_SIZE-1
 
 !$OMP PARALLEL  DO
 DO bj=x_min,nb_x,BLOCK_SIZE
    DO bk=y_min,nb_x,BLOCK_SIZE
       DO bl=z_min,nb_y,BLOCK_SIZE
-        DO j=bj,block_max
-            DO k=bk,block_max
-                DO l=bl,block_max
+          DO j=bj,bj+BLOCK_SIZE-1
+              DO k=bk,bk+BLOCK_SIZE-1
+                  DO l=bl,bl+BLOCK_SIZE-1
                     IF (j.LT.nb_x .AND. k.LT.nb_x .AND. l.LT.nb_x) THEN
                         vel1 (j,k,l)=(vel1(j,k,l)*node_mass_pre(j,k,l)+mom_flux(j,k-1,l)-mom_flux(j,k,l))/node_mass_post(j,k,l)
                     ENDIF
@@ -722,7 +721,7 @@ DO bj=x_min,nb_x,BLOCK_SIZE
           ENDDO
         ENDDO
       ENDDO
-    ENDDO
+  ENDDO
 !$OMP END PARALLEL DO
 
 
@@ -750,9 +749,9 @@ nb_z=z_max+2
     DO bk=y_min,nb_y,BLOCK_SIZE
     DO bj=x_min,nb_x,BLOCK_SIZE
 
-    DO l=bl,BLOCK_SIZE
-    DO k=bk,BLOCK_SIZE
-    DO j=bj,BLOCK_SIZE
+    DO l=bl,BLOCK_SIZE+bl-1
+    DO k=bk,BLOCK_SIZE+bk-1
+    DO j=bj,BLOCK_SIZE+bj-1
 
     if( l.lt.nb_z .and. k.lt.nb_y .and. j.lt.nb_x) then
 
@@ -792,9 +791,9 @@ nb_z=z_max+2
     DO bl=z_min-1,nb_z,BLOCK_SIZE
      DO bk=y_min,nb_y,BLOCK_SIZE
      DO bj=x_min,nb_x,BLOCK_SIZE
-     DO l=bl,BLOCK_SIZE
-     DO k=bk,BLOCK_SIZE
-     DO j=bj,BLOCK_SIZE
+     DO l=bl,BLOCK_SIZE+bl-1
+     DO k=bk,BLOCK_SIZE+bk-1
+     DO j=bj,BLOCK_SIZE+bj-1
 
      if(l.lt.nb_z .and. k.lt.nb_y .and. j.lt.nb_x) THEN
 
@@ -836,9 +835,9 @@ nb_z=z_max+2
 DO bl=z_min-1,nb_z,BLOCK_SIZE
     DO bk=y_min,nb_y,BLOCK_SIZE
         DO bj=x_min,nb_x,BLOCK_SIZE
-            DO l=bl,BLOCK_SIZE
-                DO k=bk,BLOCK_SIZE
-                    DO j=bj,BLOCK_SIZE
+            DO l=bl,BLOCK_SIZE+bl-1
+                DO k=bk,BLOCK_SIZE+bk-1
+                    DO j=bj,BLOCK_SIZE+bj-1
             ! Staggered cell mass pre advection
             IF(l.LT.nb_z .and. k.lt.nb_y .and. j.lt.nb_x) THEN
             node_mass_pre(j,k,l)=node_mass_post(j,k,l)-node_flux(j,k,l-1)+node_flux(j,k,l)
@@ -922,9 +921,9 @@ block_max=x_min+BLOCK_SIZE-1
 DO bj=x_min,nb_x,BLOCK_SIZE
    DO bk=y_min,nb_x,BLOCK_SIZE
       DO bl=z_min,nb_y,BLOCK_SIZE
-        DO j=bj,block_max
-            DO k=bk,block_max
-                DO l=bl,block_max
+      DO j=bj,BLOCK_SIZE+bj-1
+      DO k=bk,BLOCK_SIZE+bk-1
+      DO l=bl,BLOCK_SIZE+bl-1
                     IF (j.LT.nb_x .AND. k.LT.nb_x .AND. l.LT.nb_x) THEN
                         vel1 (j,k,l)=(vel1(j,k,l)*node_mass_pre(j,k,l)+mom_flux(j,k,l-1)-mom_flux(j,k,l))/node_mass_post(j,k,l)
                     ENDIF
