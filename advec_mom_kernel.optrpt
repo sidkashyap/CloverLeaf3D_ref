@@ -36,21 +36,21 @@ advec_mom_kernel.f90(163:7-163:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:
 advec_mom_kernel.f90(189:7-189:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
 advec_mom_kernel.f90(216:7-216:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
 advec_mom_kernel.f90(240:7-240:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(283:7-283:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(320:7-320:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(360:7-360:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(391:7-391:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(456:7-456:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(494:7-494:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(530:7-530:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(568:7-568:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(598:7-598:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(652:7-652:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(689:7-689:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(724:7-724:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(761:7-761:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(791:7-791:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
-advec_mom_kernel.f90(845:7-845:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(281:7-281:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(318:7-318:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(358:7-358:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(389:7-389:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(454:7-454:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(492:7-492:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(528:7-528:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(566:7-566:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(596:7-596:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(650:7-650:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(687:7-687:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(722:7-722:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(759:7-759:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(789:7-789:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
+advec_mom_kernel.f90(843:7-843:7):OMP:advec_mom_kernel_mod_mp_advec_mom_kernel_:  OpenMP DEFINED LOOP WAS PARALLELIZED
 
     Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
 
@@ -59,35 +59,43 @@ LOOP BEGIN at advec_mom_kernel.f90(241,1)
    remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(241,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
-   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-   remark #15346: vector dependence: assumed FLOW dependence between post_vol line 247 and post_vol line 248
+   remark #15542: loop was not vectorized: inner loop was already vectorized
 
    LOOP BEGIN at advec_mom_kernel.f90(242,5)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
-      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-      remark #15346: vector dependence: assumed FLOW dependence between post_vol line 247 and post_vol line 248
+      remark #15542: loop was not vectorized: inner loop was already vectorized
 
       LOOP BEGIN at advec_mom_kernel.f90(243,9)
-         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-         remark #15346: vector dependence: assumed FLOW dependence between l line 252 and l line 247
+         remark #15542: loop was not vectorized: inner loop was already vectorized
 
          LOOP BEGIN at advec_mom_kernel.f90(244,13)
-            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-            remark #15346: vector dependence: assumed FLOW dependence between k line 251 and k line 246
+            remark #15542: loop was not vectorized: inner loop was already vectorized
 
             LOOP BEGIN at advec_mom_kernel.f90(245,17)
-               remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
-               remark #15475: --- begin vector loop cost summary ---
-               remark #15476: scalar loop cost: 21 
-               remark #15477: vector loop cost: 97.000 
-               remark #15478: estimated potential speedup: 0.210 
-               remark #15488: --- end vector loop cost summary ---
-               remark #25439: unrolled with remainder by 2  
+            <Peeled loop for vectorization>
             LOOP END
 
             LOOP BEGIN at advec_mom_kernel.f90(245,17)
-            <Remainder>
+               remark #15300: LOOP WAS VECTORIZED
+               remark #15442: entire loop may be executed in remainder
+               remark #15448: unmasked aligned unit stride loads: 1 
+               remark #15449: unmasked aligned unit stride stores: 2 
+               remark #15450: unmasked unaligned unit stride loads: 3 
+               remark #15475: --- begin vector loop cost summary ---
+               remark #15476: scalar loop cost: 13 
+               remark #15477: vector loop cost: 6.500 
+               remark #15478: estimated potential speedup: 1.950 
+               remark #15488: --- end vector loop cost summary ---
+            LOOP END
+
+            LOOP BEGIN at advec_mom_kernel.f90(245,17)
+            <Alternate Alignment Vectorized Loop>
+            LOOP END
+
+            LOOP BEGIN at advec_mom_kernel.f90(245,17)
+            <Remainder loop for vectorization>
+               remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
             LOOP END
          LOOP END
       LOOP END
@@ -262,11 +270,12 @@ LOOP BEGIN at advec_mom_kernel.f90(135,1)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
             LOOP BEGIN at advec_mom_kernel.f90(139,17)
-            <Peeled loop for vectorization, Predicate Optimized v1>
+            <Peeled loop for vectorization, Predicate Optimized v3>
             LOOP END
 
             LOOP BEGIN at advec_mom_kernel.f90(139,17)
-            <Predicate Optimized v1>
+            <Predicate Optimized v3>
+               remark #25422: Invariant Condition at line 140 hoisted out of this loop
                remark #25422: Invariant Condition at line 140 hoisted out of this loop
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
@@ -274,18 +283,18 @@ LOOP BEGIN at advec_mom_kernel.f90(135,1)
                remark #15449: unmasked aligned unit stride stores: 2 
                remark #15450: unmasked unaligned unit stride loads: 7 
                remark #15475: --- begin vector loop cost summary ---
-               remark #15476: scalar loop cost: 32 
-               remark #15477: vector loop cost: 13.000 
-               remark #15478: estimated potential speedup: 2.390 
+               remark #15476: scalar loop cost: 23 
+               remark #15477: vector loop cost: 12.500 
+               remark #15478: estimated potential speedup: 1.800 
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
             LOOP BEGIN at advec_mom_kernel.f90(139,17)
-            <Alternate Alignment Vectorized Loop, Predicate Optimized v1>
+            <Alternate Alignment Vectorized Loop, Predicate Optimized v3>
             LOOP END
 
             LOOP BEGIN at advec_mom_kernel.f90(139,17)
-            <Remainder loop for vectorization, Predicate Optimized v1>
+            <Remainder loop for vectorization, Predicate Optimized v3>
                remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
             LOOP END
          LOOP END
@@ -340,28 +349,28 @@ LOOP BEGIN at advec_mom_kernel.f90(108,1)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(690,1)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(690,1) ]
+LOOP BEGIN at advec_mom_kernel.f90(688,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(688,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(691,5)
+   LOOP BEGIN at advec_mom_kernel.f90(689,5)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(692,9)
+      LOOP BEGIN at advec_mom_kernel.f90(690,9)
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(693,13)
+         LOOP BEGIN at advec_mom_kernel.f90(691,13)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(694,17)
+            LOOP BEGIN at advec_mom_kernel.f90(692,17)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(694,17)
+            LOOP BEGIN at advec_mom_kernel.f90(692,17)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15448: unmasked aligned unit stride loads: 1 
@@ -374,11 +383,11 @@ LOOP BEGIN at advec_mom_kernel.f90(690,1)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(694,17)
+            LOOP BEGIN at advec_mom_kernel.f90(692,17)
             <Alternate Alignment Vectorized Loop>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(694,17)
+            LOOP BEGIN at advec_mom_kernel.f90(692,17)
             <Remainder loop for vectorization>
                remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
             LOOP END
@@ -387,28 +396,28 @@ LOOP BEGIN at advec_mom_kernel.f90(690,1)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(725,1)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(725,1) ]
+LOOP BEGIN at advec_mom_kernel.f90(723,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(723,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(726,5)
+   LOOP BEGIN at advec_mom_kernel.f90(724,5)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(727,9)
+      LOOP BEGIN at advec_mom_kernel.f90(725,9)
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(728,13)
+         LOOP BEGIN at advec_mom_kernel.f90(726,13)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(729,17)
+            LOOP BEGIN at advec_mom_kernel.f90(727,17)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(729,17)
+            LOOP BEGIN at advec_mom_kernel.f90(727,17)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15449: unmasked aligned unit stride stores: 1 
@@ -420,7 +429,7 @@ LOOP BEGIN at advec_mom_kernel.f90(725,1)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(729,17)
+            LOOP BEGIN at advec_mom_kernel.f90(727,17)
             <Remainder loop for vectorization>
             LOOP END
          LOOP END
@@ -428,30 +437,30 @@ LOOP BEGIN at advec_mom_kernel.f90(725,1)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(762,1)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(762,1) ]
+LOOP BEGIN at advec_mom_kernel.f90(760,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(760,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(763,5)
+   LOOP BEGIN at advec_mom_kernel.f90(761,5)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(764,9)
+      LOOP BEGIN at advec_mom_kernel.f90(762,9)
          remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
          remark #25452: Original Order found to be proper, but by a close margin
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(765,13)
+         LOOP BEGIN at advec_mom_kernel.f90(763,13)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(766,17)
+            LOOP BEGIN at advec_mom_kernel.f90(764,17)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(766,17)
+            LOOP BEGIN at advec_mom_kernel.f90(764,17)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15448: unmasked aligned unit stride loads: 1 
@@ -464,16 +473,16 @@ LOOP BEGIN at advec_mom_kernel.f90(762,1)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(766,17)
+            LOOP BEGIN at advec_mom_kernel.f90(764,17)
             <Alternate Alignment Vectorized Loop>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(766,17)
+            LOOP BEGIN at advec_mom_kernel.f90(764,17)
             <Remainder loop for vectorization>
                remark #15301: REMAINDER LOOP WAS VECTORIZED
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(766,17)
+            LOOP BEGIN at advec_mom_kernel.f90(764,17)
             <Remainder loop for vectorization>
             LOOP END
          LOOP END
@@ -481,46 +490,46 @@ LOOP BEGIN at advec_mom_kernel.f90(762,1)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(792,5)
+LOOP BEGIN at advec_mom_kernel.f90(790,5)
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 ) --> ( 2 1 3 ) 
    remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-   remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 818 and limiter_count line 818
+   remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 816 and limiter_count line 816
 
-   LOOP BEGIN at advec_mom_kernel.f90(793,7)
+   LOOP BEGIN at advec_mom_kernel.f90(791,7)
       remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-      remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 818 and limiter_count line 818
+      remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 816 and limiter_count line 816
 
-      LOOP BEGIN at advec_mom_kernel.f90(794,9)
-         remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(820,11) ]
+      LOOP BEGIN at advec_mom_kernel.f90(792,9)
+         remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(818,11) ]
          remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-         remark #15346: vector dependence: assumed ANTI dependence between limiter_count line 818 and limiter_count line 818
+         remark #15346: vector dependence: assumed ANTI dependence between limiter_count line 816 and limiter_count line 816
       LOOP END
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(847,1)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(847,1) ]
+LOOP BEGIN at advec_mom_kernel.f90(845,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(845,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(848,5)
+   LOOP BEGIN at advec_mom_kernel.f90(846,5)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(849,9)
+      LOOP BEGIN at advec_mom_kernel.f90(847,9)
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(850,13)
+         LOOP BEGIN at advec_mom_kernel.f90(848,13)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(851,17)
+            LOOP BEGIN at advec_mom_kernel.f90(849,17)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(851,17)
+            LOOP BEGIN at advec_mom_kernel.f90(849,17)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15448: unmasked aligned unit stride loads: 2 
@@ -533,11 +542,11 @@ LOOP BEGIN at advec_mom_kernel.f90(847,1)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(851,17)
+            LOOP BEGIN at advec_mom_kernel.f90(849,17)
             <Alternate Alignment Vectorized Loop>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(851,17)
+            LOOP BEGIN at advec_mom_kernel.f90(849,17)
             <Remainder loop for vectorization>
                remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
             LOOP END
@@ -546,28 +555,28 @@ LOOP BEGIN at advec_mom_kernel.f90(847,1)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(495,1)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(495,1) ]
+LOOP BEGIN at advec_mom_kernel.f90(493,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(493,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(496,5)
+   LOOP BEGIN at advec_mom_kernel.f90(494,5)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(497,9)
+      LOOP BEGIN at advec_mom_kernel.f90(495,9)
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(498,13)
+         LOOP BEGIN at advec_mom_kernel.f90(496,13)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(499,17)
+            LOOP BEGIN at advec_mom_kernel.f90(497,17)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(499,17)
+            LOOP BEGIN at advec_mom_kernel.f90(497,17)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15448: unmasked aligned unit stride loads: 1 
@@ -580,11 +589,11 @@ LOOP BEGIN at advec_mom_kernel.f90(495,1)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(499,17)
+            LOOP BEGIN at advec_mom_kernel.f90(497,17)
             <Alternate Alignment Vectorized Loop>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(499,17)
+            LOOP BEGIN at advec_mom_kernel.f90(497,17)
             <Remainder loop for vectorization>
                remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
             LOOP END
@@ -593,28 +602,28 @@ LOOP BEGIN at advec_mom_kernel.f90(495,1)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(531,1)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(531,1) ]
+LOOP BEGIN at advec_mom_kernel.f90(529,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(529,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(532,5)
+   LOOP BEGIN at advec_mom_kernel.f90(530,5)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(533,9)
+      LOOP BEGIN at advec_mom_kernel.f90(531,9)
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(534,13)
+         LOOP BEGIN at advec_mom_kernel.f90(532,13)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(535,17)
+            LOOP BEGIN at advec_mom_kernel.f90(533,17)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(535,17)
+            LOOP BEGIN at advec_mom_kernel.f90(533,17)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15449: unmasked aligned unit stride stores: 1 
@@ -626,7 +635,7 @@ LOOP BEGIN at advec_mom_kernel.f90(531,1)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(535,17)
+            LOOP BEGIN at advec_mom_kernel.f90(533,17)
             <Remainder loop for vectorization>
             LOOP END
          LOOP END
@@ -634,30 +643,30 @@ LOOP BEGIN at advec_mom_kernel.f90(531,1)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(569,1)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(569,1) ]
+LOOP BEGIN at advec_mom_kernel.f90(567,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(567,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(570,5)
+   LOOP BEGIN at advec_mom_kernel.f90(568,5)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(571,9)
+      LOOP BEGIN at advec_mom_kernel.f90(569,9)
          remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
          remark #25452: Original Order found to be proper, but by a close margin
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(572,13)
+         LOOP BEGIN at advec_mom_kernel.f90(570,13)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(573,17)
+            LOOP BEGIN at advec_mom_kernel.f90(571,17)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(573,17)
+            LOOP BEGIN at advec_mom_kernel.f90(571,17)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15448: unmasked aligned unit stride loads: 1 
@@ -670,16 +679,16 @@ LOOP BEGIN at advec_mom_kernel.f90(569,1)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(573,17)
+            LOOP BEGIN at advec_mom_kernel.f90(571,17)
             <Alternate Alignment Vectorized Loop>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(573,17)
+            LOOP BEGIN at advec_mom_kernel.f90(571,17)
             <Remainder loop for vectorization>
                remark #15301: REMAINDER LOOP WAS VECTORIZED
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(573,17)
+            LOOP BEGIN at advec_mom_kernel.f90(571,17)
             <Remainder loop for vectorization>
             LOOP END
          LOOP END
@@ -687,46 +696,46 @@ LOOP BEGIN at advec_mom_kernel.f90(569,1)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(599,5)
+LOOP BEGIN at advec_mom_kernel.f90(597,5)
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 ) --> ( 2 1 3 ) 
    remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-   remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 626 and limiter_count line 626
+   remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 624 and limiter_count line 624
 
-   LOOP BEGIN at advec_mom_kernel.f90(600,7)
+   LOOP BEGIN at advec_mom_kernel.f90(598,7)
       remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-      remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 626 and limiter_count line 626
+      remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 624 and limiter_count line 624
 
-      LOOP BEGIN at advec_mom_kernel.f90(601,9)
-         remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(628,11) ]
+      LOOP BEGIN at advec_mom_kernel.f90(599,9)
+         remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(626,11) ]
          remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-         remark #15346: vector dependence: assumed ANTI dependence between limiter_count line 626 and limiter_count line 626
+         remark #15346: vector dependence: assumed ANTI dependence between limiter_count line 624 and limiter_count line 624
       LOOP END
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(654,1)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(654,1) ]
+LOOP BEGIN at advec_mom_kernel.f90(652,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(652,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(655,4)
+   LOOP BEGIN at advec_mom_kernel.f90(653,4)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(656,11)
+      LOOP BEGIN at advec_mom_kernel.f90(654,11)
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(657,15)
+         LOOP BEGIN at advec_mom_kernel.f90(655,15)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(658,19)
+            LOOP BEGIN at advec_mom_kernel.f90(656,19)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(658,19)
+            LOOP BEGIN at advec_mom_kernel.f90(656,19)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15448: unmasked aligned unit stride loads: 2 
@@ -739,11 +748,11 @@ LOOP BEGIN at advec_mom_kernel.f90(654,1)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(658,19)
+            LOOP BEGIN at advec_mom_kernel.f90(656,19)
             <Alternate Alignment Vectorized Loop>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(658,19)
+            LOOP BEGIN at advec_mom_kernel.f90(656,19)
             <Remainder loop for vectorization>
                remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
             LOOP END
@@ -752,28 +761,28 @@ LOOP BEGIN at advec_mom_kernel.f90(654,1)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(284,5)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(284,5) ]
+LOOP BEGIN at advec_mom_kernel.f90(282,5)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(282,5) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(285,9)
+   LOOP BEGIN at advec_mom_kernel.f90(283,9)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(286,13)
+      LOOP BEGIN at advec_mom_kernel.f90(284,13)
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(287,17)
+         LOOP BEGIN at advec_mom_kernel.f90(285,17)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(288,21)
+            LOOP BEGIN at advec_mom_kernel.f90(286,21)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(288,21)
+            LOOP BEGIN at advec_mom_kernel.f90(286,21)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15448: unmasked aligned unit stride loads: 1 
@@ -786,11 +795,11 @@ LOOP BEGIN at advec_mom_kernel.f90(284,5)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(288,21)
+            LOOP BEGIN at advec_mom_kernel.f90(286,21)
             <Alternate Alignment Vectorized Loop>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(288,21)
+            LOOP BEGIN at advec_mom_kernel.f90(286,21)
             <Remainder loop for vectorization>
                remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
             LOOP END
@@ -799,28 +808,28 @@ LOOP BEGIN at advec_mom_kernel.f90(284,5)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(321,1)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(321,1) ]
+LOOP BEGIN at advec_mom_kernel.f90(319,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(319,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(322,5)
+   LOOP BEGIN at advec_mom_kernel.f90(320,5)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(323,9)
+      LOOP BEGIN at advec_mom_kernel.f90(321,9)
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(324,14)
+         LOOP BEGIN at advec_mom_kernel.f90(322,14)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(325,17)
+            LOOP BEGIN at advec_mom_kernel.f90(323,17)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(325,17)
+            LOOP BEGIN at advec_mom_kernel.f90(323,17)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15449: unmasked aligned unit stride stores: 1 
@@ -832,7 +841,7 @@ LOOP BEGIN at advec_mom_kernel.f90(321,1)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(325,17)
+            LOOP BEGIN at advec_mom_kernel.f90(323,17)
             <Remainder loop for vectorization>
             LOOP END
          LOOP END
@@ -840,30 +849,30 @@ LOOP BEGIN at advec_mom_kernel.f90(321,1)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(361,1)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(361,1) ]
+LOOP BEGIN at advec_mom_kernel.f90(359,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(359,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(362,5)
+   LOOP BEGIN at advec_mom_kernel.f90(360,5)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(363,13)
+      LOOP BEGIN at advec_mom_kernel.f90(361,13)
          remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
          remark #25452: Original Order found to be proper, but by a close margin
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(364,17)
+         LOOP BEGIN at advec_mom_kernel.f90(362,17)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(365,21)
+            LOOP BEGIN at advec_mom_kernel.f90(363,21)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(365,21)
+            LOOP BEGIN at advec_mom_kernel.f90(363,21)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15448: unmasked aligned unit stride loads: 1 
@@ -876,16 +885,16 @@ LOOP BEGIN at advec_mom_kernel.f90(361,1)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(365,21)
+            LOOP BEGIN at advec_mom_kernel.f90(363,21)
             <Alternate Alignment Vectorized Loop>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(365,21)
+            LOOP BEGIN at advec_mom_kernel.f90(363,21)
             <Remainder loop for vectorization>
                remark #15301: REMAINDER LOOP WAS VECTORIZED
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(365,21)
+            LOOP BEGIN at advec_mom_kernel.f90(363,21)
             <Remainder loop for vectorization>
             LOOP END
          LOOP END
@@ -893,46 +902,46 @@ LOOP BEGIN at advec_mom_kernel.f90(361,1)
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(392,5)
+LOOP BEGIN at advec_mom_kernel.f90(390,5)
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 3 ) --> ( 2 1 3 ) 
    remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-   remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 431 and limiter_count line 431
+   remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 429 and limiter_count line 429
 
-   LOOP BEGIN at advec_mom_kernel.f90(393,7)
+   LOOP BEGIN at advec_mom_kernel.f90(391,7)
       remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-      remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 431 and limiter_count line 431
+      remark #15346: vector dependence: assumed OUTPUT dependence between limiter_count line 429 and limiter_count line 429
 
-      LOOP BEGIN at advec_mom_kernel.f90(394,9)
-         remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(433,11) ]
+      LOOP BEGIN at advec_mom_kernel.f90(392,9)
+         remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(431,11) ]
          remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-         remark #15346: vector dependence: assumed ANTI dependence between limiter_count line 431 and limiter_count line 431
+         remark #15346: vector dependence: assumed ANTI dependence between limiter_count line 429 and limiter_count line 429
       LOOP END
    LOOP END
 LOOP END
 
-LOOP BEGIN at advec_mom_kernel.f90(457,1)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(457,1) ]
+LOOP BEGIN at advec_mom_kernel.f90(455,1)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ advec_mom_kernel.f90(455,1) ]
    remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at advec_mom_kernel.f90(458,5)
+   LOOP BEGIN at advec_mom_kernel.f90(456,5)
       remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
       remark #25452: Original Order found to be proper, but by a close margin
       remark #15542: loop was not vectorized: inner loop was already vectorized
 
-      LOOP BEGIN at advec_mom_kernel.f90(459,13)
+      LOOP BEGIN at advec_mom_kernel.f90(457,13)
          remark #15542: loop was not vectorized: inner loop was already vectorized
 
-         LOOP BEGIN at advec_mom_kernel.f90(460,17)
+         LOOP BEGIN at advec_mom_kernel.f90(458,17)
             remark #15542: loop was not vectorized: inner loop was already vectorized
 
-            LOOP BEGIN at advec_mom_kernel.f90(461,21)
+            LOOP BEGIN at advec_mom_kernel.f90(459,21)
             <Peeled loop for vectorization>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(461,21)
+            LOOP BEGIN at advec_mom_kernel.f90(459,21)
                remark #15300: LOOP WAS VECTORIZED
                remark #15442: entire loop may be executed in remainder
                remark #15448: unmasked aligned unit stride loads: 2 
@@ -945,11 +954,11 @@ LOOP BEGIN at advec_mom_kernel.f90(457,1)
                remark #15488: --- end vector loop cost summary ---
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(461,21)
+            LOOP BEGIN at advec_mom_kernel.f90(459,21)
             <Alternate Alignment Vectorized Loop>
             LOOP END
 
-            LOOP BEGIN at advec_mom_kernel.f90(461,21)
+            LOOP BEGIN at advec_mom_kernel.f90(459,21)
             <Remainder loop for vectorization>
                remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
             LOOP END
