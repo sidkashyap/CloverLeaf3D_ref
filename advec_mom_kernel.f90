@@ -243,8 +243,10 @@ DO bl=z_min-2,nb_z,BLOCK_SIZE
         DO l=bl,BLOCK_SIZE+bl-1
             DO k=bk,BLOCK_SIZE+bk-1
                 DO j=x_min-2,nb_x
+                     IF (k.LE.nb_y .AND. l.LE.nb_z) THEN
                     post_vol(j,k,l)=volume(j,k,l)
                     pre_vol(j,k,l)=post_vol(j,k,l)+vol_flux_z(j  ,k  ,l+1)-vol_flux_z(j,k,l)
+                ENDIF
                 ENDDO
             ENDDO
         ENDDO
