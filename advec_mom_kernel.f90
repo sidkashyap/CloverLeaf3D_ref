@@ -92,8 +92,8 @@ SUBROUTINE advec_mom_kernel(flop,                           &
 
   flop=0
   tmpFlop=0
-  BLOCK_SIZE_x=128
-  BLOCK_SIZE_y=4
+  BLOCK_SIZE_x=64
+  BLOCK_SIZE_y=16
   BLOCK_SIZE_z=4
 
 ! I think these only have to be done once per cell advection sweep. So put in some logic so they are just done the first time
@@ -105,7 +105,7 @@ nb_z=z_max+2
 
 
   IF(sweep_number.EQ.1.AND.direction.EQ.1)THEN ! x first
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
@@ -116,6 +116,7 @@ DO bl=z_min-2,nb_z,BLOCK_SIZE_z
                       post_vol(j,k,l)= volume(j,k,l)+vol_flux_y(j  ,k+1,l  )-vol_flux_y(j,k,l) &
                                         +vol_flux_z(j  ,k  ,l+1)-vol_flux_z(j,k,l)
                       pre_vol(j,k,l)=post_vol(j,k,l)+vol_flux_x(j+1,k  ,l  )-vol_flux_x(j,k,l)
+                      !print *,"pre_vol(,",j,",",k,",",l,"):",pre_vol(j,k,l)
                     ENDDO
                 ENDDO
             ENDDO
@@ -133,7 +134,7 @@ ENDDO
 
 
   ELSEIF(sweep_number.EQ.1.AND.direction.EQ.3)THEN ! z first
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
       DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -162,7 +163,7 @@ ENDDO
 
 
 ELSEIF(sweep_number.EQ.2.AND.advect_x)THEN ! x first
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
 
@@ -190,7 +191,7 @@ ENDDO
 
 
 ELSEIF(sweep_number.EQ.2.AND..NOT.advect_x)THEN ! Z first
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 
 
 
@@ -219,7 +220,7 @@ ENDDO
 
   
   ELSEIF(sweep_number.EQ.3.AND.direction.EQ.1)THEN ! z first
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
       DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -243,7 +244,7 @@ ENDDO
 
 
   ELSEIF(sweep_number.EQ.3.AND.direction.EQ.3)THEN ! x first
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
       DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -286,7 +287,7 @@ nb_z=z_max+1
 
   IF(direction.EQ.1)THEN
     IF(which_vel.EQ.1) THEN
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
     DO bl=z_min,nb_z,BLOCK_SIZE_z
         DO bk=y_min,nb_y,BLOCK_SIZE_y
           DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -298,6 +299,9 @@ nb_z=z_max+1
                                      +mass_flux_x(j+1,k-1,l  )+mass_flux_x(j+1,k,l  )  &
                                      +mass_flux_x(j  ,k-1,l-1)+mass_flux_x(j  ,k,l-1)  &
                                      +mass_flux_x(j+1,k-1,l-1)+mass_flux_x(j+1,k,l-1))
+
+
+                            !print *,"node_flux(,",j,",",k,",",l,"):",node_flux(j,k,l)
                         ENDDO
                    ENDDO
                 ENDDO
@@ -323,7 +327,7 @@ nb_y=y_max+1
 nb_z=z_max+1
 
 
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -339,6 +343,9 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
                                           +density1(j  ,k  ,l-1)*post_vol(j  ,k  ,l-1)                   &
                                           +density1(j-1,k-1,l-1)*post_vol(j-1,k-1,l-1)                   &
                                           +density1(j-1,k  ,l-1)*post_vol(j-1,k  ,l-1))
+
+
+                !print *,"node_mass_post(,",j,",",k,",",l,"):",node_mass_post(j,k,l)
                 ENDDO
                 ENDDO
            ENDDO
@@ -363,7 +370,7 @@ nb_y=y_max+1
 nb_z=z_max+1
 
 
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
         DO bj=x_min-1,nb_x,BLOCK_SIZE_x
@@ -372,6 +379,8 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
                     DO j=bj,min(nb_x,BLOCK_SIZE_x+bj-1)
                     ! Staggered cell mass pre advection
                        node_mass_pre(j,k,l)=node_mass_post(j,k,l)-node_flux(j-1,k,l)+node_flux(j,k,l)
+
+                       !print *,"node_mass_pre(,",j,",",k,",",l,"):",node_mass_pre(j,k,l)
                 ENDDO
                 ENDDO
             ENDDO
@@ -458,7 +467,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+1
 
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
        DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -466,6 +475,8 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
                 DO k=bk,min(nb_y,BLOCK_SIZE_y+bk-1)
                    DO j=bj,min(nb_x,BLOCK_SIZE_x+bj-1)
                             vel1 (j,k,l)=(vel1 (j,k,l)*node_mass_pre(j,k,l)+mom_flux(j-1,k,l)-mom_flux(j,k,l))/node_mass_post(j,k,l)
+
+                            !print *,"vel1(",j,",",k,",",l,"):",vel1(j,k,l)
                         ENDDO
                 ENDDO
             ENDDO
@@ -496,7 +507,7 @@ nb_x=x_max+1
 nb_y=y_max+2
 nb_z=z_max+1
 
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
 
@@ -509,6 +520,7 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
                                      +mass_flux_y(j-1,k+1,l  )+mass_flux_y(j  ,k+1,l  ) &
                                      +mass_flux_y(j-1,k  ,l-1)+mass_flux_y(j  ,k  ,l-1) &
                                      +mass_flux_y(j-1,k+1,l-1)+mass_flux_y(j  ,k+1,l-1))
+
                 ENDDO
 
                 ENDDO
@@ -532,7 +544,7 @@ nb_y=y_max+2
 nb_z=z_max+1
 
 
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min-1,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -547,6 +559,10 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
                                           +density1(j  ,k  ,l-1)*post_vol(j  ,k  ,l-1)                     &
                                           +density1(j-1,k-1,l-1)*post_vol(j-1,k-1,l-1)                     &
                                           +density1(j-1,k  ,l-1)*post_vol(j-1,k  ,l-1))
+
+
+
+                     ! print *,"node_mass_post(,",j,",",k,",",l,"):",node_mass_post(j,k,l)
                 ENDDO
                 ENDDO
             ENDDO
@@ -570,7 +586,7 @@ nb_y=y_max+2
 nb_z=z_max+1
 
 
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min-1,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -654,7 +670,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+1
 
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 
 DO bl=z_min,nb_z,BLOCK_SIZE_z
    DO bk=y_min,nb_y,BLOCK_SIZE_y
@@ -691,7 +707,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+2
 
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -726,7 +742,7 @@ nb_y=y_max+1
 nb_z=z_max+2
 
 
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min-1,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -763,7 +779,7 @@ nb_y=y_max+1
 nb_z=z_max+2
 
 
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 DO bl=z_min-1,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -846,7 +862,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+1
 
-!$OMP PARALLEL DO COLLAPSE(2)
+!$OMP PARALLEL DO collapse(3)
 
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
