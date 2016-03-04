@@ -9,4 +9,6 @@ clover.out
 clover.in.tmp
 *.xf
 *.ap2
+*.out.*
+*.optrpt
 clover_leaf

@@ -3,7 +3,7 @@ Clover Version    1.100
        MPI Version
     OpenMP Version
    Task Count      1
- Thread Count:     1
+ Thread Count:     4
  
  Clover will run from the following input:-
  
@@ -16,9 +16,9 @@ Clover Version    1.100
  y_cells=128                                                                                                                                          
  z_cells=128                                                                                                                                          
                                                                                                                                                       
- block_size_x=1                                                                                                                                       
- block_size_y=256                                                                                                                                     
- block_size_z=4                                                                                                                                       
+ block_size_x=8                                                                                                                                       
+ block_size_y=128                                                                                                                                     
+ block_size_z=64                                                                                                                                      
                                                                                                                                                       
  xmin=0.0                                                                                                                                             
  ymin=0.0                                                                                                                                             
@@ -29,7 +29,7 @@ Clover Version    1.100
                                                                                                                                                       
  initial_timestep=0.1                                                                                                                                 
  max_timestep=0.1                                                                                                                                     
- end_step=1                                                                                                                                           
+ end_step=10                                                                                                                                          
  end_time=1000.1                                                                                                                                      
  profiler_on=1                                                                                                                                        
                                                                                                                                                       
@@ -59,9 +59,9 @@ Clover Version    1.100
                    x_cells         128
                    y_cells         128
                    z_cells         128
-        Cache BLOCK_SIZE_x           1
-        Cache BLOCK_SIZE_y         256
-        Cache BLOCK_SIZE_z           4
+        Cache BLOCK_SIZE_x           8
+        Cache BLOCK_SIZE_y         128
+        Cache BLOCK_SIZE_z          64
                       xmin  0.0000E+00
                       ymin  0.0000E+00
                       zmin  0.0000E+00
@@ -70,7 +70,7 @@ Clover Version    1.100
                       zmax  0.1000E+02
          initial_timestep   0.1000E+00
               max_timestep  0.1000E+00
-                  end_step           1
+                  end_step          10
                   end_time  0.1000E+04
                Profiler on
  
@@ -88,3 +88,17 @@ Clover Version    1.100
  Decomposing the Chunk into            1  by            1  by            1  tile
  s
  
+ Generating chunks
+ 
+ Problem initialised and generated
+ 
+ Time   0.000000000000000E+000
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:      0  0.10000000E+04  0.23300781E+03  0.23300781E+00  0.11795898E+00  0.29489746E+03  0.00000000E+00  0.29489746E+03
+ 
+ Starting the calculation
+ Step       1 time   0.0000000 control    sound    timestep   4.95E-02       1,       1 x  3.91E-02 y  3.91E-02
+ Wall clock   0.447082996368408     
+ Average time per cell   2.728778054006398E-005
+ Step time per cell      2.728778054006398E-005
+ Step       2 time   0.0495208 control    sound    timestep   1.79E-02       1,       1 x  3.91E-02 y  3.91E-02
