@@ -50,6 +50,11 @@ SUBROUTINE read_input()
   grid%y_cells=10
   grid%z_cells=10
 
+  BLOCK%x=1
+  BLOCK%y=1
+  BLOCK%z=1
+
+
   end_time=10.0_8
   end_step=g_ibig
   complete=.FALSE.
@@ -130,7 +135,6 @@ SUBROUTINE read_input()
 
     DO
       word=parse_getword(.FALSE.)
-
       IF(word.EQ.'')EXIT
       SELECT CASE(word)
       CASE('initial_timestep')
@@ -199,21 +203,15 @@ SUBROUTINE read_input()
         tile_1d=.FALSE.
         tile_2d=.FALSE.
         tile_3d=.TRUE.
-
-      CASE('BLOCK_SIZE_x')
-        BLOCK_SIZE_x=parse_getival(parse_getword(.TRUE.))
-        print *,"BX_READ",BLOCK_SIZE_x
-            IF(parallel%boss)WRITE(g_out,"(1x,a25,i12)")'BLOCK_SIZE_x',BLOCK_SIZE_x
-
-      CASE('BLOCK_SIZE_y')
-        BLOCK_SIZE_y=parse_getival(parse_getword(.TRUE.))
-        print *,"BY_READ",BLOCK_SIZE_y
-            IF(parallel%boss)WRITE(g_out,"(1x,a25,i12)")'BLOCK_SIZE_y',BLOCK_SIZE_y
-
-      CASE('BLOCK_SIZE_z')
-         BLOCK_SIZE_z=parse_getival(parse_getword(.TRUE.))
-            IF(parallel%boss)WRITE(g_out,"(1x,a25,i12)")'BLOCK_SIZE_z',BLOCK_SIZE_z
-
+    CASE('block_size_x')
+        BLOCK%x=parse_getival(parse_getword(.TRUE.))
+        IF(parallel%boss)WRITE(g_out,"(1x,a25,i12)")'Cache BLOCK_SIZE_x',BLOCK%x
+        CASE('block_size_y')
+        BLOCK%y=parse_getival(parse_getword(.TRUE.))
+            IF(parallel%boss)WRITE(g_out,"(1x,a25,i12)")'Cache BLOCK_SIZE_y',BLOCK%y
+        CASE('block_size_z')
+         BLOCK%z=parse_getival(parse_getword(.TRUE.))
+            IF(parallel%boss)WRITE(g_out,"(1x,a25,i12)")'Cache BLOCK_SIZE_z',BLOCK%z
       CASE('profiler_on')
         profiler_on=.TRUE.
         IF(parallel%boss)WRITE(g_out,"(1x,a25)")'Profiler on'

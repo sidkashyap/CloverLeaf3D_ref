@@ -31,7 +31,9 @@ SUBROUTINE advec_mom_driver(flopCount,mem,tile,which_vel,direction,sweep_number)
   IMPLICIT NONE
 
   INTEGER :: tile,which_vel,direction,sweep_number
-  INTEGER(KIND=8) :: flopCount,mem
+    INTEGER(KIND=8) :: flopCount,mem
+
+
   IF(which_vel.EQ.1)THEN
     CALL advec_mom_kernel(flopCount,                            &
                           mem,                                  &
@@ -64,9 +66,9 @@ SUBROUTINE advec_mom_driver(flopCount,mem,tile,which_vel,direction,sweep_number)
                           which_vel,                              &
                           sweep_number,                           &
                           direction,                              &
-                          BLOCK_SIZE_x,                           &
-                          BLOCK_SIZE_y,                           &
-                          BLOCK_SIZE_z)
+                          BLOCK%x,                           &
+                          BLOCK%y,                           &
+                          BLOCK%z)
   ELSEIF(which_vel.EQ.2)THEN
     CALL advec_mom_kernel(flopCount,                            &
                           mem,                                  &
@@ -99,9 +101,9 @@ SUBROUTINE advec_mom_driver(flopCount,mem,tile,which_vel,direction,sweep_number)
                           which_vel,                              &
                           sweep_number,                           &
                           direction,                              &
-                          BLOCK_SIZE_x,                           &
-                          BLOCK_SIZE_y,                           &
-                          BLOCK_SIZE_z                          )
+                          BLOCK%x,                           &
+                          BLOCK%y,                           &
+                          BLOCK%z                          )
   ELSEIF(which_vel.EQ.3)THEN
     CALL advec_mom_kernel(flopCount,                            &
                           mem,                                  &
@@ -134,9 +136,9 @@ SUBROUTINE advec_mom_driver(flopCount,mem,tile,which_vel,direction,sweep_number)
                           which_vel,                              &
                           sweep_number,                           &
                           direction,                              &
-                          BLOCK_SIZE_x,                           &
-                          BLOCK_SIZE_y,                           &
-                          BLOCK_SIZE_z                          )
+                          BLOCK%x,                           &
+                          BLOCK%y,                           &
+                          BLOCK%z                          )
   ENDIF
 
 

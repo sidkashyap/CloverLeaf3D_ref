@@ -51,7 +51,7 @@ SUBROUTINE advec_mom_kernel(flop,                           &
                             advect_x,                            &
                             which_vel,                           &
                             sweep_number,                        &
-                            direction,                           &
+                            direction, &
                             BLOCK_SIZE_x,                        &
                             BLOCK_SIZE_y,                        &
                             BLOCK_SIZE_z)
@@ -95,9 +95,6 @@ SUBROUTINE advec_mom_kernel(flop,                           &
 
   flop=0
   tmpFlop=0
-  print *,"Bx",BLOCK_SIZE_x
-  print *,"By",BLOCK_SIZE_y
-  print *,"Bz",BLOCK_SIZE_z
 
 ! I think these only have to be done once per cell advection sweep. So put in some logic so they are just done the first time
 

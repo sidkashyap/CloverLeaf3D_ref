@@ -80,14 +80,14 @@ MODULE definitions_module
      INTEGER            :: x_cells              &
                           ,y_cells              &
                           ,z_cells
+
+
+                          
    END TYPE grid_type
 
+
+
    INTEGER      :: step
-
-   INTEGER      :: BLOCK_SIZE_x
-   INTEGER      :: BLOCK_SIZE_y
-   INTEGER      :: BLOCK_SIZE_z
-
    LOGICAL      :: advect_x
 
    INTEGER      :: error_condition

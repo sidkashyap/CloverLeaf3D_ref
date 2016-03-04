@@ -4,6 +4,8 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BLOCK	data.f90	/^   TYPE(BLOCK_/;"	v	module:data_module
+BLOCK_type	data.f90	/^   TYPE BLOCK_type$/;"	t	module:data_module
 CELL_DATA	data.f90	/^   INTEGER,         PARAMETER :: CELL_DATA /;"	v	module:data_module
 CFLAGS	Makefile	/^CFLAGS=$(CFLAGS_$(COMPILER)) $(OMP) $(I3E) $(C_OPTIONS) -c$/;"	m
 CFLAGS_	Makefile	/^CFLAGS_          = -O3$/;"	m
@@ -58,7 +60,7 @@ FLAGS_CRAY	Makefile	/^FLAGS_CRAY      = -em -ra -h acc_model=fast_addr:no_deep_c
 FLAGS_GNU	Makefile	/^  FLAGS_GNU       = -O0 -g -O -Wall -Wextra -fbounds-check -ffree-line-length-none$/;"	m
 FLAGS_GNU	Makefile	/^FLAGS_GNU       = -O3 -march=native -funroll-loops -ffree-line-length-none$/;"	m
 FLAGS_INTEL	Makefile	/^  FLAGS_INTEL     = -O0 -g -debug all -check all -traceback -check noarg_temp_created$/;"	m
-FLAGS_INTEL	Makefile	/^FLAGS_INTEL     = -O3 -g -no-prec-div -qopt-report=3$/;"	m
+FLAGS_INTEL	Makefile	/^FLAGS_INTEL     = -O3 -g -no-prec-div -qopt-report=5 -xavx -fp-model strict$/;"	m
 FLAGS_PATHSCALE	Makefile	/^  FLAGS_PATHSCALE = -O0 -g$/;"	m
 FLAGS_PATHSCALE	Makefile	/^FLAGS_PATHSCALE = -O3$/;"	m
 FLAGS_PGI	Makefile	/^  FLAGS_PGI       = -O0 -g -C -Mchkstk -Ktrap=fp -Mchkfpstk -Mchkptr$/;"	m
@@ -429,6 +431,7 @@ work_array4	definitions.f90	/^     REAL(KIND=8),    DIMENSION(:,:,:), ALLOCATABL
 work_array5	definitions.f90	/^     REAL(KIND=8),    DIMENSION(:,:,:), ALLOCATABLE :: work_array5 /;"	k	type:field_type
 work_array6	definitions.f90	/^     REAL(KIND=8),    DIMENSION(:,:,:), ALLOCATABLE :: work_array6 /;"	k	type:field_type
 work_array7	definitions.f90	/^     REAL(KIND=8),    DIMENSION(:,:,:), ALLOCATABLE :: work_array7 /;"	k	type:field_type
+x	data.f90	/^   INTEGER               :: x&/;"	k	type:BLOCK_type
 x_cells	definitions.f90	/^     INTEGER            :: x_cells /;"	k	type:grid_type
 x_max	definitions.f90	/^                       ,x_max /;"	k	type:chunk_type
 x_min	definitions.f90	/^     INTEGER         :: x_min /;"	k	type:chunk_type
@@ -440,6 +443,7 @@ xmin	definitions.f90	/^     REAL(KIND=8)       :: xmin /;"	k	type:grid_type
 xvel	definitions.f90	/^                           ,xvel /;"	k	type:state_type
 xvel0	definitions.f90	/^     REAL(KIND=8),    DIMENSION(:,:,:), ALLOCATABLE :: xvel0,/;"	k	type:field_type
 xvel1	definitions.f90	/^     REAL(KIND=8),    DIMENSION(:,:,:), ALLOCATABLE :: xvel0,xvel1$/;"	k	type:field_type
+y	data.f90	/^                           ,y&/;"	k	type:BLOCK_type
 y_cells	definitions.f90	/^                          ,y_cells /;"	k	type:grid_type
 y_max	definitions.f90	/^                       ,y_max /;"	k	type:chunk_type
 y_min	definitions.f90	/^                       ,y_min /;"	k	type:chunk_type
@@ -451,6 +455,7 @@ ymin	definitions.f90	/^                          ,ymin /;"	k	type:grid_type
 yvel	definitions.f90	/^                           ,yvel /;"	k	type:state_type
 yvel0	definitions.f90	/^     REAL(KIND=8),    DIMENSION(:,:,:), ALLOCATABLE :: yvel0,/;"	k	type:field_type
 yvel1	definitions.f90	/^     REAL(KIND=8),    DIMENSION(:,:,:), ALLOCATABLE :: yvel0,yvel1$/;"	k	type:field_type
+z	data.f90	/^                           ,z$/;"	k	type:BLOCK_type
 z_cells	definitions.f90	/^                          ,z_cells$/;"	k	type:grid_type
 z_max	definitions.f90	/^                       ,z_max$/;"	k	type:chunk_type
 z_min	definitions.f90	/^                       ,z_min /;"	k	type:chunk_type

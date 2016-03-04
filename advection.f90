@@ -73,6 +73,7 @@ SUBROUTINE advection()
   tmpMemx=0
   tmpMemy=0
   tmpMemz=0
+  mem=0
   CALL update_halo(fields,2)
 
 

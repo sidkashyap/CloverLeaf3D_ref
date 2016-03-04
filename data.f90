@@ -111,5 +111,13 @@ MODULE data_module
 
    INTEGER,        PARAMETER :: chunks_per_task = 1
    INTEGER                   :: tiles_per_chunk = 1
+   TYPE BLOCK_type
+
+   INTEGER               :: x&
+                           ,y&
+                           ,z
+   END TYPE BLOCK_type
+
+   TYPE(BLOCK_type) :: BLOCK
 
 END MODULE data_module
