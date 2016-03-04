@@ -16,8 +16,12 @@
 
  initial_timestep=0.1
  max_timestep=0.1
- end_step=1
+ end_step=100
  end_time=1000.1
  profiler_on=1
+
+ BLOCK_SIZE_x=10
+ BLOCK_SIZE_y=10
+ BLOCK_SIZE_z=10
 
 *endclover

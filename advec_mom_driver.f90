@@ -63,7 +63,10 @@ SUBROUTINE advec_mom_driver(flopCount,mem,tile,which_vel,direction,sweep_number)
                           advect_x,                               &
                           which_vel,                              &
                           sweep_number,                           &
-                          direction                               )
+                          direction,                              &
+                          BLOCK_SIZE_x,                           &
+                          BLOCK_SIZE_y,                           &
+                          BLOCK_SIZE_z)
   ELSEIF(which_vel.EQ.2)THEN
     CALL advec_mom_kernel(flopCount,                            &
                           mem,                                  &
@@ -95,7 +98,10 @@ SUBROUTINE advec_mom_driver(flopCount,mem,tile,which_vel,direction,sweep_number)
                           advect_x,                               &
                           which_vel,                              &
                           sweep_number,                           &
-                          direction                               )
+                          direction,                              &
+                          BLOCK_SIZE_x,                           &
+                          BLOCK_SIZE_y,                           &
+                          BLOCK_SIZE_z                          )
   ELSEIF(which_vel.EQ.3)THEN
     CALL advec_mom_kernel(flopCount,                            &
                           mem,                                  &
@@ -127,7 +133,10 @@ SUBROUTINE advec_mom_driver(flopCount,mem,tile,which_vel,direction,sweep_number)
                           advect_x,                               &
                           which_vel,                              &
                           sweep_number,                           &
-                          direction                               )
+                          direction,                              &
+                          BLOCK_SIZE_x,                           &
+                          BLOCK_SIZE_y,                           &
+                          BLOCK_SIZE_z                          )
   ENDIF
 
 

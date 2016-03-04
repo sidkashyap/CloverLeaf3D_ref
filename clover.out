@@ -1,12 +1,12 @@
- 
+
 Clover Version    1.100
        MPI Version
     OpenMP Version
    Task Count      1
- Thread Count:     4
- 
+ Thread Count:     1
+
  Clover will run from the following input:-
- 
+
 *clover                                                                                                                                               
                                                                                                                                                       
  state 1 density=0.2 energy=1.0                                                                                                                       
@@ -25,101 +25,12 @@ Clover Version    1.100
                                                                                                                                                       
  initial_timestep=0.1                                                                                                                                 
  max_timestep=0.1                                                                                                                                     
- end_step=1                                                                                                                                           
+ end_step=100                                                                                                                                         
  end_time=1000.1                                                                                                                                      
  profiler_on=1                                                                                                                                        
                                                                                                                                                       
+ BLOCK_SIZE_x=10                                                                                                                                      
+ BLOCK_SIZE_y=10                                                                                                                                      
+ BLOCK_SIZE_z=10                                                                                                                                      
+                                                                                                                                                      
 *endclover                                                                                                                                            
- 
- Initialising and generating
- 
- Reading input file
- 
- Reading specification for state            1
- 
-            state density   0.2000E+00
-             state energy   0.1000E+01
- 
- Reading specification for state            2
- 
-            state density   0.1000E+01
-             state energy   0.2500E+01
-      state geometry cuboid
-               state xmin   0.0000E+00
-               state xmax   0.5000E+01
-               state ymin   0.0000E+00
-               state ymax   0.2000E+01
-               state zmin   0.0000E+00
-               state zmax   0.4000E+01
- 
-                   x_cells          10
-                   y_cells          10
-                   z_cells          10
-                      xmin  0.0000E+00
-                      ymin  0.0000E+00
-                      zmin  0.0000E+00
-                      xmax  0.1000E+02
-                      ymax  0.1000E+02
-                      zmax  0.1000E+02
-         initial_timestep   0.1000E+00
-              max_timestep  0.1000E+00
-                  end_step           1
-                  end_time  0.1000E+04
-               Profiler on
- 
-     Using Fortran Kernels
- 
- Input read finished.
- 
- Setting up initial geometry
- 
- 
- Decomposing the mesh into            1  by            1  by            1  chunk
- s
- 
- 
- Decomposing the Chunk into            1  by            1  by            1  tile
- s
- 
- Generating chunks
- 
- Problem initialised and generated
- 
- Time   0.000000000000000E+000
-                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
- step:      0  0.10000000E+04  0.23200000E+03  0.23200000E+00  0.11680000E+00  0.29200000E+03  0.00000000E+00  0.29200000E+03
- 
- Starting the calculation
- Step       1 time   0.0000000 control    sound    timestep   1.00E-01       1,       1 x  5.00E-01 y  5.00E-01
- 
- Time   0.100000000000000     
-                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
- step:      1  0.10000000E+04  0.23200000E+03  0.23200000E+00  0.11670055E+00  0.29175137E+03  0.24576950E+00  0.29199714E+03
- 
- 
- Calculation complete
- Clover is finishing
- Wall clock   0.569206953048706     
- First step overhead  0.569094896316528     
- 
-Profiler Output                 Time            Percentage
-Timestep              :          0.0000          0.0040
-Ideal Gas             :          0.0001          0.0102
-Viscosity             :          0.0000          0.0030
-PdV                   :          0.0001          0.0096
-Revert                :          0.0000          0.0005
-Acceleration          :          0.0000          0.0018
-Fluxes                :          0.0000          0.0011
-Cell Advection        :          0.0000          0.0077
-Momentum Advection    :          0.5686         99.8867
-Reset                 :          0.0000          0.0015
-Tile Halo Exchange    :          0.0000          0.0005
-Self Halo Exchange    :          0.0003          0.0574
-MPI Halo Exchange     :          0.0000          0.0009
-Summary               :          0.0000          0.0042
-Visit                 :          0.0000          0.0000
-Total                 :          0.5691         99.9893
-The Rest              :          0.0001          0.0107
- FLOPS: Cell Adv                    :                     0
- FLOPS: Mom Adv                     :      8021825283778148
- Momentum Adv Bytes                 :     33776105157046304

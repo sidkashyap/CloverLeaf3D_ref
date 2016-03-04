@@ -84,6 +84,10 @@ MODULE definitions_module
 
    INTEGER      :: step
 
+   INTEGER      :: BLOCK_SIZE_x
+   INTEGER      :: BLOCK_SIZE_y
+   INTEGER      :: BLOCK_SIZE_z
+
    LOGICAL      :: advect_x
 
    INTEGER      :: error_condition

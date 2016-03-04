@@ -199,6 +199,21 @@ SUBROUTINE read_input()
         tile_1d=.FALSE.
         tile_2d=.FALSE.
         tile_3d=.TRUE.
+
+      CASE('BLOCK_SIZE_x')
+        BLOCK_SIZE_x=parse_getival(parse_getword(.TRUE.))
+        print *,"BX_READ",BLOCK_SIZE_x
+            IF(parallel%boss)WRITE(g_out,"(1x,a25,i12)")'BLOCK_SIZE_x',BLOCK_SIZE_x
+
+      CASE('BLOCK_SIZE_y')
+        BLOCK_SIZE_y=parse_getival(parse_getword(.TRUE.))
+        print *,"BY_READ",BLOCK_SIZE_y
+            IF(parallel%boss)WRITE(g_out,"(1x,a25,i12)")'BLOCK_SIZE_y',BLOCK_SIZE_y
+
+      CASE('BLOCK_SIZE_z')
+         BLOCK_SIZE_z=parse_getival(parse_getword(.TRUE.))
+            IF(parallel%boss)WRITE(g_out,"(1x,a25,i12)")'BLOCK_SIZE_z',BLOCK_SIZE_z
+
       CASE('profiler_on')
         profiler_on=.TRUE.
         IF(parallel%boss)WRITE(g_out,"(1x,a25)")'Profiler on'
