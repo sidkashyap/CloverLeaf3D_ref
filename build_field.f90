@@ -31,7 +31,10 @@ SUBROUTINE build_field(tile)
    IMPLICIT NONE
 
    INTEGER :: tile
-   INTEGER :: z
+   INTEGER :: x,y,z,bx,by,bz,BLOCK_SIZE_X,BLOCK_SIZE_Y,BLOCK_SIZE_Z
+   BLOCK_SIZE_X=BLOCK%x
+   BLOCK_SIZE_Y=BLOCK%y
+   BLOCK_SIZE_Z=BLOCK%z
 
    !write(*,*) "Tile ", tile, chunk%tiles(tile)%t_xmin, chunk%tiles(tile)%t_xmax, chunk%tiles(tile)%t_ymin, chunk%tiles(tile)%t_ymax, &
    !         chunk%tiles(tile)%t_zmin, chunk%tiles(tile)%t_zmax
@@ -152,62 +155,144 @@ SUBROUTINE build_field(tile)
 
    !$OMP PARALLEL
 
-!$OMP DO
-   DO z=chunk%tiles(tile)%t_zmin-2, chunk%tiles(tile)%t_zmax+3
-     chunk%tiles(tile)%field%work_array1(:,:,z)=0.0
-     chunk%tiles(tile)%field%work_array2(:,:,z)=0.0
-     chunk%tiles(tile)%field%work_array3(:,:,z)=0.0
-     chunk%tiles(tile)%field%work_array4(:,:,z)=0.0
-     chunk%tiles(tile)%field%work_array5(:,:,z)=0.0
-     chunk%tiles(tile)%field%work_array6(:,:,z)=0.0
-     chunk%tiles(tile)%field%work_array7(:,:,z)=0.0
-   END DO
+!$OMP DO COLLAPSE(3)
+DO bz=chunk%tiles(tile)%t_zmin-2, BLOCK_SIZE_Z
+DO by=chunk%tiles(tile)%t_ymin-2, BLOCK_SIZE_Y
+DO bx=chunk%tiles(tile)%t_xmin-2, BLOCK_SIZE_X
+
+DO z=bz, min(BLOCK_SIZE_Z+bz-1,chunk%tiles(tile)%t_zmax+3)
+DO y=by, min(BLOCK_SIZE_y+by-1,chunk%tiles(tile)%t_ymax+3)
+DO x=bx, min(BLOCK_SIZE_y+bx-1, chunk%tiles(tile)%t_xmax+3)
+
+     chunk%tiles(tile)%field%work_array1(x,y,z)=0.0
+     chunk%tiles(tile)%field%work_array2(x,y,z)=0.0
+     chunk%tiles(tile)%field%work_array3(x,y,z)=0.0
+     chunk%tiles(tile)%field%work_array4(x,y,z)=0.0
+     chunk%tiles(tile)%field%work_array5(x,y,z)=0.0
+     chunk%tiles(tile)%field%work_array6(x,y,z)=0.0
+     chunk%tiles(tile)%field%work_array7(x,y,z)=0.0
+END DO
+END DO
+END DO
+END DO
+END DO
+END DO
 !$OMP END DO
 
-!$OMP DO
-   DO z=chunk%tiles(tile)%t_zmin-2, chunk%tiles(tile)%t_zmax+2
-   chunk%tiles(tile)%field%density0(:,:,z)=0.0
-   chunk%tiles(tile)%field%density1(:,:,z)=0.0
-   chunk%tiles(tile)%field%energy0(:,:,z)=0.0
-   chunk%tiles(tile)%field%energy1(:,:,z)=0.0
-   chunk%tiles(tile)%field%pressure(:,:,z)=0.0
-   chunk%tiles(tile)%field%viscosity(:,:,z)=0.0
-   chunk%tiles(tile)%field%soundspeed(:,:,z)=0.0
+!$OMP DO COLLAPSE(3)
 
-   chunk%tiles(tile)%field%volume(:,:,z)=0.0
-   chunk%tiles(tile)%field%xarea(:,:,z)=0.0
-   chunk%tiles(tile)%field%yarea(:,:,z)=0.0
-   END DO
+DO bz=chunk%tiles(tile)%t_zmin-2, BLOCK_SIZE_Z
+DO by=chunk%tiles(tile)%t_ymin-2, BLOCK_SIZE_Y
+DO bx=chunk%tiles(tile)%t_xmin-2, BLOCK_SIZE_X
+
+DO z=bz, min(BLOCK_SIZE_Z+bz-1,chunk%tiles(tile)%t_zmax+2)
+DO y=by, min(BLOCK_SIZE_y+by-1,chunk%tiles(tile)%t_ymax+2)
+DO x=bx, min(BLOCK_SIZE_y+bx-1, chunk%tiles(tile)%t_xmax+2)
+
+
+   chunk%tiles(tile)%field%density0(x,y,z)=0.0
+   chunk%tiles(tile)%field%density1(x,y,z)=0.0
+   chunk%tiles(tile)%field%energy0(x,y,z)=0.0
+   chunk%tiles(tile)%field%energy1(x,y,z)=0.0
+   chunk%tiles(tile)%field%pressure(x,y,z)=0.0
+   chunk%tiles(tile)%field%viscosity(x,y,z)=0.0
+   chunk%tiles(tile)%field%soundspeed(x,y,z)=0.0
+
+   chunk%tiles(tile)%field%volume(x,y,z)=0.0
+   chunk%tiles(tile)%field%xarea(x,y,z)=0.0
+   chunk%tiles(tile)%field%yarea(x,y,z)=0.0
+
+
+END DO
+END DO
+END DO
+END DO
+END DO
+END DO
+
 !$OMP END DO
 
-!$OMP DO
-   DO z=chunk%tiles(tile)%t_zmin-2, chunk%tiles(tile)%t_zmax+3
-   chunk%tiles(tile)%field%xvel0(:,:,z)=0.0
-   chunk%tiles(tile)%field%xvel1(:,:,z)=0.0
-   chunk%tiles(tile)%field%yvel0(:,:,z)=0.0
-   chunk%tiles(tile)%field%yvel1(:,:,z)=0.0
-   chunk%tiles(tile)%field%zvel0(:,:,z)=0.0
-   chunk%tiles(tile)%field%zvel1(:,:,z)=0.0
-   END DO
+!$OMP DO COLLAPSE(3)
+
+DO bz=chunk%tiles(tile)%t_zmin-2, BLOCK_SIZE_Z
+DO by=chunk%tiles(tile)%t_ymin-2, BLOCK_SIZE_Y
+DO bx=chunk%tiles(tile)%t_xmin-2, BLOCK_SIZE_X
+
+DO z=bz, min(BLOCK_SIZE_Z+bz-1,chunk%tiles(tile)%t_zmax+3)
+DO y=by, min(BLOCK_SIZE_y+by-1,chunk%tiles(tile)%t_ymax+3)
+DO x=bx, min(BLOCK_SIZE_y+bx-1, chunk%tiles(tile)%t_xmax+3)
+
+
+   chunk%tiles(tile)%field%xvel0(x,y,z)=0.0
+   chunk%tiles(tile)%field%xvel1(x,y,z)=0.0
+   chunk%tiles(tile)%field%yvel0(x,y,z)=0.0
+   chunk%tiles(tile)%field%yvel1(x,y,z)=0.0
+   chunk%tiles(tile)%field%zvel0(x,y,z)=0.0
+   chunk%tiles(tile)%field%zvel1(x,y,z)=0.0
+
+END DO
+END DO
+END DO
+END DO
+END DO
+END DO
+
+
 !$OMP END DO
 
 
-!$OMP DO
-   DO z=chunk%tiles(tile)%t_zmin-2, chunk%tiles(tile)%t_zmax+2
-   chunk%tiles(tile)%field%vol_flux_x(:,:,z)=0.0
-   chunk%tiles(tile)%field%mass_flux_x(:,:,z)=0.0
-   chunk%tiles(tile)%field%vol_flux_y(:,:,z)=0.0
-   chunk%tiles(tile)%field%mass_flux_y(:,:,z)=0.0
-   END DO
+!$OMP DO COLLAPSE(3)
+
+
+
+DO bz=chunk%tiles(tile)%t_zmin-2, BLOCK_SIZE_Z
+DO by=chunk%tiles(tile)%t_ymin-2, BLOCK_SIZE_Y
+DO bx=chunk%tiles(tile)%t_xmin-2, BLOCK_SIZE_X
+
+DO z=bz, min(BLOCK_SIZE_Z+bz-1,chunk%tiles(tile)%t_zmax+2)
+DO y=by, min(BLOCK_SIZE_y+by-1,chunk%tiles(tile)%t_ymax+2)
+DO x=bx, min(BLOCK_SIZE_y+bx-1, chunk%tiles(tile)%t_xmax+2)
+
+
+   chunk%tiles(tile)%field%vol_flux_x(x,y,z)=0.0
+   chunk%tiles(tile)%field%mass_flux_x(x,y,z)=0.0
+   chunk%tiles(tile)%field%vol_flux_y(x,y,z)=0.0
+   chunk%tiles(tile)%field%mass_flux_y(x,y,z)=0.0
+
+
+END DO
+END DO
+END DO
+END DO
+END DO
+END DO
+
 !$OMP END DO
    
-!$OMP DO
-   DO z=chunk%tiles(tile)%t_zmin-2, chunk%tiles(tile)%t_zmax+3
-   chunk%tiles(tile)%field%vol_flux_z(:,:,z)=0.0
-   chunk%tiles(tile)%field%mass_flux_z(:,:,z)=0.0
+!$OMP DO COLLAPSE(3)
+
+DO bz=chunk%tiles(tile)%t_zmin-2, BLOCK_SIZE_Z
+DO by=chunk%tiles(tile)%t_ymin-2, BLOCK_SIZE_Y
+DO bx=chunk%tiles(tile)%t_xmin-2, BLOCK_SIZE_X
+
+DO z=bz, min(BLOCK_SIZE_Z+bz-1,chunk%tiles(tile)%t_zmax+3)
+DO y=by, min(BLOCK_SIZE_y+by-1,chunk%tiles(tile)%t_ymax+3)
+DO x=bx, min(BLOCK_SIZE_y+bx-1, chunk%tiles(tile)%t_xmax+3)
+
+
+   chunk%tiles(tile)%field%vol_flux_z(x,y,z)=0.0
+   chunk%tiles(tile)%field%mass_flux_z(x,y,z)=0.0
    
-   chunk%tiles(tile)%field%zarea(:,:,z)=0.0
-   END DO
+   chunk%tiles(tile)%field%zarea(x,y,z)=0.0
+
+
+END DO
+END DO
+END DO
+END DO
+END DO
+END DO
+
 !$OMP END DO
 
 !$OMP END PARALLEL

@@ -103,9 +103,9 @@ nb_x=x_max+2
 nb_y=y_max+2
 nb_z=z_max+2
 
-
+!$OMP PARALLEL
   IF(sweep_number.EQ.1.AND.direction.EQ.1)THEN ! x first
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
@@ -124,7 +124,7 @@ DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     ENDDO
 ENDDO
 
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
   iter=(z_max-z_min+5)*(y_max-y_min+5)*(x_max-x_min+5)
@@ -134,7 +134,7 @@ ENDDO
 
 
   ELSEIF(sweep_number.EQ.1.AND.direction.EQ.3)THEN ! z first
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
       DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -154,7 +154,7 @@ ENDDO
 
 
 
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
   iter=(z_max-z_min+1+4)*(y_max-y_min+1+4)*(x_max-x_min+1+4)
@@ -163,7 +163,7 @@ ENDDO
 
 
 ELSEIF(sweep_number.EQ.2.AND.advect_x)THEN ! x first
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
 
@@ -175,13 +175,12 @@ DO bl=z_min-2,nb_z,BLOCK_SIZE_z
                         pre_vol(j,k,l)=post_vol(j,k,l)+vol_flux_y(j  ,k+1,l  )-vol_flux_y(j,k,l)
 
                         ENDDO
-
                 ENDDO
             ENDDO
         ENDDO
     ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
  iter=(z_max-z_min+1+4)*(y_max-y_min+1+4)*(x_max-x_min+1+4)
@@ -191,13 +190,9 @@ ENDDO
 
 
 ELSEIF(sweep_number.EQ.2.AND..NOT.advect_x)THEN ! Z first
-!$OMP PARALLEL DO collapse(3)
-
-
-
+!$OMP DO collapse(3)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
-
       DO bj=x_min-2,nb_x,BLOCK_SIZE_x
         DO l=bl,min(nb_z,BLOCK_SIZE_z+bl-1)
             DO k=bk,min(nb_y,BLOCK_SIZE_y+bk-1)
@@ -211,7 +206,7 @@ DO bl=z_min-2,nb_z,BLOCK_SIZE_z
         ENDDO
     ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
   iter=(z_max-z_min+1+4)*(y_max-y_min+1+4)*(x_max-x_min+1+4)
@@ -220,7 +215,7 @@ ENDDO
 
   
   ELSEIF(sweep_number.EQ.3.AND.direction.EQ.1)THEN ! z first
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
       DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -235,7 +230,7 @@ DO bl=z_min-2,nb_z,BLOCK_SIZE_z
      ENDDO
    ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
   iter=(z_max-z_min+1+4)*(y_max-y_min+1+4)*(x_max-x_min+1+4)
@@ -244,7 +239,7 @@ ENDDO
 
 
   ELSEIF(sweep_number.EQ.3.AND.direction.EQ.3)THEN ! x first
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
       DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -260,7 +255,7 @@ DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     ENDDO
 ENDDO
 
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
 
@@ -287,7 +282,7 @@ nb_z=z_max+1
 
   IF(direction.EQ.1)THEN
     IF(which_vel.EQ.1) THEN
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
     DO bl=z_min,nb_z,BLOCK_SIZE_z
         DO bk=y_min,nb_y,BLOCK_SIZE_y
           DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -308,7 +303,7 @@ nb_z=z_max+1
             ENDDO
         ENDDO
       ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
   iter=(z_max-z_min+2)*(y_max-y_min+2)*(x_max-x_min+1+4)
@@ -327,7 +322,7 @@ nb_y=y_max+1
 nb_z=z_max+1
 
 
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -352,7 +347,7 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
        ENDDO
    ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
 
@@ -370,7 +365,7 @@ nb_y=y_max+1
 nb_z=z_max+1
 
 
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
         DO bj=x_min-1,nb_x,BLOCK_SIZE_x
@@ -387,7 +382,7 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
         ENDDO
     ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
 
@@ -403,7 +398,7 @@ ENDDO
 
     ENDIF
 
-!$OMP PARALLEL DO PRIVATE(upwind,downwind,donor,dif,sigma,width,limiter,vdiffuw,vdiffdw,auw,adw,wind) REDUCTION (+:limiter_count)
+!$OMP DO PRIVATE(upwind,downwind,donor,dif,sigma,width,limiter,vdiffuw,vdiffdw,auw,adw,wind) REDUCTION (+:limiter_count)
     DO l=z_min,z_max+1
       DO k=y_min,y_max+1
         DO j=x_min-1,x_max+1
@@ -450,7 +445,7 @@ ENDDO
         ENDDO
       ENDDO
     ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
    iter=(z_max-z_min+2)*(y_max-y_min+2)*(x_max-x_min+3)
@@ -467,7 +462,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+1
 
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
        DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -483,7 +478,7 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
         ENDDO
     ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
 
@@ -507,7 +502,7 @@ nb_x=x_max+1
 nb_y=y_max+2
 nb_z=z_max+1
 
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
 
@@ -528,7 +523,7 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
         ENDDO
     ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
       iter=(z_max-z_min+2)*(y_max-y_min+5)*(x_max-x_min+2)
@@ -544,7 +539,7 @@ nb_y=y_max+2
 nb_z=z_max+1
 
 
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min-1,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -569,7 +564,7 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
         ENDDO
     ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
       iter=(z_max-z_min+2)*(y_max-y_min+4)*(x_max-x_min+2)
@@ -586,7 +581,7 @@ nb_y=y_max+2
 nb_z=z_max+1
 
 
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min-1,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -601,7 +596,7 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
         ENDDO
     ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
     iter=(z_max-z_min+2)*(y_max-y_min+4)*(x_max-x_min+2)
@@ -616,7 +611,7 @@ ENDDO
 ENDIF
 
 limiter_count=0
-!$OMP PARALLEL DO PRIVATE(upwind,donor,downwind,dif,sigma,width,limiter,vdiffuw,vdiffdw,auw,adw,wind) REDUCTION (+:limiter_count)
+!$OMP DO PRIVATE(upwind,donor,downwind,dif,sigma,width,limiter,vdiffuw,vdiffdw,auw,adw,wind) REDUCTION (+:limiter_count)
     DO l=z_min,z_max+1
       DO k=y_min-1,y_max+1
         DO j=x_min,x_max+1
@@ -651,7 +646,7 @@ limiter_count=0
         ENDDO
       ENDDO
     ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
   iter=(z_max-z_min+2)*(y_max-y_min+3)*(x_max-x_min+2)
@@ -670,7 +665,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+1
 
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 
 DO bl=z_min,nb_z,BLOCK_SIZE_z
    DO bk=y_min,nb_y,BLOCK_SIZE_y
@@ -685,7 +680,7 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
         ENDDO
       ENDDO
   ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
   iter=(z_max-z_min+2)*(y_max-y_min+2)*(x_max-x_min+2)
@@ -707,7 +702,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+2
 
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -725,7 +720,7 @@ DO bl=z_min-2,nb_z,BLOCK_SIZE_z
         ENDDO
     ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
       iter=(z_max-z_min+5)*(y_max-y_min+2)*(x_max-x_min+2)
@@ -742,7 +737,7 @@ nb_y=y_max+1
 nb_z=z_max+2
 
 
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min-1,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -763,7 +758,7 @@ DO bl=z_min-1,nb_z,BLOCK_SIZE_z
         ENDDO
     ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
       iter=(z_max-z_min+4)*(y_max-y_min+2)*(x_max-x_min+2)
@@ -779,7 +774,7 @@ nb_y=y_max+1
 nb_z=z_max+2
 
 
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 DO bl=z_min-1,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -794,7 +789,7 @@ DO bl=z_min-1,nb_z,BLOCK_SIZE_z
         ENDDO
     ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
     iter=(z_max-z_min+4)*(y_max-y_min+2)*(x_max-x_min+2)
@@ -809,7 +804,7 @@ ENDDO
 ENDIF
 
 limiter_count=0
-!$OMP PARALLEL DO PRIVATE(upwind,donor,downwind,dif,sigma,width,limiter,vdiffuw,vdiffdw,auw,adw,wind) REDUCTION (+:limiter_count)
+!$OMP DO PRIVATE(upwind,donor,downwind,dif,sigma,width,limiter,vdiffuw,vdiffdw,auw,adw,wind) REDUCTION (+:limiter_count)
     DO l=z_min-1,z_max+1
       DO k=y_min,y_max+1
         DO j=x_min,x_max+1
@@ -843,7 +838,7 @@ limiter_count=0
         ENDDO
       ENDDO
     ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 
 
 
@@ -862,7 +857,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+1
 
-!$OMP PARALLEL DO collapse(3)
+!$OMP DO collapse(3)
 
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
@@ -877,7 +872,7 @@ DO bl=z_min,nb_z,BLOCK_SIZE_z
         ENDDO
     ENDDO
 ENDDO
-!$OMP END PARALLEL DO
+!$OMP END DO
 !###############################################
 
 
@@ -892,7 +887,7 @@ ENDDO
   flop=flop+tmpFlop
   mem=mem+tmpMem
   
-
+!$OMP END PARALLEL
 END SUBROUTINE advec_mom_kernel
 
 END MODULE advec_mom_kernel_mod
