@@ -116,7 +116,7 @@ DO bl=z_min-2,nb_z,BLOCK_SIZE_z
                       post_vol(j,k,l)= volume(j,k,l)+vol_flux_y(j  ,k+1,l  )-vol_flux_y(j,k,l) &
                                         +vol_flux_z(j  ,k  ,l+1)-vol_flux_z(j,k,l)
                       pre_vol(j,k,l)=post_vol(j,k,l)+vol_flux_x(j+1,k  ,l  )-vol_flux_x(j,k,l)
-                      !print *,"pre_vol(,",j,",",k,",",l,"):",pre_vol(j,k,l)
+                     ! print *,"pre_vol(,",j,",",k,",",l,"):",pre_vol(j,k,l)
                     ENDDO
                 ENDDO
             ENDDO
