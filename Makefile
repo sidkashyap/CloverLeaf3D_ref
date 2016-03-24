@@ -179,4 +179,4 @@ c_lover: *.c Makefile
 
 
 clean:
-	rm -f *.o *.mod *genmod* *cuda* *hmd* *.cu *.oo *.hmf *.lst *.cub *.ptx *.cl clover_leaf clover.in.tmp
+	rm -f *.o *.mod *genmod* *cuda* *hmd* *.cu *.oo *.hmf *.lst *.cub *.ptx *.cl clover_leaf clover.in.tmp *.optrpt 
