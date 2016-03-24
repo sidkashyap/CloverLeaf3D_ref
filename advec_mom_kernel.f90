@@ -105,7 +105,7 @@ nb_z=z_max+2
 
 !$OMP PARALLEL
   IF(sweep_number.EQ.1.AND.direction.EQ.1)THEN ! x first
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
@@ -116,7 +116,7 @@ DO bl=z_min-2,nb_z,BLOCK_SIZE_z
                       post_vol(j,k,l)= volume(j,k,l)+vol_flux_y(j  ,k+1,l  )-vol_flux_y(j,k,l) &
                                         +vol_flux_z(j  ,k  ,l+1)-vol_flux_z(j,k,l)
                       pre_vol(j,k,l)=post_vol(j,k,l)+vol_flux_x(j+1,k  ,l  )-vol_flux_x(j,k,l)
-                      !print *,"pre_vol(,",j,",",k,",",l,"):",pre_vol(j,k,l)
+                      print *,"pre_vol(,",j,",",k,",",l,"):",pre_vol(j,k,l)
                     ENDDO
                 ENDDO
             ENDDO
@@ -134,7 +134,7 @@ ENDDO
 
 
   ELSEIF(sweep_number.EQ.1.AND.direction.EQ.3)THEN ! z first
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
       DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -163,7 +163,7 @@ ENDDO
 
 
 ELSEIF(sweep_number.EQ.2.AND.advect_x)THEN ! x first
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
 
@@ -190,7 +190,7 @@ ENDDO
 
 
 ELSEIF(sweep_number.EQ.2.AND..NOT.advect_x)THEN ! Z first
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
       DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -215,7 +215,7 @@ ENDDO
 
   
   ELSEIF(sweep_number.EQ.3.AND.direction.EQ.1)THEN ! z first
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
       DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -239,7 +239,7 @@ ENDDO
 
 
   ELSEIF(sweep_number.EQ.3.AND.direction.EQ.3)THEN ! x first
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
       DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -282,7 +282,7 @@ nb_z=z_max+1
 
   IF(direction.EQ.1)THEN
     IF(which_vel.EQ.1) THEN
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
     DO bl=z_min,nb_z,BLOCK_SIZE_z
         DO bk=y_min,nb_y,BLOCK_SIZE_y
           DO bj=x_min-2,nb_x,BLOCK_SIZE_x
@@ -322,7 +322,7 @@ nb_y=y_max+1
 nb_z=z_max+1
 
 
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -365,7 +365,7 @@ nb_y=y_max+1
 nb_z=z_max+1
 
 
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
         DO bj=x_min-1,nb_x,BLOCK_SIZE_x
@@ -462,7 +462,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+1
 
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
        DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -502,7 +502,7 @@ nb_x=x_max+1
 nb_y=y_max+2
 nb_z=z_max+1
 
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min-2,nb_y,BLOCK_SIZE_y
 
@@ -539,7 +539,7 @@ nb_y=y_max+2
 nb_z=z_max+1
 
 
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min-1,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -581,7 +581,7 @@ nb_y=y_max+2
 nb_z=z_max+1
 
 
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min-1,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -665,7 +665,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+1
 
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 
 DO bl=z_min,nb_z,BLOCK_SIZE_z
    DO bk=y_min,nb_y,BLOCK_SIZE_y
@@ -702,7 +702,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+2
 
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min-2,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -737,7 +737,7 @@ nb_y=y_max+1
 nb_z=z_max+2
 
 
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min-1,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -774,7 +774,7 @@ nb_y=y_max+1
 nb_z=z_max+2
 
 
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 DO bl=z_min-1,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
       DO bj=x_min,nb_x,BLOCK_SIZE_x
@@ -857,7 +857,7 @@ nb_x=x_max+1
 nb_y=y_max+1
 nb_z=z_max+1
 
-!$OMP DO collapse(3)
+!$OMP DO collapse(3) private(bl,bj,bk)
 
 DO bl=z_min,nb_z,BLOCK_SIZE_z
     DO bk=y_min,nb_y,BLOCK_SIZE_y
